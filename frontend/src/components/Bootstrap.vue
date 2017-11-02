@@ -45,12 +45,12 @@
 
 <script>
 // import axios from 'axios'
-import {AXIOS} from './http-common'
+import { AXIOS } from './http-common';
 
 export default {
   name: 'bootstrap',
 
-  data () {
+  data() {
     return {
       msg: 'HowTo call REST-Services:',
       showResponse: false,
@@ -65,28 +65,27 @@ export default {
       httpStatusText: '',
       headers: ['Noting here atm. Did you call the Service?'],
       errors: []
-    }
+    };
   },
   methods: {
     // Fetches posts when the component is created.
-    callRestService () {
+    callRestService() {
       AXIOS.get(`api/hello`)
         .then(response => {
           // JSON responses are automatically parsed.
-          this.response = response.data
-          console.log(response.data)
-          this.httpStatusCode = response.status
-          this.httpStatusText = response.statusText
-          this.headers = response.headers
-          this.fullResponse = response
+          this.response = response.data;
+          console.log(response.data);
+          this.httpStatusCode = response.status;
+          this.httpStatusText = response.statusText;
+          this.headers = response.headers;
+          this.fullResponse = response;
         })
         .catch(e => {
-          this.errors.push(e)
-        })
+          this.errors.push(e);
+        });
     }
   }
-}
-
+};
 </script>
 
 
@@ -96,7 +95,8 @@ p {
   margin-bottom: 20px;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 
