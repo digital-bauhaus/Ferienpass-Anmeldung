@@ -1,26 +1,22 @@
 <template>
-  <label class="checkbox">
-    <input
-      class="checkbox__control visually-hidden"
-      type="checkbox"
-      :name="`offers-${toIdentifier(entry.title)}`"
-      :required="entry.required"
-    >
-    <span class="checkbox__tick"></span>
-    <span class="checkbox__label">
-      <span class="offer">
-        <span class="offer__title">{{ entry.title }}</span>
-        <span class="offer__date">{{ entry.date }}</span>
-        <span class="offer__org">{{ entry.org }}</span>
-      </span>
+  <checkbox :entry="entry" :toIdentifier="toIdentifier">
+    <span class="offer" slot="checkboxLabel">
+      <span class="offer__title">{{ entry.title }}</span>
+      <span class="offer__date">{{ entry.date }}</span>
+      <span class="offer__org">{{ entry.org }}</span>
     </span>
-  </label>
+  </checkbox>
 </template>
 
 <script>
+import Checkbox from './Checkbox.vue';
+
 export default {
   name: 'CheckboxOffer',
-  props: ['entry', 'toIdentifier']
+  props: ['entry', 'toIdentifier'],
+  components: {
+    Checkbox
+  }
 };
 </script>
 
