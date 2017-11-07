@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="page-content">
     <router-view/>
   </main>
 </template>
@@ -11,10 +11,17 @@ export default {
 </script>
 
 <style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 1.5em;
   line-height: 1.5;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /*
@@ -38,6 +45,100 @@ input {
   overflow: visible;
   font: inherit;
   border: 0;
+  margin: 0;
   padding: 0;
+}
+
+:focus {
+  outline: 0.125rem solid orange;
+}
+
+[tabindex='-1'] {
+  outline: none;
+}
+
+.button {
+  padding: 0.25rem;
+  border: 0.125rem solid #aaa;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  line-height: 1;
+}
+
+.button--delete {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.button--delete:hover {
+  background-color: tomato;
+  border-color: #222;
+}
+
+input[type='text'] {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  border: 0.125rem solid #aaa;
+  border-radius: 0.5rem;
+}
+
+.button:focus,
+input[type='text']:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.25rem cornflowerblue;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox__label {
+  margin-left: 0.5rem;
+}
+
+.checkbox__tick {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0.25rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  border: 0.125rem solid #aaa;
+}
+
+.checkbox__control:checked ~ .checkbox__tick {
+  color: #fff;
+  border: 0;
+  background-color: cornflowerblue;
+}
+
+.checkbox__control:focus ~ .checkbox__tick {
+  box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.25rem cornflowerblue;
+}
+
+.checkbox__control:checked ~ .checkbox__tick::before {
+  content: '\2713';
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+</style>
+
+<style scoped>
+.page-content {
+  max-width: 1000px;
+  margin: 3rem auto;
 }
 </style>
