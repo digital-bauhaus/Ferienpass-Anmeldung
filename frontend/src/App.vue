@@ -75,16 +75,7 @@ input {
   border-color: #222;
 }
 
-input[type='text'] {
-  display: block;
-  width: 100%;
-  padding: 0.25rem 0.5rem;
-  border: 0.125rem solid #aaa;
-  border-radius: 0.5rem;
-}
-
-.button:focus,
-input[type='text']:focus {
+.button:focus {
   outline: none;
   box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.25rem cornflowerblue;
 }

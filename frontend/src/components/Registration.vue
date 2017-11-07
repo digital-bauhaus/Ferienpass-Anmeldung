@@ -76,7 +76,8 @@ export default {
           },
           {
             title: 'Geburtsdatum meines Kindes',
-            required: true
+            required: true,
+            type: 'date'
           },
           {
             title: 'Straße',
@@ -88,7 +89,8 @@ export default {
           },
           {
             title: 'Telefon',
-            required: true
+            required: true,
+            type: 'tel'
           }
         ]
       },
