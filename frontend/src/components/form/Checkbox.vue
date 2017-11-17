@@ -3,15 +3,15 @@
     <input
       class="checkbox__control visually-hidden"
       type="checkbox"
-      :name="`offers-${toIdentifier(entry.title)}`"
-      :required="entry.required"
+      :name="toIdentifier(checkbox.label)"
+      :required="checkbox.required"
     >
 
     <span class="checkbox__tick"></span>
 
     <span class="checkbox__label">
       <slot name="checkboxLabel">
-        {{ entry.label }}
+        {{ checkbox.label }}
       </slot>
     </span>
   </label>
@@ -20,7 +20,7 @@
 <script>
 export default {
   name: 'Checkbox',
-  props: ['entry', 'label', 'toIdentifier']
+  props: ['checkbox', 'toIdentifier']
 };
 </script>
 

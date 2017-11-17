@@ -1,24 +1,49 @@
 <template>
   <div class="form-item dynamic-list">
-    <h3 :id="toIdentifier(listData.title)" tabindex="-1">{{ listData.title }}</h3>
+    <h3 class="dynamic-list__title" :id="toIdentifier(dynamicList.label)" tabindex="-1">
+      {{ dynamicList.label }}
+    </h3>
 
     <ul class="dynamic-list__items">
       <li class="list-item" v-for="(item, index) of listItems" :key="index">
-        <span class="list-item__content">{{ item }}</span>
-        <button class="button button--delete" type="button" :aria-label="`Entferne ${item}.`" @click="remove(index, item)">×</button>
+        <span class="list-item__content">
+          {{ item }}
+        </span>
+
+        <button
+          class="list-item__control button button--delete"
+          type="button"
+          :aria-label="`Entferne ${item}.`"
+          @click="remove(index, item)"
+        >
+          ×
+        </button>
       </li>
     </ul>
 
     <div class="dynamic-list__empty-message">
-      <p>{{ listData.emptyMessage }}</p>
+      {{ dynamicList.emptyMessage }}
     </div>
 
     <div class="add-item">
-      <label class="add-item__label">
-        <span class="visually-hidden">Neuen Eintrag hinzufügen</span>
-        <input class="add-item__input" type="text" :placeholder="listData.placeholder" v-model="newItem" @keydown="handleInput">
-      </label>
-      <button class="button add-item__control" type="button" :disabled="inputIsEmpty" @click="add">Hinzufügen</button>
+      <div class="add-item__label">
+        <text-field :textField="dynamicList.textField" :toIdentifier="toIdentifier">
+          <input
+            slot="textFieldControl"
+            class="text-field__control"
+            type="text"
+            :name="toIdentifier(dynamicList.textField.label)"
+            :placeholder="dynamicList.textField.placeholder ? dynamicList.textField.placeholder : ''"
+            :required="dynamicList.textField.required"
+            v-model.trim="newItem"
+            @keydown="handleInput"
+          >
+        </text-field>
+      </div>
+
+      <button class="button add-item__control" type="button" :disabled="inputIsEmpty" @click="add">
+        Hinzufügen
+      </button>
     </div>
 
     <div class="visually-hidden" role="status" aria-live="polite">
@@ -28,9 +53,14 @@
 </template>
 
 <script>
+import TextField from './TextField.vue';
+
 export default {
   name: 'DynamicList',
-  props: ['listData', 'toIdentifier'],
+  components: {
+    TextField
+  },
+  props: ['dynamicList', 'toIdentifier'],
   data() {
     return {
       newItem: '',
@@ -40,7 +70,7 @@ export default {
   },
   computed: {
     inputIsEmpty() {
-      return this.newItem.trim() === '';
+      return this.newItem === '';
     }
   },
   methods: {
@@ -56,7 +86,7 @@ export default {
     },
     remove(index, item) {
       this.listItems.splice(index, 1);
-      document.querySelector(`#${this.toIdentifier(this.listData.title)}`).focus();
+      document.querySelector(`#${this.toIdentifier(this.dynamicList.label)}`).focus();
       this.feedback = `${item} entfernt.`;
     }
   }
@@ -65,6 +95,10 @@ export default {
 
 
 <style scoped>
+.dynamic-list__title {
+  margin-bottom: 0.75rem;
+}
+
 .dynamic-list__items:empty,
 .dynamic-list__items:not(:empty) ~ .dynamic-list__empty-message {
   display: none;

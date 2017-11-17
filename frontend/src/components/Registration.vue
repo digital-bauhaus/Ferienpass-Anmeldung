@@ -7,8 +7,8 @@
         {{ basics.title }}
       </h2>
 
-      <div class="form-item" v-for="(entry, index) of basics.entries" :key="index">
-        <text-field :entry="entry" :toIdentifier="toIdentifier"/>
+      <div class="form-item" v-for="(textField, index) of basics.textFields" :key="index">
+        <text-field :textField="textField" :toIdentifier="toIdentifier"/>
       </div>
     </section>
 
@@ -19,8 +19,8 @@
 
       <p>Mein Kind möchte an folgenden Veranstaltungen teilnehmen:</p>
 
-      <div class="form-item" v-for="(entry, index) of offers.entries" :key="index">
-        <checkbox-offer :entry="entry" :toIdentifier="toIdentifier"/>
+      <div class="form-item" v-for="(checkbox, index) of offers.checkboxes" :key="index">
+        <checkbox-offer :checkbox="checkbox" :toIdentifier="toIdentifier"/>
       </div>
 
       <p><b>Hinweis:</b> Die Bestätigung des Platzes erfolgt bei der Anmeldung entsprechend der zur Verfügung stehenden Kapazitäten für die Angebote. Sollte ein Angebot seitens der Veranstalter aus unvorhergesehenen Gründen abgesagt werden, besteht kein Anspruch auf ein Ersatzangebot. Der gezahlte Beitrag für dieses Angebot wird Ihnen komplett zurück erstattet.</p>
@@ -32,11 +32,23 @@
       <p>Worauf muss bei meinem Kind besonders geachtet werden?</p>
 
       <dynamic-list
-        v-for="(entry, index) of conditions.entries"
+        v-for="(dynamicList, index) of conditions.dynamicLists"
         :key="index"
-        :listData="entry"
+        :dynamicList="dynamicList"
         :toIdentifier="toIdentifier"
       />
+
+      <h3>In Notfällen zu informieren</h3>
+
+      <div class="form-item" v-for="(textField, index) of emergencyContact.textFields" :key="index">
+        <text-field :textField="textField" :toIdentifier="toIdentifier"/>
+      </div>
+
+      <h3>Hausarzt</h3>
+
+      <div class="form-item" v-for="(textField, index) of familyDoctor.textFields" :key="index">
+        <text-field :textField="textField" :toIdentifier="toIdentifier"/>
+      </div>
     </section>
   </form>
 </template>
@@ -65,30 +77,30 @@ export default {
     return {
       basics: {
         title: 'Grunddaten',
-        entries: [
+        textFields: [
           {
-            title: 'Familienname',
+            label: 'Familienname',
             required: true
           },
           {
-            title: 'Vorname meines Kindes',
+            label: 'Vorname meines Kindes',
             required: true
           },
           {
-            title: 'Geburtsdatum meines Kindes',
+            label: 'Geburtsdatum meines Kindes',
             required: true,
             type: 'date'
           },
           {
-            title: 'Straße',
+            label: 'Straße',
             required: true
           },
           {
-            title: 'Wohnort',
+            label: 'Wohnort',
             required: true
           },
           {
-            title: 'Telefon',
+            label: 'Telefon',
             required: true,
             type: 'tel'
           }
@@ -96,109 +108,109 @@ export default {
       },
       offers: {
         title: 'Angebote',
-        entries: [
+        checkboxes: [
           {
-            title: 'Piratenfest an der Ilm',
+            label: 'Piratenfest an der Ilm',
             date: '26. Juni 2017',
             org: 'Sportjugend Weimar'
           },
           {
-            title: 'Bauspielplatz',
+            label: 'Bauspielplatz',
             date: '26. bis 28. Juni 2017',
             org: 'Kramixxo & Waggong'
           },
           {
-            title: 'Papier-Werkstatt',
+            label: 'Papier-Werkstatt',
             date: '26. bis 28. Juni 2017',
             org: 'Weimarer Mal- und Zeichenschule e.V.'
           },
           {
-            title: 'Indianer und ihre Tiere',
+            label: 'Indianer und ihre Tiere',
             date: '27. bis 28. Juni 2017',
             org: 'Camsin e.V.'
           },
           {
-            title: 'Filz-Werkstatt',
+            label: 'Filz-Werkstatt',
             date: '29. bis 30. Juni 2017',
             org: 'Weimarer Mal- und Zeichenschule e.V.'
           },
           {
-            title: 'Indianer und ihre Tiere',
+            label: 'Indianer und ihre Tiere',
             date: '29. bis 30. Juni 2017',
             org: 'Camsin e.V.'
           },
           {
-            title: 'Das Alien vom Planeten Alpha Omega Pi',
+            label: 'Das Alien vom Planeten Alpha Omega Pi',
             date: '3. bis 7. Juli 2017',
             org: 'Buchkinder_Weimar'
           },
           {
-            title: 'Graffiti',
+            label: 'Graffiti',
             date: '3. bis 4. Juli 2017',
             org: '„Für Euch“ e.V. – Schulförderverein des Johannes Landenberger Förderzentrums'
           },
           {
-            title: 'Fahrrad-Tour aus dem Feiniger Radweg',
+            label: 'Fahrrad-Tour aus dem Feiniger Radweg',
             date: '4. Juli 2017',
             org: 'Team Jugendarbeit Weimar'
           },
           {
-            title: 'Die große Schatzsuche',
+            label: 'Die große Schatzsuche',
             date: '10. bis 12. Juli 2017',
             org: 'Weimarer Mal- und Zeichenschule e.V.'
           },
           {
-            title: 'Skateboard-Kurs',
+            label: 'Skateboard-Kurs',
             date: '12. bis 14. Juli 2017',
             org: 'Nordlicht e.V.'
           },
           {
-            title: 'Kinderzirkus',
+            label: 'Kinderzirkus',
             date: '17. bis 19. Juli 2017',
             org: 'Tasifan'
           },
           {
-            title: 'Klettern',
+            label: 'Klettern',
             date: '25. Juli 2017',
             org: 'Sektion Weimar des Deutschen Alpenvereins e.V.'
           },
           {
-            title: 'Klettern',
+            label: 'Klettern',
             date: '26. Juli 2017',
             org: 'Sektion Weimar des Deutschen Alpenvereins e.V.'
           },
           {
-            title: 'GrenzbeWEGnung',
+            label: 'GrenzbeWEGnung',
             date: '31. Juli bis 4. August 2017',
             org: 'WE-DANCE e.V.'
           },
           {
-            title: 'Angeln',
+            label: 'Angeln',
             date: '31. Juli bis 1. August 2017',
             org: 'Nordlicht e.V.'
           },
           {
-            title: 'Jiddisch – Wir singen tanzen spielen',
+            label: 'Jiddisch – Wir singen tanzen spielen',
             date: '2. bis 6. August 2017',
             org: 'other music e.V.'
           },
           {
-            title: 'Angeln',
+            label: 'Angeln',
             date: '2. bis 3. August 2017',
             org: 'Nordlicht e.V.'
           },
           {
-            title: 'Natur-Erlebnis-Camp',
+            label: 'Natur-Erlebnis-Camp',
             date: '7. bis 9. August 2017',
             org: 'Kramixxo & Waggong'
           },
           {
-            title: 'Geräusche-Jagd',
+            label: 'Geräusche-Jagd',
             date: '8. August 2017',
             org: 'Radio LOTTE Weimar'
           },
           {
-            title: 'Schlauchboot-Tour',
+            label: 'Schlauchboot-Tour',
             date: '9. August 2017',
             org: 'erlebniswelten'
           }
@@ -206,24 +218,68 @@ export default {
       },
       conditions: {
         title: 'Allergien, Krankheiten, …',
-        entries: [
+        dynamicLists: [
           {
-            title: 'Allergien',
-            placeholder: 'Heuschnupfen, …',
-            emptyMessage: 'Liste ist leer. Neue Einträge hinzufügen ↓'
+            label: 'Allergien',
+            emptyMessage: 'Bei meinem Kind muss auf folgende Allergie(n) geachtet werden.',
+            textField: {
+              label: 'Neuen Eintrag hinzufügen',
+              placeholder: 'z. B. Heuschnupfen',
+              hideLabel: true
+            }
           },
           {
-            title: 'Krankheiten',
-            placeholder: 'BEISPIEL, …',
-            emptyMessage: 'Liste ist leer. Neue Einträge hinzufügen ↓'
+            label: 'Krankheiten',
+            emptyMessage: 'Krankheiten des Kindes bitte hier angeben.',
+            textField: {
+              label: 'Neuen Eintrag hinzufügen',
+              placeholder: 'z. B. Epilepsie',
+              hideLabel: true
+            }
+          },
+          {
+            label: 'Medikamente',
+            emptyMessage: 'Vom Kind einzunehmende Medikamente hier eintragen.',
+            textField: {
+              label: 'Neuen Eintrag hinzufügen',
+              placeholder: 'z. B. Diazepam',
+              hideLabel: true
+            }
           }
-          // { title: 'Hitzeempfindlichkeit' },
-          // { title: 'Medikamente' },
-          // { title: 'Ernährungsbesonderheiten' },
-          // { title: 'Behinderung' },
-          // { title: 'Sonstiges' },
-          // { title: 'Behandlungserlaubnis bei Erkrankungen und Unfällen' },
-          // { title: 'Krankenkasse' }
+        ]
+      },
+      emergencyContact: {
+        textFields: [
+          {
+            label: 'Name',
+            required: true
+          },
+          {
+            label: 'Anschrift',
+            required: true
+          },
+          {
+            label: 'Telefon',
+            required: true,
+            type: 'tel'
+          }
+        ]
+      },
+      familyDoctor: {
+        textFields: [
+          {
+            label: 'Name',
+            required: true
+          },
+          {
+            label: 'Anschrift',
+            required: true
+          },
+          {
+            label: 'Telefon',
+            required: true,
+            type: 'tel'
+          }
         ]
       }
     };
@@ -248,6 +304,6 @@ export default {
 }
 
 .form-item:not(:last-child) {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 </style>

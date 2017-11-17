@@ -49,6 +49,11 @@ input {
   padding: 0;
 }
 
+button:disabled,
+input:disabled {
+  color: #888;
+}
+
 :focus {
   outline: 0.125rem solid orange;
 }
@@ -59,7 +64,7 @@ input {
 
 .button {
   padding: 0.25rem;
-  border: 0.125rem solid #aaa;
+  border: 0.125rem solid;
   border-radius: 0.5rem;
   background-color: #fff;
   line-height: 1;

@@ -1,20 +1,25 @@
 <template>
   <label class="text-field">
-    {{ entry.title }}
+    <span :class="`text-field__label ${textField.hideLabel ? 'visually-hidden' : ''}`">
+      {{ textField.label }}
+    </span>
 
-    <input
-      class="text-field__control"
-      :type="entry.type ? entry.type : 'text'"
-      :name="`basics-${toIdentifier(entry.title)}`"
-      :required="entry.required"
-    >
+    <slot name="textFieldControl">
+      <input
+        class="text-field__control"
+        :type="textField.type ? textField.type : 'text'"
+        :name="toIdentifier(textField.label)"
+        :placeholder="textField.placeholder ? textField.placeholder : ''"
+        :required="textField.required"
+      >
+    </slot>
   </label>
 </template>
 
 <script>
 export default {
   name: 'TextField',
-  props: ['entry', 'toIdentifier']
+  props: ['textField', 'toIdentifier']
 };
 </script>
 
@@ -23,7 +28,7 @@ export default {
   display: block;
   width: 100%;
   padding: 0.25rem 0.5rem;
-  border: 0.125rem solid #aaa;
+  border: 0.125rem solid;
   border-radius: 0.5rem;
 }
 
