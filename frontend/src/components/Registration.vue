@@ -8,7 +8,7 @@
       </h2>
 
       <div class="form-item" v-for="(textField, index) of basics.textFields" :key="index">
-        <text-field :textField="textField" :toIdentifier="toIdentifier"/>
+        <text-field :params="textField"/>
       </div>
     </section>
 
@@ -20,7 +20,7 @@
       <p>Mein Kind möchte an folgenden Veranstaltungen teilnehmen:</p>
 
       <div class="form-item" v-for="(checkbox, index) of offers.checkboxes" :key="index">
-        <checkbox-offer :checkbox="checkbox" :toIdentifier="toIdentifier"/>
+        <checkbox-offer :params="checkbox"/>
       </div>
 
       <p><b>Hinweis:</b> Die Bestätigung des Platzes erfolgt bei der Anmeldung entsprechend der zur Verfügung stehenden Kapazitäten für die Angebote. Sollte ein Angebot seitens der Veranstalter aus unvorhergesehenen Gründen abgesagt werden, besteht kein Anspruch auf ein Ersatzangebot. Der gezahlte Beitrag für dieses Angebot wird Ihnen komplett zurück erstattet.</p>
@@ -34,36 +34,35 @@
       <dynamic-list
         v-for="(dynamicList, index) of conditions.dynamicLists"
         :key="index"
-        :dynamicList="dynamicList"
-        :toIdentifier="toIdentifier"
+        :params="dynamicList"
       />
 
       <div class="form-item" v-for="(checkbox, index) of conditions.checkboxes" :key="index">
         <h3>Hitzeempfindlichkeit</h3>
-        <checkbox :checkbox="checkbox" :toIdentifier="toIdentifier"/>
+        <checkbox :params="checkbox"/>
       </div>
 
       <h3>In Notfällen zu informieren</h3>
 
       <div class="form-item" v-for="(textField, index) of emergencyContact.textFields" :key="index">
-        <text-field :textField="textField" :toIdentifier="toIdentifier"/>
+        <text-field :params="textField"/>
       </div>
 
       <h3>Hausarzt</h3>
 
       <div class="form-item" v-for="(textField, index) of familyDoctor.textFields" :key="index">
-        <text-field :textField="textField" :toIdentifier="toIdentifier"/>
+        <text-field :params="textField"/>
       </div>
-
     </section>
   </form>
 </template>
 
 <script>
 import TextField from './form/TextField.vue';
+import Checkbox from './form/Checkbox.vue';
 import CheckboxOffer from './form/CheckboxOffer.vue';
 import DynamicList from './form/DynamicList.vue';
-import Checkbox from './form/Checkbox.vue';
+import { toIdentifier } from './mixins/to-identifier';
 
 export default {
   name: 'Registration',
@@ -73,14 +72,7 @@ export default {
     DynamicList,
     Checkbox
   },
-  methods: {
-    toIdentifier: function(value) {
-      return value
-        .toLowerCase()
-        .split(' ')
-        .join('-');
-    }
-  },
+  mixins: [toIdentifier],
   data() {
     return {
       basics: {

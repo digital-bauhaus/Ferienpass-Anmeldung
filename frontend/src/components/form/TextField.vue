@@ -1,16 +1,16 @@
 <template>
   <label class="text-field">
-    <span :class="`text-field__label ${textField.hideLabel ? 'visually-hidden' : ''}`">
-      {{ textField.label }}
+    <span :class="`text-field__label ${params.hideLabel ? 'visually-hidden' : ''}`">
+      {{ params.label }}
     </span>
 
     <slot name="textFieldControl">
       <input
         class="text-field__control"
-        :type="textField.type ? textField.type : 'text'"
-        :name="toIdentifier(textField.label)"
-        :placeholder="textField.placeholder ? textField.placeholder : ''"
-        :required="textField.required"
+        :type="params.type ? params.type : 'text'"
+        :name="toIdentifier(params.label)"
+        :placeholder="params.placeholder ? params.placeholder : ''"
+        :required="params.required"
       >
     </slot>
   </label>
@@ -19,7 +19,7 @@
 <script>
 export default {
   name: 'TextField',
-  props: ['textField', 'toIdentifier']
+  props: ['params']
 };
 </script>
 

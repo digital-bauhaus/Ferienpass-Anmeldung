@@ -1,7 +1,7 @@
 <template>
   <div class="form-item dynamic-list">
-    <h3 class="dynamic-list__title" :id="toIdentifier(dynamicList.label)" tabindex="-1">
-      {{ dynamicList.label }}
+    <h3 class="dynamic-list__title" :id="toIdentifier(params.label)" tabindex="-1">
+      {{ params.label }}
     </h3>
 
     <ul class="dynamic-list__items">
@@ -22,19 +22,19 @@
     </ul>
 
     <div class="dynamic-list__empty-message">
-      {{ dynamicList.emptyMessage }}
+      {{ params.emptyMessage }}
     </div>
 
     <div class="add-item">
       <div class="add-item__label">
-        <text-field :textField="dynamicList.textField" :toIdentifier="toIdentifier">
+        <text-field :params="params.textField">
           <input
             slot="textFieldControl"
             class="text-field__control"
             type="text"
-            :name="toIdentifier(dynamicList.textField.label)"
-            :placeholder="dynamicList.textField.placeholder ? dynamicList.textField.placeholder : ''"
-            :required="dynamicList.textField.required"
+            :name="toIdentifier(params.textField.label)"
+            :placeholder="params.textField.placeholder ? params.textField.placeholder : ''"
+            :required="params.textField.required"
             v-model.trim="newItem"
             @keydown="handleInput"
           >
@@ -60,7 +60,7 @@ export default {
   components: {
     TextField
   },
-  props: ['dynamicList', 'toIdentifier'],
+  props: ['params'],
   data() {
     return {
       newItem: '',
@@ -86,7 +86,7 @@ export default {
     },
     remove(index, item) {
       this.listItems.splice(index, 1);
-      document.querySelector(`#${this.toIdentifier(this.dynamicList.label)}`).focus();
+      document.querySelector(`#${this.toIdentifier(this.params.label)}`).focus();
       this.feedback = `${item} entfernt.`;
     }
   }

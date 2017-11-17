@@ -1,9 +1,9 @@
 <template>
-  <checkbox :checkbox="checkbox" :toIdentifier="toIdentifier">
+  <checkbox :params="params">
     <span class="offer" slot="checkboxLabel">
-      <span class="offer__title">{{ checkbox.label }}</span>
-      <span class="offer__date">{{ checkbox.date }}</span>
-      <span class="offer__org">{{ checkbox.org }}</span>
+      <span class="offer__title">{{ params.label }}</span>
+      <span class="offer__date">{{ params.date }}</span>
+      <span class="offer__org">{{ params.org }}</span>
     </span>
   </checkbox>
 </template>
@@ -13,7 +13,7 @@ import Checkbox from './Checkbox.vue';
 
 export default {
   name: 'CheckboxOffer',
-  props: ['checkbox', 'toIdentifier'],
+  props: ['params'],
   components: {
     Checkbox
   }
