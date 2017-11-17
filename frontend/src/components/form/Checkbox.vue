@@ -44,7 +44,7 @@ export default {
   margin: 0.25rem;
   background-color: #fff;
   border-radius: 0.5rem;
-  border: 0.125rem solid #aaa;
+  border: 0.125rem solid;
 }
 
 .checkbox__control:checked ~ .checkbox__tick {

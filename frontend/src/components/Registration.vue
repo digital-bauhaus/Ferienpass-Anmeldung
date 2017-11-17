@@ -38,6 +38,11 @@
         :toIdentifier="toIdentifier"
       />
 
+      <div class="form-item" v-for="(checkbox, index) of conditions.checkboxes" :key="index">
+        <h3>Hitzeempfindlichkeit</h3>
+        <checkbox :checkbox="checkbox" :toIdentifier="toIdentifier"/>
+      </div>
+
       <h3>In Notfällen zu informieren</h3>
 
       <div class="form-item" v-for="(textField, index) of emergencyContact.textFields" :key="index">
@@ -49,6 +54,7 @@
       <div class="form-item" v-for="(textField, index) of familyDoctor.textFields" :key="index">
         <text-field :textField="textField" :toIdentifier="toIdentifier"/>
       </div>
+
     </section>
   </form>
 </template>
@@ -57,13 +63,15 @@
 import TextField from './form/TextField.vue';
 import CheckboxOffer from './form/CheckboxOffer.vue';
 import DynamicList from './form/DynamicList.vue';
+import Checkbox from './form/Checkbox.vue';
 
 export default {
   name: 'Registration',
   components: {
     TextField,
     CheckboxOffer,
-    DynamicList
+    DynamicList,
+    Checkbox
   },
   methods: {
     toIdentifier: function(value) {
@@ -245,6 +253,11 @@ export default {
               placeholder: 'z. B. Diazepam',
               hideLabel: true
             }
+          }
+        ],
+        checkboxes: [
+          {
+            label: 'My Kind ist Hitze-empfindlich.'
           }
         ]
       },
