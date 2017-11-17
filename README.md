@@ -1,11 +1,9 @@
-# spring-boot-vuejs
+# Ferienpass-Anmeldung
 
-[![Build Status](https://travis-ci.org/codecentric/cxf-spring-boot-starter-maven-plugin.svg?branch=master)](https://travis-ci.org/codecentric/cxf-spring-boot-starter-maven-plugin)
-[![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/jonashackt/spring-boot-vuejs/blob/master/LICENSE)
+<!-- [![Build Status](https://travis-ci.org/codecentric/cxf-spring-boot-starter-maven-plugin.svg?branch=master)](https://travis-ci.org/codecentric/cxf-spring-boot-starter-maven-plugin) -->
+[![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/digital-bauhaus/Ferienpass-Anmeldung/blob/master/LICENSE)
 
-![localhost-first-run](https://github.com/jonashackt/spring-boot-vuejs/blob/master/localhost-first-run.png)
-
-## In Search of a new Webfrontend-Framework after 2 Years of absence...
+## In Search of a New Frontend-Framework After 2 Years of Absence ...
 
 Well I’am not a Frontend developer. I’am more like playing around with Spring Boot, Web- & Microservices & Docker, automating things with Ansible and Docker, Scaling things with Spring Cloud, Docker Compose and Traefik... And the only GUIs I’am building are the "new JS framework in town"-app every two years... :) So the last one was Angular 1 - and it felt, as it was a good choice! I loved the coding experience and after a day of training, I felt able to write awesome Frontends...
 
@@ -36,24 +34,59 @@ brew install node
 npm install --global vue-cli
 ```
 
-#### Linux
+#### Ubuntu/Debian
+
+Die Node-Version in den offiziellen Ubuntu-Repositories ist leider nicht sehr aktuell. Deshalb orientieren sich die folgenden Anweisungen an der Anleitung auf der NodeJS-Website ([Installing Node.js via package manager](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)).
 
 ```
-sudo apt update
-sudo apt install node
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install nodejs
+```
+
+Leider ist `npm` standardmäßig nicht korrekt benutzbar, da es versucht, globale Pakete in einem Systemverzeichnis zu speichern. Auf diese hat ein Benutzer aber in der Regel keinen Zugriff. Mit Hilfe von `sudo` würden sich Pakete zwar global installieren lassen, aber diese funktionieren in Folge auch nur mit `sudo` korrekt.
+
+Die NPM-Dokumentation hat dafür eine Lösung, die hier leicht abgewandelt wiedergegeben wird ([Change npm's default directory to another directory](https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-2-change-npms-default-directory-to-another-directory)).
+
+```
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+gedit ~/.bashrc
+```
+
+Die folgende Zeile sollte am Ende der Datei `~/.bashrc` angefügt werden.
+
+```
+export PATH=~/.npm-global/bin:$PATH
+```
+
+Anschließend wird die Datei in die aktuelle Terminal-Session geladen.
+
+```
+source ~/.bashrc
+```
+
+Schließlich lassen sich ordnungsgemäß NPM-Pakete global installieren.
+
+```
 npm install --global vue-cli
 ```
 
 #### Windows
+
+##### Packet-Manager
+
+Dafür muss der Paketmanager Chocolatey installiert werden: https://chocolatey.org/install
 
 ```
 choco install npm
 npm install --global vue-cli
 ```
 
-(Oder per Installer von der Website: https://nodejs.org/en/download/)
+##### Installer
 
-## Project setup
+NodeJS und NPM lassen sich mit dem Installer von der Website installieren: https://nodejs.org/en/download/.
+
+## Project Setup
 
 ```
 spring-boot-vuejs
@@ -65,7 +98,7 @@ spring-boot-vuejs
 └── pom.xml     → Maven parent pom with modules
 ```
 
-## Backend
+### Backend
 
 Go to https://start.spring.io/ and initialize an Spring Boot app with `Web` and `Actuator`. Place the zip’s contents in the backend folder.
 
@@ -107,8 +140,7 @@ Customize pom to copy content from Frontend for serving it later with the embedd
 </build>
 ```
 
-
-## Frontend
+### Frontend
 
 ```
 vue init webpack frontend
@@ -195,7 +227,7 @@ If you’re a backend dev like me, this Maven plugin here https://github.com/eir
 </build>
 ```
 
-### tell Webpack to output the dist/ contents to target/
+### Tell Webpack to output the `dist/` contents to `target/dist/`
 
 Commonly, node projects will create a dist/ directory for final builds which contains the minified source code of the web app - but we want it all in `/target`. Therefore go to `frontend/config/index.js` and replace the following lines:
 
@@ -212,7 +244,7 @@ assetsRoot: path.resolve(__dirname, '../target/dist'),
 ```
 
 
-## First App run
+## First App Run
 
 ```
 mvn clean install
@@ -228,7 +260,7 @@ Now go to http://localhost:8088/ and have a look at your first Vue.js Spring Boo
 
 
 
-## fast feedback with webpack-dev-server
+## Fast Feedback with `webpack-dev-server`
 
 The webpack-dev-server, which will update and build every change through all the parts of the JavaScript build-chain, is pre-configured in Vue.js out-of-the-box! So the only thing needed to get fast feedback development-cycle is to cd into `frontend` and run:
 
@@ -236,10 +268,10 @@ The webpack-dev-server, which will update and build every change through all the
 npm run dev
 ```
 
-That’s it! 
+That’s it!
 
 
-## Browser developer tools extension
+## Browser Developer Tools Extension
 
 Install vue-devtools Browser extension https://github.com/vuejs/vue-devtools and get better feedback, e.g. in Chrome:
 
@@ -367,7 +399,7 @@ public WebMvcConfigurer corsConfigurer() {
 }
 ```
 
-Now all calls to resources behind `api/` will return the correct CORS headers. 
+Now all calls to resources behind `api/` will return the correct CORS headers.
 
 
 ## Bootstrap & Vue.js
