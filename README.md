@@ -6,7 +6,11 @@
 
 
 
+<<<<<<< HEAD
 ## NodeJS, NPM, Vue.js
+=======
+## NodeJS, MPM, Vue.js
+>>>>>>> 14f86f3be352709af83998e47d12946d0012c39e
 
 ### Prerequisites
 
