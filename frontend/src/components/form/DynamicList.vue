@@ -1,7 +1,7 @@
 <template>
-  <div class="form-item dynamic-list">
-    <h3 class="dynamic-list__title" :id="toIdentifier(params.label)" tabindex="-1">
-      {{ params.label }}
+  <div class="dynamic-list">
+    <h3 class="dynamic-list__title" :id="toIdentifier(params.title)" tabindex="-1">
+      {{ params.title }}
     </h3>
 
     <ul class="dynamic-list__items">

@@ -27,13 +27,13 @@ export default {
 .text-field__control {
   display: block;
   width: 100%;
-  padding: 0.25rem 0.5rem;
-  border: 0.125rem solid;
-  border-radius: 0.5rem;
+  padding: 4px 8px;
+  border: 2px solid;
+  border-radius: 8px;
 }
 
 .text-field__control:focus {
   outline: none;
-  box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.25rem cornflowerblue;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px cornflowerblue;
 }
 </style>

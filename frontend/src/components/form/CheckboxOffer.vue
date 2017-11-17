@@ -29,7 +29,6 @@ export default {
 .offer__date {
   order: -1;
   font-size: 0.75em;
-  /* color: #666; */
 }
 
 .offer__title {

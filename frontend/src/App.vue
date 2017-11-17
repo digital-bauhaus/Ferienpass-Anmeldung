@@ -18,7 +18,7 @@ export default {
 }
 
 html {
-  font-size: 1.5em;
+  font-size: 1.25em;
   line-height: 1.5;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
     'Open Sans', 'Helvetica Neue', sans-serif;
@@ -55,7 +55,7 @@ input:disabled {
 }
 
 :focus {
-  outline: 0.125rem solid orange;
+  outline: 2px solid orange;
 }
 
 [tabindex='-1'] {
@@ -63,16 +63,16 @@ input:disabled {
 }
 
 .button {
-  padding: 0.25rem;
-  border: 0.125rem solid;
-  border-radius: 0.5rem;
+  padding: 4px;
+  border: 2px solid;
+  border-radius: 8px;
   background-color: #fff;
   line-height: 1;
 }
 
 .button--delete {
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  padding-right: 8px;
+  padding-left: 8px;
 }
 
 .button--delete:hover {
@@ -82,7 +82,7 @@ input:disabled {
 
 .button:focus {
   outline: none;
-  box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.25rem cornflowerblue;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px cornflowerblue;
 }
 
 .visually-hidden {

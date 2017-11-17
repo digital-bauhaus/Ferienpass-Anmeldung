@@ -31,7 +31,7 @@ export default {
 }
 
 .checkbox__label {
-  margin-left: 0.5rem;
+  margin-left: 8px;
 }
 
 .checkbox__tick {
@@ -41,10 +41,10 @@ export default {
   justify-content: center;
   width: 1.5rem;
   height: 1.5rem;
-  margin: 0.25rem;
+  margin: 4px;
   background-color: #fff;
-  border-radius: 0.5rem;
-  border: 0.125rem solid;
+  border-radius: 8px;
+  border: 2px solid;
 }
 
 .checkbox__control:checked ~ .checkbox__tick {
@@ -54,7 +54,7 @@ export default {
 }
 
 .checkbox__control:focus ~ .checkbox__tick {
-  box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.25rem cornflowerblue;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px cornflowerblue;
 }
 
 .checkbox__control:checked ~ .checkbox__tick::before {
