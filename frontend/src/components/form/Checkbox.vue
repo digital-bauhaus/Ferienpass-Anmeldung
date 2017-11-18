@@ -26,31 +26,24 @@ export default {
 
 <style scoped>
 .checkbox {
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
 
 .checkbox__label {
-  margin-left: 8px;
+  padding-right: 8px;
+  padding-left: 8px;
 }
 
 .checkbox__tick {
   flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
   width: 1.5rem;
   height: 1.5rem;
   margin: 4px;
   background-color: #fff;
   border-radius: 8px;
-  border: 2px solid;
-}
-
-.checkbox__control:checked ~ .checkbox__tick {
-  color: #fff;
-  border: 0;
-  background-color: cornflowerblue;
+  border: 2px solid #000;
 }
 
 .checkbox__control:focus ~ .checkbox__tick {
@@ -59,6 +52,12 @@ export default {
 
 .checkbox__control:checked ~ .checkbox__tick::before {
   content: '\2713';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
 

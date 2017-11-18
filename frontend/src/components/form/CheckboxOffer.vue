@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Checkbox from './Checkbox.vue';
+import Checkbox from './Checkbox';
 
 export default {
   name: 'CheckboxOffer',
