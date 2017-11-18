@@ -28,6 +28,7 @@ export default {
 .checkbox {
   display: inline-flex;
   align-items: center;
+  position: relative;
 }
 
 .checkbox__label {
@@ -44,6 +45,22 @@ export default {
   background-color: #fff;
   border-radius: 8px;
   border: 2px solid #000;
+}
+
+/*
+We explicitly set the height of the control to be as tall as its next parent context.
+This is necessary for when one navigates to a control outside the current viewport.
+Then, current scrolling distance would adjust as much as to fit in the full control.
+Making it 100% the height of its parenting context should cover the whole component,
+not only the control. The reason this is problematic is the control being visually
+hidden, thus only having a dimension of 1 by 1 pixels. In other words, without this,
+the componente would only become partially visible.
+*/
+.checkbox__control {
+  position: absolute !important;
+  top: 0 !important;
+  height: 100% !important;
+  outline: none;
 }
 
 .checkbox__control:focus ~ .checkbox__tick {

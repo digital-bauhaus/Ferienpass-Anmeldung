@@ -21,6 +21,7 @@ export default {
 .radio-button {
   display: inline-flex;
   align-items: center;
+  position: relative;
 }
 
 .radio-button__label {
@@ -37,6 +38,13 @@ export default {
   background-color: #fff;
   border-radius: 50%;
   border: 2px solid #000;
+}
+
+.radio-button__control {
+  position: absolute !important;
+  top: 0 !important;
+  height: 100% !important;
+  outline: none;
 }
 
 .radio-button__control:focus ~ .radio-button__tick {
