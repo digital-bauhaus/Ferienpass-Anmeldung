@@ -43,19 +43,15 @@
 </template>
 
 <script>
-import TextField from './form/TextField.vue';
-import Checkbox from './form/Checkbox.vue';
-import CheckboxOffer from './form/CheckboxOffer.vue';
-import DynamicList from './form/DynamicList.vue';
+import TextField from './form/TextField';
+import Checkbox from './form/Checkbox';
+import CheckboxOffer from './form/CheckboxOffer';
+import DynamicList from './form/DynamicList';
+import RadioButton from './form/RadioButton';
+import RadioGroup from './form/RadioGroup';
 
 export default {
   name: 'Registration',
-  components: {
-    TextField,
-    CheckboxOffer,
-    DynamicList,
-    Checkbox
-  },
   data() {
     return {
       basics: {
@@ -289,9 +285,12 @@ export default {
               title: 'Allergien',
               emptyMessage: 'Bei meinem Kind muss auf folgende Allergie(n) geachtet werden.',
               textField: {
-                label: 'Neuen Eintrag hinzufügen',
-                placeholder: 'z. B. Heuschnupfen',
-                hideLabel: true
+                component: TextField,
+                params: {
+                  label: 'Neuen Eintrag hinzufügen',
+                  placeholder: 'z. B. Heuschnupfen',
+                  hideLabel: true
+                }
               }
             }
           },
@@ -301,21 +300,12 @@ export default {
               title: 'Krankheiten',
               emptyMessage: 'Krankheiten des Kindes bitte hier angeben.',
               textField: {
-                label: 'Neuen Eintrag hinzufügen',
-                placeholder: 'z. B. Epilepsie',
-                hideLabel: true
-              }
-            }
-          },
-          {
-            component: DynamicList,
-            params: {
-              title: 'Medikamente',
-              emptyMessage: 'Vom Kind einzunehmende Medikamente hier eintragen.',
-              textField: {
-                label: 'Neuen Eintrag hinzufügen',
-                placeholder: 'z. B. Diazepam',
-                hideLabel: true
+                component: TextField,
+                params: {
+                  label: 'Neuen Eintrag hinzufügen',
+                  placeholder: 'z. B. Epilepsie',
+                  hideLabel: true
+                }
               }
             }
           },
@@ -324,6 +314,86 @@ export default {
             component: Checkbox,
             params: {
               label: 'Mein Kind ist hitze-empfindlich.'
+            }
+          },
+          {
+            component: DynamicList,
+            params: {
+              title: 'Medikamente',
+              emptyMessage: 'Vom Kind einzunehmende Medikamente hier eintragen.',
+              textField: {
+                component: TextField,
+                params: {
+                  label: 'Neuen Eintrag hinzufügen',
+                  placeholder: 'z. B. Diazepam',
+                  hideLabel: true
+                }
+              }
+            }
+          },
+          {
+            title: 'Ernährungsbesonderheiten'
+          },
+          {
+            component: Checkbox,
+            params: {
+              label: 'Vegetarier'
+            }
+          },
+          {
+            component: Checkbox,
+            params: {
+              label: 'Laktose-Unverträglichkeit'
+            }
+          },
+          {
+            component: Checkbox,
+            params: {
+              label: 'Eier-Unverträglichkeit'
+            }
+          },
+          {
+            component: DynamicList,
+            params: {
+              title: 'Weitere Ernährungsbesonderheiten',
+              emptyMessage: 'Bitte beschreiben.',
+              textField: {
+                component: TextField,
+                params: {
+                  label: 'Neuen Eintrag hinzufügen',
+                  placeholder: 'z. B. Milchpulver-Unverträglichkeit',
+                  hideLabel: true
+                }
+              }
+            }
+          },
+          {
+            component: RadioGroup,
+            params: {
+              title: 'Behandlungserlaubnis bei Erkrankungen und Unfällen',
+              radioButtons: [
+                {
+                  component: RadioButton,
+                  params: {
+                    label: 'Ja',
+                    name: 'Behandlungserlaubnis'
+                  }
+                },
+                {
+                  component: RadioButton,
+                  params: {
+                    label: 'Nein',
+                    name: 'Behandlungserlaubnis'
+                  }
+                }
+              ]
+            }
+          },
+          {
+            component: TextField,
+            params: {
+              label: 'Krankenkasse',
+              required: true
             }
           },
           {
@@ -392,6 +462,10 @@ export default {
 .form-section {
   /* Count each .form-section element */
   counter-increment: form-section;
+}
+
+.form-section:not(:last-child) {
+  margin-bottom: 4.5rem;
 }
 
 .form-section__title::before {

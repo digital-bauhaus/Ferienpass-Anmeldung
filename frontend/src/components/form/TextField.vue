@@ -4,10 +4,14 @@
       {{ params.label }}
     </span>
 
-    <slot name="textFieldControl">
+    <slot name="controlSlot">
       <input
         class="text-field__control"
         :type="params.type ? params.type : 'text'"
+        :value="value"
+        v-on:input="onInput"
+        v-on:keydown="onKeydown"
+
         :name="toIdentifier(params.label)"
         :placeholder="params.placeholder ? params.placeholder : ''"
         :required="params.required"
@@ -19,7 +23,15 @@
 <script>
 export default {
   name: 'TextField',
-  props: ['params']
+  props: ['params', 'value'],
+  methods: {
+    onInput(event) {
+      this.$emit('input', event.target.value);
+    },
+    onKeydown(event) {
+      this.$emit('keydown', event);
+    }
+  }
 };
 </script>
 

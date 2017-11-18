@@ -1,5 +1,5 @@
 <template>
-  <div class="dynamic-list">
+  <div class="dynamic-list" :aria-labelledby="toIdentifier(params.title)">
     <h3 class="dynamic-list__title" :id="toIdentifier(params.title)" tabindex="-1">
       {{ params.title }}
     </h3>
@@ -27,18 +27,12 @@
 
     <div class="add-item">
       <div class="add-item__label">
-        <text-field :params="params.textField">
-          <input
-            slot="textFieldControl"
-            class="text-field__control"
-            type="text"
-            :name="toIdentifier(params.textField.label)"
-            :placeholder="params.textField.placeholder ? params.textField.placeholder : ''"
-            :required="params.textField.required"
-            v-model.trim="newItem"
-            @keydown="handleInput"
-          >
-        </text-field>
+        <text-field
+          :params="params.textField.params"
+          :value="newItem"
+          @input="updateValue"
+          @keydown="handleInput"
+        />
       </div>
 
       <button class="button add-item__control" type="button" :disabled="inputIsEmpty" @click="add">
@@ -53,7 +47,7 @@
 </template>
 
 <script>
-import TextField from './TextField.vue';
+import TextField from './TextField';
 
 export default {
   name: 'DynamicList',
@@ -70,10 +64,13 @@ export default {
   },
   computed: {
     inputIsEmpty() {
-      return this.newItem === '';
+      return this.newItem.trim() === '';
     }
   },
   methods: {
+    updateValue(value) {
+      this.newItem = value;
+    },
     handleInput(event) {
       if (event.keyCode === 13 && !this.inputIsEmpty) {
         this.add();
@@ -86,7 +83,7 @@ export default {
     },
     remove(index, item) {
       this.listItems.splice(index, 1);
-      document.querySelector(`#${this.toIdentifier(this.params.label)}`).focus();
+      document.querySelector(`#${this.toIdentifier(this.params.title)}`).focus();
       this.feedback = `${item} entfernt.`;
     }
   }
