@@ -43,6 +43,7 @@ input {
   -webkit-appearance: none;
   -moz-appearance: none;
   overflow: visible;
+  color: inherit;
   font: inherit;
   border: 0;
   margin: 0;
@@ -52,6 +53,12 @@ input {
 button:disabled,
 input:disabled {
   color: #888;
+}
+
+button::placeholder,
+input::placeholder {
+  color: #444;
+  opacity: 1;
 }
 
 :focus {
