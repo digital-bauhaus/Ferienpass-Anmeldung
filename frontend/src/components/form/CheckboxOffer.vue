@@ -21,6 +21,10 @@ export default {
 </script>
 
 <style scoped>
+.checkbox {
+  width: 100%;
+}
+
 .offer {
   display: flex;
   flex-direction: column;
