@@ -46,8 +46,8 @@
 import Checkbox from './form/Checkbox';
 import CheckboxOffer from './form/CheckboxOffer';
 import DynamicList from './form/DynamicList';
+import Group from './form/Group';
 import RadioButton from './form/RadioButton';
-import RadioGroup from './form/RadioGroup';
 import TextField from './form/TextField';
 
 export default {
@@ -368,10 +368,11 @@ export default {
             }
           },
           {
-            component: RadioGroup,
+            component: Group,
             params: {
               title: 'Behandlungserlaubnis bei Erkrankungen und Unfällen',
-              radioButtons: [
+              role: 'radiogroup',
+              entries: [
                 {
                   component: RadioButton,
                   params: {
@@ -397,53 +398,63 @@ export default {
             }
           },
           {
-            title: 'In Notfällen zu informieren'
-          },
-          {
-            component: TextField,
+            component: Group,
             params: {
-              label: 'Name',
-              required: true
+              title: 'In Notfällen zu informieren',
+              entries: [
+                {
+                  component: TextField,
+                  params: {
+                    label: 'Name',
+                    required: true
+                  }
+                },
+                {
+                  component: TextField,
+                  params: {
+                    label: 'Anschrift',
+                    required: true
+                  }
+                },
+                {
+                  component: TextField,
+                  params: {
+                    label: 'Telefon',
+                    required: true,
+                    type: 'tel'
+                  }
+                }
+              ]
             }
           },
           {
-            component: TextField,
+            component: Group,
             params: {
-              label: 'Anschrift',
-              required: true
-            }
-          },
-          {
-            component: TextField,
-            params: {
-              label: 'Telefon',
-              required: true,
-              type: 'tel'
-            }
-          },
-          {
-            title: 'Hausarzt'
-          },
-          {
-            component: TextField,
-            params: {
-              label: 'Name',
-              required: true
-            }
-          },
-          {
-            component: TextField,
-            params: {
-              label: 'Anschrift',
-              required: true
-            }
-          },
-          {
-            component: TextField,
-            params: {
-              label: 'Telefon',
-              required: true,
-              type: 'tel'
+              title: 'Hausarzt',
+              entries: [
+                {
+                  component: TextField,
+                  params: {
+                    label: 'Name',
+                    required: true
+                  }
+                },
+                {
+                  component: TextField,
+                  params: {
+                    label: 'Anschrift',
+                    required: true
+                  }
+                },
+                {
+                  component: TextField,
+                  params: {
+                    label: 'Telefon',
+                    required: true,
+                    type: 'tel'
+                  }
+                }
+              ]
             }
           }
         ]

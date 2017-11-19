@@ -1,6 +1,6 @@
 <template>
-  <div class="dynamic-list" :aria-labelledby="toIdentifier(params.title)">
-    <h3 class="dynamic-list__title" :id="toIdentifier(params.title)" tabindex="-1">
+  <div class="dynamic-list" :aria-labelledby="`${toIdentifier(params.title)}-label`">
+    <h3 class="dynamic-list__title" :id="`${toIdentifier(params.title)}-label`" tabindex="-1">
       {{ params.title }}
     </h3>
 
@@ -78,7 +78,7 @@ export default {
     },
     remove(index, item) {
       this.listItems.splice(index, 1);
-      document.querySelector(`#${this.toIdentifier(this.params.title)}`).focus();
+      document.querySelector(`#${this.toIdentifier(this.params.title)}-label`).focus();
       this.feedback = `${item} entfernt.`;
     }
   }
