@@ -36,6 +36,11 @@ export default {
 </script>
 
 <style scoped>
+.text-field {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
 .text-field__control {
   display: block;
   width: 100%;
@@ -46,6 +51,7 @@ export default {
 
 .text-field__control:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px cornflowerblue;
+  /* box-shadow: 0 0 0 2px #fff, 0 0 0 4px cornflowerblue; */
+  box-shadow: 0 0 0 2px cornflowerblue;
 }
 </style>

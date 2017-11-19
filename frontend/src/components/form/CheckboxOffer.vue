@@ -23,6 +23,7 @@ export default {
 <style scoped>
 .checkbox {
   width: 100%;
+  margin-bottom: 0.75rem;
 }
 
 .offer {

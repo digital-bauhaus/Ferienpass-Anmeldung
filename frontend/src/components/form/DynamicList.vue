@@ -108,7 +108,11 @@ export default {
 .list-item::before {
   content: '\2012';
   position: relative;
-  left: -0.75rem;
+  margin-right: 0.75rem;
+}
+
+.list-item:not(:last-child) {
+  margin-bottom: 0.75rem;
 }
 
 .list-item__content {
@@ -118,6 +122,7 @@ export default {
 .add-item {
   margin-top: 0.75rem;
   display: flex;
+  align-items: start;
 }
 
 .add-item__label {

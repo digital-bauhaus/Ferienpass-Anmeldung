@@ -12,9 +12,7 @@
       {{ params.introduction }}
     </p>
 
-    <div class="form-item" v-for="(entry, index) of params.entries" :key="index">
-      <component :is="entry.component" :params="entry.params"/>
-    </div>
+    <component v-for="(entry, index) of params.entries" :key="index" :is="entry.component" :params="entry.params"/>
 
     <p v-if="params.note">
       {{ params.note }}

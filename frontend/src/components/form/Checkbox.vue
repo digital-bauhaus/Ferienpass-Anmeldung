@@ -29,10 +29,11 @@ export default {
   display: inline-flex;
   align-items: center;
   position: relative;
+  margin-bottom: 0.75rem;
 }
 
 .checkbox__label {
-  padding-right: 8px;
+  padding-right: 24px;
   padding-left: 8px;
 }
 
@@ -41,7 +42,7 @@ export default {
   position: relative;
   width: 1.5rem;
   height: 1.5rem;
-  margin: 4px;
+  margin: 2px;
   background-color: #fff;
   border-radius: 8px;
   border: 2px solid #000;
@@ -64,7 +65,8 @@ the componente would only become partially visible.
 }
 
 .checkbox__control:focus ~ .checkbox__tick {
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px cornflowerblue;
+  /* box-shadow: 0 0 0 2px #fff, 0 0 0 4px cornflowerblue; */
+  box-shadow: 0 0 0 2px cornflowerblue;
 }
 
 .checkbox__control:checked ~ .checkbox__tick::before {
