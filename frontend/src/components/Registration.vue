@@ -43,7 +43,12 @@
 </template>
 
 <script>
-import { TextField, Checkbox, CheckboxOffer, DynamicList, RadioButton, RadioGroup } from './form';
+import Checkbox from './form/Checkbox';
+import CheckboxOffer from './form/CheckboxOffer';
+import DynamicList from './form/DynamicList';
+import RadioButton from './form/RadioButton';
+import RadioGroup from './form/RadioGroup';
+import TextField from './form/TextField';
 
 export default {
   name: 'Registration',
