@@ -21,6 +21,12 @@ export default {
 * Resets
 */
 body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 ul,
 ol,
 dl {
@@ -58,6 +64,17 @@ html {
     'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 button:disabled,
 input:disabled {
   color: #888;
@@ -82,12 +99,12 @@ input::placeholder {
   border: 2px solid;
   border-radius: 8px;
   background-color: #fff;
-  line-height: 1;
 }
 
 .button--delete {
   padding-right: 8px;
   padding-left: 8px;
+  line-height: 1;
 }
 
 .button--delete:hover {
