@@ -10,7 +10,7 @@
     <span class="checkbox__tick"></span>
 
     <span class="checkbox__label">
-      <slot name="checkboxLabel">
+      <slot name="slotLabel">
         {{ params.label }}
       </slot>
     </span>
