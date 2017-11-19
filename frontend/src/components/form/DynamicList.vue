@@ -27,12 +27,7 @@
 
     <div class="add-item">
       <div class="add-item__label">
-        <text-field
-          :params="params.textField.params"
-          :value="newItem"
-          @input="updateValue"
-          @keydown="handleInput"
-        />
+        <text-field :params="params.textField.params" :value="newItem" @input="updateValue" @keydown="handleInput" />
       </div>
 
       <button class="button add-item__control" type="button" :disabled="inputIsEmpty" @click="add">
