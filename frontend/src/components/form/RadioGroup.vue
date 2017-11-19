@@ -1,0 +1,35 @@
+<template>
+  <div
+    class="radio-group"
+    role="radiogroup"
+    :aria-labelledby="`${toIdentifier(params.title)}-label`"
+  >
+    <h3 :class="`radio-group__title ${params.hideTitle ? 'visually-hidden' : ''}`" :id="`${toIdentifier(params.title)}-label`">
+      {{ params.title }}
+    </h3>
+
+    <radio-button
+      v-for="(entry, index) of params.entries" :key="index"
+      :params="entry.params"
+      :name="toIdentifier(params.title)"
+    />
+  </div>
+</template>
+
+<script>
+import RadioButton from './RadioButton';
+
+export default {
+  name: 'RadioGroup',
+  props: ['params'],
+  components: {
+    RadioButton
+  }
+};
+</script>
+
+<style scoped>
+.radio-group__title {
+  margin-bottom: 0.75rem;
+}
+</style>

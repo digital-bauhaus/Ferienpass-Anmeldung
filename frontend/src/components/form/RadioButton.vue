@@ -1,6 +1,6 @@
 <template>
   <label class="radio-button">
-    <input class="radio-button__control visually-hidden" type="radio" :name="toIdentifier(params.name)" required>
+    <input class="radio-button__control visually-hidden" type="radio" :name="name" required>
 
     <span class="radio-button__tick"></span>
 
@@ -13,7 +13,7 @@
 <script>
 export default {
   name: 'RadioButton',
-  props: ['params']
+  props: ['params', 'name']
 };
 </script>
 
@@ -25,7 +25,7 @@ export default {
 }
 
 .radio-button__label {
-  padding-right: 8px;
+  padding-right: 24px;
   padding-left: 8px;
 }
 
@@ -34,7 +34,7 @@ export default {
   position: relative;
   width: 1.5rem;
   height: 1.5rem;
-  margin: 4px;
+  margin: 2px;
   background-color: #fff;
   border-radius: 50%;
   border: 2px solid #000;
@@ -48,7 +48,8 @@ export default {
 }
 
 .radio-button__control:focus ~ .radio-button__tick {
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px cornflowerblue;
+  /* box-shadow: 0 0 0 2px #fff, 0 0 0 4px cornflowerblue; */
+  box-shadow: 0 0 0 2px cornflowerblue;
 }
 
 .radio-button__control:checked ~ .radio-button__tick::before {

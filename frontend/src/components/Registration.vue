@@ -23,6 +23,7 @@ import DynamicList from './form/DynamicList';
 import Group from './form/Group';
 import ParagraphList from './form/ParagraphList';
 import RadioButton from './form/RadioButton';
+import RadioGroup from './form/RadioGroup';
 import TextField from './form/TextField';
 
 export default {
@@ -379,23 +380,20 @@ export default {
               }
             },
             {
-              component: Group,
+              component: RadioGroup,
               params: {
                 title: 'Behandlungserlaubnis bei Erkrankungen und Unfällen',
-                role: 'radiogroup',
                 entries: [
                   {
                     component: RadioButton,
                     params: {
-                      label: 'Ja',
-                      name: 'Behandlungserlaubnis'
+                      label: 'Ja'
                     }
                   },
                   {
                     component: RadioButton,
                     params: {
-                      label: 'Nein',
-                      name: 'Behandlungserlaubnis'
+                      label: 'Nein'
                     }
                   }
                 ]
@@ -484,7 +482,74 @@ export default {
         },
         {
           title: 'Erklärung',
-          entries: []
+          entries: [
+            {
+              component: RadioGroup,
+              params: {
+                title: 'Mein Kind darf alleine heimgehen?',
+                entries: [
+                  {
+                    component: RadioButton,
+                    params: {
+                      label: 'Ja'
+                    }
+                  },
+                  {
+                    component: RadioButton,
+                    params: {
+                      label: 'Nein'
+                    }
+                  },
+                  {
+                    component: RadioButton,
+                    params: {
+                      label: 'Es wird abgeholt'
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              component: RadioGroup,
+              params: {
+                title: 'Mein Kind darf reiten?',
+                entries: [
+                  {
+                    component: RadioButton,
+                    params: {
+                      label: 'Ja'
+                    }
+                  },
+                  {
+                    component: RadioButton,
+                    params: {
+                      label: 'Nein'
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              component: RadioGroup,
+              params: {
+                title: 'Mein Kind darf schwimmen?',
+                entries: [
+                  {
+                    component: RadioButton,
+                    params: {
+                      label: 'Ja'
+                    }
+                  },
+                  {
+                    component: RadioButton,
+                    params: {
+                      label: 'Nein'
+                    }
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           title: 'Datenschutzerklärung',
