@@ -3,8 +3,8 @@ export const toIdentifier = {
     toIdentifier: function(value) {
       return value
         .toLowerCase()
-        .split(' ')
-        .join('-');
+        .replace(/[^\w ]+/g, '')
+        .replace(/ +/g, '-');
     }
   }
 };
