@@ -20,6 +20,14 @@ export default {
 /*
 * Resets
 */
+body,
+ul,
+ol,
+dl {
+  margin: 0;
+  padding: 0;
+}
+
 fieldset {
   margin: 0;
   padding: 0;

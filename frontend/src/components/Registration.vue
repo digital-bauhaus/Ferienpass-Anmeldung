@@ -21,6 +21,7 @@ import Checkbox from './form/Checkbox';
 import CheckboxOffer from './form/CheckboxOffer';
 import DynamicList from './form/DynamicList';
 import Group from './form/Group';
+import ParagraphList from './form/ParagraphList';
 import RadioButton from './form/RadioButton';
 import TextField from './form/TextField';
 
@@ -472,6 +473,30 @@ export default {
                       type: 'tel'
                     }
                   }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          title: 'Angaben bei Behinderung',
+          entries: []
+        },
+        {
+          title: 'Erklärung',
+          entries: []
+        },
+        {
+          title: 'Datenschutzerklärung',
+          entries: [
+            {
+              component: ParagraphList,
+              params: {
+                entries: [
+                  'Mit Ihrer Unterschrift nimmt das Kinderbüro Weimar die oben genannten Daten und Kontakte auf. Diese Informationen werden im EDV-System des Kinderbüros gespeichert. Personenbezogene Daten werden dabei durch geeignete technische und organisatorische Maßnahmen vor der Kenntnis Dritter geschützt. Sonstige Informationen zu den Kindern werden vom Kinderbüro nur verarbeitet oder genutzt, wenn sie zur Umsetzung der Ziele des Ferienpasses nützlich sind und keine Anhaltspunkte bestehen, dass die betroffene Person ein schutzwürdiges Interesse hat, das der Verarbeitung oder Nutzung entgegensteht.',
+                  'Nur das Kinderbüro und Personen, die zur Durchführung der Ferienpass-Angebote Kenntnis über bestimmte Informationen haben müssen, haben Zugang zu den Daten.',
+                  'Bei Abmeldung des Kindes werden die in §1 genannten Daten aus dem Verzeichnis gelöscht.',
+                  'Alle personenbezogenen Daten werden nach Ablauf eines Jahres gelöscht.'
                 ]
               }
             }
