@@ -1,6 +1,6 @@
 <template>
   <checkbox :params="params">
-    <span class="offer" slot="slotLabal">
+    <span class="offer" slot="slotLabel">
       <span class="offer__title">{{ params.label }}</span>
       <span class="offer__date">{{ params.date }}</span>
       <span class="offer__org">{{ params.org }}</span>
