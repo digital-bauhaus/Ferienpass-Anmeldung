@@ -11,21 +11,16 @@
         {{ section.title }}
       </h2>
 
-      <component v-for="(entry, index) of section.entries" :key="index" :is="entry.component" :params="entry.params"/>
+      <component
+        v-for="(entry, index) of section.entries" :key="index"
+        :is="$options.components[entry.component]"
+        :params="entry.params"
+      />
     </section>
   </form>
 </template>
 
 <script>
-import Checkbox from './form/Checkbox';
-import CheckboxOffer from './form/CheckboxOffer';
-import DynamicList from './form/DynamicList';
-import Group from './form/Group';
-import ParagraphList from './form/ParagraphList';
-import RadioButton from './form/RadioButton';
-import RadioGroup from './form/RadioGroup';
-import TextField from './form/TextField';
-
 export default {
   name: 'Registration',
   data() {
@@ -36,27 +31,27 @@ export default {
           title: 'Grunddaten',
           entries: [
             {
-              component: Group,
+              component: 'Group',
               params: {
                 title: 'Grunddaten',
                 hideTitle: true,
                 entries: [
                   {
-                    component: TextField,
+                    component: 'TextField',
                     params: {
                       label: 'Familienname',
                       required: true
                     }
                   },
                   {
-                    component: TextField,
+                    component: 'TextField',
                     params: {
                       label: 'Vorname meines Kindes',
                       required: true
                     }
                   },
                   {
-                    component: TextField,
+                    component: 'TextField',
                     params: {
                       label: 'Geburtsdatum meines Kindes',
                       required: true,
@@ -64,21 +59,21 @@ export default {
                     }
                   },
                   {
-                    component: TextField,
+                    component: 'TextField',
                     params: {
                       label: 'Straße',
                       required: true
                     }
                   },
                   {
-                    component: TextField,
+                    component: 'TextField',
                     params: {
                       label: 'Wohnort',
                       required: true
                     }
                   },
                   {
-                    component: TextField,
+                    component: 'TextField',
                     params: {
                       label: 'Telefon',
                       required: true,
@@ -94,7 +89,7 @@ export default {
           title: 'Angebote',
           entries: [
             {
-              component: Group,
+              component: 'Group',
               params: {
                 title: 'Angebote',
                 hideTitle: true,
@@ -103,7 +98,7 @@ export default {
                   'Hinweis: Die Bestätigung des Platzes erfolgt bei der Anmeldung entsprechend der zur Verfügung stehenden Kapazitäten für die Angebote. Sollte ein Angebot seitens der Veranstalter aus unvorhergesehenen Gründen abgesagt werden, besteht kein Anspruch auf ein Ersatzangebot. Der gezahlte Beitrag für dieses Angebot wird Ihnen komplett zurück erstattet.',
                 entries: [
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Piratenfest an der Ilm',
                       date: '26. Juni 2017',
@@ -111,7 +106,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Bauspielplatz',
                       date: '26. bis 28. Juni 2017',
@@ -119,7 +114,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Papier-Werkstatt',
                       date: '26. bis 28. Juni 2017',
@@ -127,7 +122,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Indianer und ihre Tiere',
                       date: '27. bis 28. Juni 2017',
@@ -135,7 +130,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Filz-Werkstatt',
                       date: '29. bis 30. Juni 2017',
@@ -143,7 +138,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Indianer und ihre Tiere',
                       date: '29. bis 30. Juni 2017',
@@ -151,7 +146,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Das Alien vom Planeten Alpha Omega Pi',
                       date: '3. bis 7. Juli 2017',
@@ -159,7 +154,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Graffiti',
                       date: '3. bis 4. Juli 2017',
@@ -168,7 +163,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Fahrrad-Tour aus dem Feiniger Radweg',
                       date: '4. Juli 2017',
@@ -176,7 +171,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Die große Schatzsuche',
                       date: '10. bis 12. Juli 2017',
@@ -184,7 +179,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Skateboard-Kurs',
                       date: '12. bis 14. Juli 2017',
@@ -192,7 +187,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Kinderzirkus',
                       date: '17. bis 19. Juli 2017',
@@ -200,7 +195,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Klettern',
                       date: '25. Juli 2017',
@@ -208,7 +203,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Klettern',
                       date: '26. Juli 2017',
@@ -216,7 +211,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'GrenzbeWEGnung',
                       date: '31. Juli bis 4. August 2017',
@@ -224,7 +219,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Angeln',
                       date: '31. Juli bis 1. August 2017',
@@ -232,7 +227,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Jiddisch – Wir singen tanzen spielen',
                       date: '2. bis 6. August 2017',
@@ -240,7 +235,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Angeln',
                       date: '2. bis 3. August 2017',
@@ -248,7 +243,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Natur-Erlebnis-Camp',
                       date: '7. bis 9. August 2017',
@@ -256,7 +251,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Geräusche-Jagd',
                       date: '8. August 2017',
@@ -264,7 +259,7 @@ export default {
                     }
                   },
                   {
-                    component: CheckboxOffer,
+                    component: 'CheckboxOffer',
                     params: {
                       label: 'Schlauchboot-Tour',
                       date: '9. August 2017',
@@ -280,12 +275,12 @@ export default {
           title: 'Allergien, Krankheiten, …',
           entries: [
             {
-              component: DynamicList,
+              component: 'DynamicList',
               params: {
                 title: 'Allergien',
                 emptyMessage: 'Bei meinem Kind muss auf folgende Allergie(n) geachtet werden.',
                 textField: {
-                  component: TextField,
+                  component: 'TextField',
                   params: {
                     label: 'Neuen Eintrag hinzufügen',
                     placeholder: 'z. B. Heuschnupfen',
@@ -295,12 +290,12 @@ export default {
               }
             },
             {
-              component: DynamicList,
+              component: 'DynamicList',
               params: {
                 title: 'Krankheiten',
                 emptyMessage: 'Krankheiten des Kindes bitte hier angeben.',
                 textField: {
-                  component: TextField,
+                  component: 'TextField',
                   params: {
                     label: 'Neuen Eintrag hinzufügen',
                     placeholder: 'z. B. Epilepsie',
@@ -310,12 +305,12 @@ export default {
               }
             },
             {
-              component: Group,
+              component: 'Group',
               params: {
                 title: 'Hitzeempfindlichkeit',
                 entries: [
                   {
-                    component: Checkbox,
+                    component: 'Checkbox',
                     params: {
                       label: 'Mein Kind ist hitzeempfindlich.'
                     }
@@ -324,12 +319,12 @@ export default {
               }
             },
             {
-              component: DynamicList,
+              component: 'DynamicList',
               params: {
                 title: 'Medikamente',
                 emptyMessage: 'Vom Kind einzunehmende Medikamente hier eintragen.',
                 textField: {
-                  component: TextField,
+                  component: 'TextField',
                   params: {
                     label: 'Neuen Eintrag hinzufügen',
                     placeholder: 'z. B. Diazepam',
@@ -339,24 +334,24 @@ export default {
               }
             },
             {
-              component: Group,
+              component: 'Group',
               params: {
                 title: 'Ernährungsbesonderheiten',
                 entries: [
                   {
-                    component: Checkbox,
+                    component: 'Checkbox',
                     params: {
                       label: 'Vegetarier'
                     }
                   },
                   {
-                    component: Checkbox,
+                    component: 'Checkbox',
                     params: {
                       label: 'Laktose-Unverträglichkeit'
                     }
                   },
                   {
-                    component: Checkbox,
+                    component: 'Checkbox',
                     params: {
                       label: 'Eier-Unverträglichkeit'
                     }
@@ -365,12 +360,12 @@ export default {
               }
             },
             {
-              component: DynamicList,
+              component: 'DynamicList',
               params: {
                 title: 'Weitere Ernährungsbesonderheiten',
                 emptyMessage: 'Bitte beschreiben.',
                 textField: {
-                  component: TextField,
+                  component: 'TextField',
                   params: {
                     label: 'Neuen Eintrag hinzufügen',
                     placeholder: 'z. B. Milchpulver-Unverträglichkeit',
@@ -380,18 +375,18 @@ export default {
               }
             },
             {
-              component: RadioGroup,
+              component: 'RadioGroup',
               params: {
                 title: 'Behandlungserlaubnis bei Erkrankungen und Unfällen',
                 entries: [
                   {
-                    component: RadioButton,
+                    component: 'RadioButton',
                     params: {
                       label: 'Ja'
                     }
                   },
                   {
-                    component: RadioButton,
+                    component: 'RadioButton',
                     params: {
                       label: 'Nein'
                     }
@@ -400,12 +395,12 @@ export default {
               }
             },
             {
-              component: Group,
+              component: 'Group',
               params: {
                 title: 'Krankenkasse',
                 entries: [
                   {
-                    component: TextField,
+                    component: 'TextField',
                     params: {
                       label: 'Name',
                       required: true
@@ -415,26 +410,26 @@ export default {
               }
             },
             {
-              component: Group,
+              component: 'Group',
               params: {
                 title: 'In Notfällen zu informieren',
                 entries: [
                   {
-                    component: TextField,
+                    component: 'TextField',
                     params: {
                       label: 'Name',
                       required: true
                     }
                   },
                   {
-                    component: TextField,
+                    component: 'TextField',
                     params: {
                       label: 'Anschrift',
                       required: true
                     }
                   },
                   {
-                    component: TextField,
+                    component: 'TextField',
                     params: {
                       label: 'Telefon',
                       required: true,
@@ -445,26 +440,26 @@ export default {
               }
             },
             {
-              component: Group,
+              component: 'Group',
               params: {
                 title: 'Hausarzt',
                 entries: [
                   {
-                    component: TextField,
+                    component: 'TextField',
                     params: {
                       label: 'Name',
                       required: true
                     }
                   },
                   {
-                    component: TextField,
+                    component: 'TextField',
                     params: {
                       label: 'Anschrift',
                       required: true
                     }
                   },
                   {
-                    component: TextField,
+                    component: 'TextField',
                     params: {
                       label: 'Telefon',
                       required: true,
@@ -484,24 +479,24 @@ export default {
           title: 'Erklärung',
           entries: [
             {
-              component: RadioGroup,
+              component: 'RadioGroup',
               params: {
                 title: 'Mein Kind darf alleine heimgehen?',
                 entries: [
                   {
-                    component: RadioButton,
+                    component: 'RadioButton',
                     params: {
                       label: 'Ja'
                     }
                   },
                   {
-                    component: RadioButton,
+                    component: 'RadioButton',
                     params: {
                       label: 'Nein'
                     }
                   },
                   {
-                    component: RadioButton,
+                    component: 'RadioButton',
                     params: {
                       label: 'Es wird abgeholt'
                     }
@@ -510,18 +505,18 @@ export default {
               }
             },
             {
-              component: RadioGroup,
+              component: 'RadioGroup',
               params: {
                 title: 'Mein Kind darf reiten?',
                 entries: [
                   {
-                    component: RadioButton,
+                    component: 'RadioButton',
                     params: {
                       label: 'Ja'
                     }
                   },
                   {
-                    component: RadioButton,
+                    component: 'RadioButton',
                     params: {
                       label: 'Nein'
                     }
@@ -530,18 +525,18 @@ export default {
               }
             },
             {
-              component: RadioGroup,
+              component: 'RadioGroup',
               params: {
                 title: 'Mein Kind darf schwimmen?',
                 entries: [
                   {
-                    component: RadioButton,
+                    component: 'RadioButton',
                     params: {
                       label: 'Ja'
                     }
                   },
                   {
-                    component: RadioButton,
+                    component: 'RadioButton',
                     params: {
                       label: 'Nein'
                     }
@@ -555,7 +550,7 @@ export default {
           title: 'Datenschutzerklärung',
           entries: [
             {
-              component: ParagraphList,
+              component: 'ParagraphList',
               params: {
                 entries: [
                   'Mit Ihrer Unterschrift nimmt das Kinderbüro Weimar die oben genannten Daten und Kontakte auf. Diese Informationen werden im EDV-System des Kinderbüros gespeichert. Personenbezogene Daten werden dabei durch geeignete technische und organisatorische Maßnahmen vor der Kenntnis Dritter geschützt. Sonstige Informationen zu den Kindern werden vom Kinderbüro nur verarbeitet oder genutzt, wenn sie zur Umsetzung der Ziele des Ferienpasses nützlich sind und keine Anhaltspunkte bestehen, dass die betroffene Person ein schutzwürdiges Interesse hat, das der Verarbeitung oder Nutzung entgegensteht.',

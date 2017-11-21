@@ -4,6 +4,11 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import { toIdentifier } from './mixins/to-identifier';
+import * as formComponents from './components/form';
+
+for (const component in formComponents) {
+  Vue.component(formComponents[component].name, formComponents[component]);
+}
 
 Vue.config.productionTip = false;
 
