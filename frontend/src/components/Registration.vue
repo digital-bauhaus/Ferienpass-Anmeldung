@@ -1,5 +1,5 @@
 <template>
-  <form v-if="formDataLoaded" class="form" action="/api/register" method="post">
+  <form v-if="formDataLoaded" @keydown.enter="preventAccidentalSubmit" class="form" action="/api/register" method="post">
     <h1>{{ formData.title }}</h1>
 
     <section
@@ -17,6 +17,8 @@
         :params="entry.params"
       />
     </section>
+
+    <input class="button button--wide" type="submit" value="Absenden">
   </form>
 </template>
 
@@ -39,9 +41,14 @@ export default {
           return response.json();
         })
         .then(json => {
-          this.formDataLoaded = true;
           this.formData = json;
+          this.formDataLoaded = true;
         });
+    },
+    preventAccidentalSubmit(event) {
+      if (event.target.type !== 'submit') {
+        event.preventDefault();
+      }
     }
   }
 };

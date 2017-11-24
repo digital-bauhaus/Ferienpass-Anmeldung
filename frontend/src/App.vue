@@ -101,6 +101,11 @@ input::placeholder {
   background-color: #fff;
 }
 
+.button--wide {
+  padding-right: 48px;
+  padding-left: 48px;
+}
+
 .button--delete {
   padding-right: 8px;
   padding-left: 8px;
