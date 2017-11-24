@@ -27,7 +27,7 @@
 
     <div class="add-item">
       <div class="add-item__label">
-        <text-field :params="params.textField.params" :value="newItem" @input="updateValue" @keydown="handleInput" />
+        <text-field :params="params.textField.params" :value="newItem" @input="updateValue" @keydown.enter="handleInput" />
       </div>
 
       <button class="button add-item__control" type="button" :disabled="inputIsEmpty" @click="add">
@@ -67,7 +67,7 @@ export default {
       this.newItem = value;
     },
     handleInput(event) {
-      if (event.keyCode === 13 && !this.inputIsEmpty) {
+      if (!this.inputIsEmpty) {
         this.add();
       }
     },
