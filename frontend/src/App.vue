@@ -106,13 +106,13 @@ input::placeholder {
   padding-left: 48px;
 }
 
-.button--delete {
-  padding-right: 8px;
-  padding-left: 8px;
+.button--inline {
+  width: 32px;
+  height: 32px;
   line-height: 1;
 }
 
-.button--delete:hover {
+.delete-button:hover {
   background-color: tomato;
   border-color: #222;
 }

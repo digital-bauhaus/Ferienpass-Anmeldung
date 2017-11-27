@@ -11,7 +11,7 @@
         </span>
 
         <button
-          class="list-item__control button button--delete"
+          class="list-item__control button button--inline delete-button"
           type="button"
           :aria-label="`Entferne ${item}.`"
           @click="remove(index, item)"
