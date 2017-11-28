@@ -13,7 +13,7 @@
 
       <component
         v-for="(entry, index) of section.entries" :key="index"
-        :is="$options.components[entry.component]"
+        :is="entry.component"
         :params="entry.params"
       />
     </section>
