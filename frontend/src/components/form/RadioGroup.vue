@@ -4,7 +4,10 @@
     role="radiogroup"
     :aria-labelledby="`${toIdentifier(params.title)}-label`"
   >
-    <h3 :class="`radio-group__title ${params.hideTitle ? 'visually-hidden' : ''}`" :id="`${toIdentifier(params.title)}-label`">
+    <h3
+      :class="`radio-group__title ${params.hideTitle ? 'visually-hidden' : ''}`"
+      :id="`${toIdentifier(params.title)}-label`"
+    >
       {{ params.title }}
     </h3>
 
@@ -29,6 +32,10 @@ export default {
 </script>
 
 <style scoped>
+.radio-group {
+  margin-bottom: 1.5rem;
+}
+
 .radio-group__title {
   margin-bottom: 0.75rem;
 }

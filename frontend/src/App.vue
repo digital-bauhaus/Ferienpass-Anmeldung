@@ -75,6 +75,12 @@ p {
   margin-bottom: 1.5rem;
 }
 
+ul,
+ol {
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+}
+
 button:disabled,
 input:disabled {
   color: #888;

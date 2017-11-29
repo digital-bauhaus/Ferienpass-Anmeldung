@@ -1,6 +1,12 @@
 <template>
   <label class="radio-button">
-    <input class="radio-button__control visually-hidden" type="radio" :name="name" required>
+    <input
+      class="radio-button__control visually-hidden"
+      type="radio"
+      required
+      :name="name"
+      :value="toIdentifier(params.label)"
+    >
 
     <span class="radio-button__tick"></span>
 
@@ -19,9 +25,13 @@ export default {
 
 <style scoped>
 .radio-button {
-  display: inline-flex;
-  align-items: center;
+  display: flex;
+  align-items: flex-start;
   position: relative;
+}
+
+.radio-button:not(:last-child) {
+  margin-bottom: 0.75rem;
 }
 
 .radio-button__label {

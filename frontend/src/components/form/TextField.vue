@@ -4,19 +4,17 @@
       {{ params.label }}
     </span>
 
-    <slot name="controlSlot">
-      <input
-        class="text-field__control"
-        :type="params.type ? params.type : 'text'"
-        :value="value"
-        v-on:input="onInput"
-        v-on:keydown="onKeydown"
+    <input
+      class="text-field__control"
+      :type="params.type ? params.type : 'text'"
+      :value="value"
+      @input="onInput"
+      @keydown="onKeydown"
 
-        :name="toIdentifier(params.label)"
-        :placeholder="params.placeholder ? params.placeholder : ''"
-        :required="params.required"
-      >
-    </slot>
+      :name="toIdentifier(params.label)"
+      :placeholder="params.placeholder ? params.placeholder : ''"
+      :required="params.required"
+    >
   </label>
 </template>
 
