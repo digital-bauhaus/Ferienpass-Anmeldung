@@ -7,13 +7,12 @@
     <input
       class="text-field__control"
       :type="params.type ? params.type : 'text'"
-      :value="value"
-      @input="onInput"
-      @keydown="onKeydown"
-
       :name="toIdentifier(params.label)"
+      :value="value"
       :placeholder="params.placeholder ? params.placeholder : ''"
       :required="params.required"
+      @input="onInput"
+      @keydown.enter="onEnter"
     >
   </label>
 </template>
@@ -24,10 +23,10 @@ export default {
   props: ['params', 'value'],
   methods: {
     onInput(event) {
-      this.$emit('input', event.target.value);
+      this.$emit('valueChange', event.target.value);
     },
-    onKeydown(event) {
-      this.$emit('keydown', event);
+    onEnter() {
+      this.$emit('enter');
     }
   }
 };
