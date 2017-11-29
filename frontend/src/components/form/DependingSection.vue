@@ -2,13 +2,13 @@
   <div>
     <checkbox :params="params.checkbox.params" @change="updateChecked" />
 
-    <div v-if="checked">
+    <template v-if="checked">
       <component
         v-for="(entry, index) of params.entries" :key="index"
         :is="entry.component"
         :params="entry.params"
       />
-    </div>
+    </template>
   </div>
 </template>
 
