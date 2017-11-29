@@ -23,6 +23,7 @@ public class BackendControllerTest {
 
 	private static final String BASE_URL = "http://localhost:8089/api";
 
+	/*
 	@Test
 	public void saysHello() {
 		given()
@@ -63,5 +64,6 @@ public class BackendControllerTest {
         assertThat(responseUser.getFirstName(), is("Norbert"));
         assertThat(responseUser.getLastName(), is("Siegmund"));
     }
+    */
 
 }
