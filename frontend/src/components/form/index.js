@@ -1,5 +1,6 @@
 import Checkbox from './Checkbox';
 import CheckboxOffer from './CheckboxOffer';
+import DependingSection from './DependingSection';
 import DynamicList from './DynamicList';
 import Group from './Group';
 import ParagraphList from './ParagraphList';
@@ -11,6 +12,7 @@ import TextField from './TextField';
 export {
   Checkbox,
   CheckboxOffer,
+  DependingSection,
   DynamicList,
   Group,
   ParagraphList,

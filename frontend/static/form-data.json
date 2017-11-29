@@ -446,7 +446,86 @@
     },
     {
       "title": "Angaben bei Behinderung",
-      "entries": []
+      "entries": [
+        {
+          "component": "DependingSection",
+          "params": {
+            "checkbox": {
+              "component": "Checkbox",
+              "params": {
+                "label": "Bei meinem Kind liegt eine Beeinträchtigung vor"
+              }
+            },
+            "entries": [
+              {
+                "component": "Group",
+                "params": {
+                  "title": "Merkzeichen",
+                  "entries": [
+                    {
+                      "component": "Checkbox",
+                      "params": {
+                        "label": "„aG“ (Außergewöhnliche Gehbehinderung)"
+                      }
+                    },
+                    {
+                      "component": "Checkbox",
+                      "params": {
+                        "label": "„H“ (Hilflosigkeit)"
+                      }
+                    },
+                    {
+                      "component": "Checkbox",
+                      "params": {
+                        "label": "„Bl“ (Blind)"
+                      }
+                    },
+                    {
+                      "component": "Checkbox",
+                      "params": {
+                        "label": "„Gl“ (Gehörlos)"
+                      }
+                    },
+                    {
+                      "component": "Checkbox",
+                      "params": {
+                        "label": "„B“ (Berechtigung zur Mitnahme einer Begleitperson)"
+                      }
+                    },
+                    {
+                      "component": "Checkbox",
+                      "params": {
+                        "label":
+                          "„G“ (Erhebliche Beeinträchtigung der Bewegungsfähigkeit im Straßenverkehr)"
+                      }
+                    },
+                    {
+                      "component": "Checkbox",
+                      "params": {
+                        "label": "„TBL“ (Taubblind)"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "component": "Group",
+                "params": {
+                  "title": "Wertmarke",
+                  "entries": [
+                    {
+                      "component": "Checkbox",
+                      "params": {
+                        "label": "Wertmarke vorhanden"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "title": "Erklärung",
