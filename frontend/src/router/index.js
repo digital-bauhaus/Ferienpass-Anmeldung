@@ -11,5 +11,13 @@ export default new Router({
       name: 'Anmeldung',
       component: Registration
     }
-  ]
+  ],
+  mode: 'history',
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        selector: to.hash
+      };
+    }
+  }
 });

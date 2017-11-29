@@ -5,10 +5,10 @@
     <section
       v-for="(section, index) of formData.sections" :key="index"
       class="form-section"
-      :aria-labelledby="`${toIdentifier(section.title)}-label`"
+      :aria-labelledby="`${toIdentifier(section.title)}`"
     >
-      <h2 class="form-section__title" :id="`${toIdentifier(section.title)}-label`">
-        {{ section.title }}
+      <h2 class="form-section__title" :id="`${toIdentifier(section.title)}`">
+        <a :href="`#${toIdentifier(section.title)}`">{{ section.title }}</a>
       </h2>
 
       <component
