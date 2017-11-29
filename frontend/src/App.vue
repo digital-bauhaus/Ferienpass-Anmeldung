@@ -46,7 +46,8 @@ legend {
 }
 
 button,
-input {
+input,
+textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
   overflow: visible;
@@ -81,6 +82,9 @@ ol {
   margin-left: 1.5rem;
 }
 
+/*
+base.form-elements.css
+*/
 button:disabled,
 input:disabled {
   color: #888;
@@ -92,11 +96,17 @@ input::placeholder {
   opacity: 1;
 }
 
+textarea {
+  display: block;
+  width: 100%;
+  resize: vertical;
+}
+
 :focus {
   outline: 2px solid orange;
 }
 
-[tabindex='-1'] {
+[tabindex='-1']:focus {
   outline: none;
 }
 
@@ -105,6 +115,11 @@ input::placeholder {
   border: 2px solid;
   border-radius: 8px;
   background-color: #fff;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px cornflowerblue;
 }
 
 .button--wide {
@@ -123,11 +138,9 @@ input::placeholder {
   border-color: #222;
 }
 
-.button:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px cornflowerblue;
-}
-
+/*
+trumps.visually-hidden.css
+*/
 .visually-hidden {
   position: absolute !important;
   clip: rect(1px, 1px, 1px, 1px);

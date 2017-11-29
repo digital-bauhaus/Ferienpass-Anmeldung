@@ -511,6 +511,26 @@
               {
                 "component": "Group",
                 "params": {
+                  "title": "Hilfsmittel",
+                  "entries": [
+                    {
+                      "component": "Checkbox",
+                      "params": {
+                        "label": "Rollstuhlnutzung"
+                      }
+                    },
+                    {
+                      "component": "TextArea",
+                      "params": {
+                        "label": "Weitere Hilfsmittel beschreiben:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "component": "Group",
+                "params": {
                   "title": "Wertmarke",
                   "entries": [
                     {
