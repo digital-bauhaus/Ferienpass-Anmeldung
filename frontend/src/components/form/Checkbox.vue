@@ -5,6 +5,7 @@
       type="checkbox"
       :name="toIdentifier(params.label)"
       :required="params.required"
+      @change="emitChecked"
     >
 
     <span class="checkbox__tick"></span>
@@ -20,13 +21,18 @@
 <script>
 export default {
   name: 'Checkbox',
-  props: ['params']
+  props: ['params'],
+  methods: {
+    emitChecked(event) {
+      this.$emit('change', event.target.checked);
+    }
+  }
 };
 </script>
 
 <style scoped>
 .checkbox {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   position: relative;
   margin-bottom: 0.75rem;
