@@ -14,6 +14,7 @@
           class="list-item__control button button--inline delete-button"
           type="button"
           :aria-label="`Entferne ${item}.`"
+          @keydown.enter="remove(index, item)"
           @click="remove(index, item)"
         >
           ×
@@ -27,7 +28,12 @@
 
     <div class="add-item">
       <div class="add-item__label">
-        <text-field :params="params.textField.params" :value="newItem" @input="updateValue" @keydown.enter="handleInput" />
+        <text-field
+          :params="params.textField.params"
+          :value="newItem"
+          @input="updateValue"
+          @keydown.enter="handleInput"
+        />
       </div>
 
       <button class="button add-item__control" type="button" :disabled="inputIsEmpty" @click="add">
