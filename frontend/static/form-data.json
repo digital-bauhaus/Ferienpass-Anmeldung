@@ -450,6 +450,7 @@
         {
           "component": "DependingSection",
           "params": {
+            "title": "Beeinträchtigung",
             "checkbox": {
               "component": "Checkbox",
               "params": {
@@ -537,6 +538,101 @@
                       "component": "Checkbox",
                       "params": {
                         "label": "Wertmarke vorhanden"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "component": "DependingSection",
+                "params": {
+                  "title": "Begleitung",
+                  "checkbox": {
+                    "component": "Checkbox",
+                    "params": {
+                      "label":
+                        "Mein Kind hat im Schulalltag eine Schulbegleitung und benötigt auch während der Ferienfreizeit eine Begleitperson"
+                    }
+                  },
+                  "entries": [
+                    {
+                      "component": "Group",
+                      "params": {
+                        "title": "Wofür wird die Begleitperson benötigt?",
+                        "entries": [
+                          {
+                            "component": "Checkbox",
+                            "params": {
+                              "label": "Pflege"
+                            }
+                          },
+                          {
+                            "component": "Checkbox",
+                            "params": {
+                              "label": "Medizinische Versorgung"
+                            }
+                          },
+                          {
+                            "component": "Checkbox",
+                            "params": {
+                              "label": "Mobilität"
+                            }
+                          },
+                          {
+                            "component": "Checkbox",
+                            "params": {
+                              "label": "Orientierung"
+                            }
+                          },
+                          {
+                            "component": "Checkbox",
+                            "params": {
+                              "label": "Soziale Begleitung"
+                            }
+                          },
+                          {
+                            "component": "DynamicList",
+                            "params": {
+                              "title": "Sinneswahrnehmung",
+                              "emptyMessage": "Beeinträchtigte Sinneswahrnehmungen angeben",
+                              "textField": {
+                                "component": "TextField",
+                                "params": {
+                                  "label": "Neuen Eintrag hinzufügen",
+                                  "placeholder": "z. B. Sicht",
+                                  "hideLabel": true
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "component": "TextArea",
+                      "params": {
+                        "label": "Darauf ist im Umgang mit meinem Kind unbedingt zu achten:"
+                      }
+                    },
+                    {
+                      "component": "Checkbox",
+                      "params": {
+                        "label":
+                          "Wir benötigen Unterstützung bei der Organisation der Begleitperson"
+                      }
+                    },
+                    {
+                      "component": "TextArea",
+                      "params": {
+                        "label":
+                          "Welcher Dienst ist in der Regel für die Begleitung/Betreuung zuständig? (Bitte Kontaktdaten des Dienstes/der Dienste angeben):"
+                      }
+                    },
+                    {
+                      "component": "Checkbox",
+                      "params": {
+                        "label":
+                          "Hiermit beantrage ich die Übernahme der Kosten für die Begleitung/Betreuung o.g. Kindes während der Teilnahme an den Ferienfreizeiten gemäß der Anmeldung auf Seite 1. Auf die Förderung einer Begleitperson für Ferienfreizeiten besteht kein Rechtsanspruch. Die  bedürftigkeitsabhängige Prüfung erfolgt am Einzelfall durch das Amt für Familie und Soziales der Stadt Weimar. Voraussetzung hierfür ist, dass das Kind als Hauptwohnsitz in Weimar lebt."
                       }
                     }
                   ]

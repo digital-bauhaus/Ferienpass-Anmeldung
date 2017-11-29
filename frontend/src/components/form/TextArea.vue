@@ -7,8 +7,7 @@
     <textarea
       class="text-area__control"
       :name="toIdentifier(params.label)"
-      cols="30"
-      rows="10"
+      rows="4"
     ></textarea>
   </label>
 </template>
@@ -22,6 +21,7 @@ export default {
 
 <style scoped>
 .text-area {
+  display: block;
   margin-bottom: 0.75rem;
 }
 
