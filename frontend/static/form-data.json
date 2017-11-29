@@ -28,8 +28,7 @@
                 "component": "TextField",
                 "params": {
                   "label": "Geburtsdatum meines Kindes",
-                  "required": true,
-                  "type": "date"
+                  "required": true
                 }
               },
               {
