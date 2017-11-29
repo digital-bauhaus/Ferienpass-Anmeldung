@@ -46,9 +46,11 @@ export default {
         });
     },
     preventAccidentalSubmit(event) {
-      if (event.target.type !== 'submit') {
-        event.preventDefault();
+      if (['textarea', 'submit'].includes(event.target.type)) {
+        return;
       }
+
+      event.preventDefault();
     }
   }
 };
