@@ -30,7 +30,7 @@ public class BackendController {
     @RequestMapping(path     = "/user",
                     produces = "application/json",
                     method   = RequestMethod.GET)
-    public Response query(@RequestParam(required = false, value = "fn") String first_name,
+    public ResponseEntity<?> query(@RequestParam(required = false, value = "fn") String first_name,
                           @RequestParam(required = false, value = "ln") String last_name,
                           @RequestParam(required = false, value = "id") Integer id) {
 
@@ -38,7 +38,7 @@ public class BackendController {
 
         Response response = new Response("200_OK", user);
 
-        return response;
+        return new ResponseEntity(response, new HttpHeaders(), HttpStatus.OK);
     }
 
     @ResponseBody
@@ -46,20 +46,20 @@ public class BackendController {
     @RequestMapping(path     = "/empty",
                     produces = "application/json",
                     method   = RequestMethod.GET)
-    public Response simple() {
+    public ResponseEntity<?> simple() {
 
         PrivUser user = new PrivUser();
         Response response = new Response("200_OK", user);
-        return response;
+        return new ResponseEntity(response, new HttpHeaders(), HttpStatus.OK);
     }
 
-
+    @ResponseBody
     @RequestMapping(path     = "/post/{id}",
                     method   = RequestMethod.POST,
                     consumes = {"application/json;charset=UTF-8"},
                     headers  = {"content-type=application/json;charset=UTF-8"})
-    public @ResponseBody ResponseEntity<?> add_user(@PathVariable("id") Integer id,
-                                                    @RequestBody PubUser request){
+    public ResponseEntity<?> add_user(@PathVariable("id") Integer id,
+                                      @RequestBody PubUser request){
 
         PrivUser new_user = new PrivUser(request.firstname, request.lastname, id);
 
@@ -77,9 +77,9 @@ public class BackendController {
                  //ResponseEntity.created(location).build();
     }
 
-    @GetMapping(path="/user/{id}")
-    public @ResponseBody User getUserById(@PathVariable("id") long id) {
-        return userRepository.findOne(id);
-    }
+    // @GetMapping(path="/user/{id}")
+    // public @ResponseBody User getUserById(@PathVariable("id") long id) {
+    //     return userRepository.findOne(id);
+    // }
 
 }

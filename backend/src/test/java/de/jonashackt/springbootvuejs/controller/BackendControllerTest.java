@@ -6,6 +6,8 @@ import org.apache.http.HttpStatus;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static io.restassured.RestAssured.given;
@@ -23,47 +25,15 @@ public class BackendControllerTest {
 
 	private static final String BASE_URL = "http://localhost:8089/api";
 
-	/*
-	@Test
-	public void saysHello() {
-		given()
-		.when()
-			.get(BASE_URL + "/hello")
-		.then()
-			.statusCode(HttpStatus.SC_OK)
-			.assertThat()
-				.body(is(equalTo(BackendController.HELLO_TEXT)));
-	}
 
 	@Test
-    public void addNewUserAndRetrieveItBack() {
-        User norbertSiegmund = new User("Norbert", "Siegmund");
+	public void query() {}
 
-        Long userId =
-            given()
-                .queryParam("firstName", "Norbert")
-                .queryParam("lastName", "Siegmund")
-            .when()
-                .post(BASE_URL + "/add")
-            .then()
-                .statusCode(is(HttpStatus.SC_CREATED))
-                .extract()
-                    .body().as(Long.class);
+	@Test
+    public void simple() {}
 
-	    User responseUser =
-            given()
-                    .pathParam("id", userId)
-                .when()
-                    .get(BASE_URL + "/user/{id}")
-                .then()
-                    .statusCode(HttpStatus.SC_OK)
-                    .assertThat()
-                        .extract().as(User.class);
+    @Test
+	public void add_user() {}
 
-	    // Did Norbert came back?
-        assertThat(responseUser.getFirstName(), is("Norbert"));
-        assertThat(responseUser.getLastName(), is("Siegmund"));
-    }
-    */
 
 }
