@@ -51,10 +51,46 @@ and parsed, the Registration component renders the form with the following algor
          <component :is="component.name" :params="component.params" />
          ```
 
-         Use `component.name` to identify the component via
+         Use `component.name` to identify the form component via
          [Vue.js `is` keyword](https://vuejs.org/v2/api/#is).
 
          Use `component.params` as data to pass to the components via
          [Vue.js Props](https://vuejs.org/v2/guide/components.html#Props).
 
    4. Add an `<input type="submit">` element
+
+### Form Components
+
+The application uses a variety of form components. Generally, they follow a predictable pattern: All
+required parameters that are required to render a form control are passed from a parent context to
+the form component via the `params` property.
+
+The most basic component definition minus its template and styles looks like this:
+
+```
+export default {
+  name: 'TextArea',
+  props: ['params']
+};
+```
+
+A component named `TextArea` is defined. It expects a property named `params` to be bound to it upon
+usage.
+
+#### TextField (`<input type="text">`)
+
+An editable text field with an associated label.
+
+#### Checkbox (`<input type="checkbox">`)
+
+A checkable checkbox with an associated label.
+
+A checkbox should usually appear within an appropriate group component (i.e. `Group`). This allows
+to group multiple related controls (e.g. multiple checkboxes) together.
+
+#### RadioButton (`<input type="radio">`)
+
+A checkable radio button with an associated label.
+
+Multiple, related radio buttons must be grouped together in a `RadioGroup` component. This ensures
+that the radio buttons carry the same name attribute which identifies them as belonging together.
