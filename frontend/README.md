@@ -41,8 +41,8 @@ and parsed, the Registration component renders the form with the following algor
 3. Add a `<form>` element. Inside `<form>`:
 
    1. Use a heading to label the form with `formData.title`.
-   1. Use `formData.title` to provide a label for `<form>`.
-   1. For each `section` in `formData.sections`: Add a `<section>` element. Inside `<section>`:
+   2. Use `formData.title` to provide a label for `<form>`.
+   3. For each `section` in `formData.sections`: Add a `<section>` element. Inside `<section>`:
 
       1. Use `section.title` to provide a label for `<section>`.
       2. For each `component` in `section.components`: Add a `<component>` element.
@@ -57,4 +57,4 @@ and parsed, the Registration component renders the form with the following algor
          Use `component.params` as data to pass to the components via
          [Vue.js Props](https://vuejs.org/v2/guide/components.html#Props).
 
-   1. Add an `<input type="submit">` element
+   4. Add an `<input type="submit">` element
