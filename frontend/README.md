@@ -1,10 +1,8 @@
 # frontend
 
-> A Vue.js project
-
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
@@ -27,4 +25,36 @@ npm run e2e
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Documentation
+
+### Registration
+
+The Registration component (in `frontend/src/components/Registration.vue`) wraps the main
+registration form.
+
+It makes an asynchronous HTTP request to the resource `/static/form-data.json`. This is a big data
+structure containing all information for rendering the registration form. Once the data is loaded
+and parsed, the Registration component renders the form with the following algorithm.
+
+1. Let `formData` be the form data
+2. Load the form data via an asynchronous HTTP request and parse it into `formData`.
+3. Add a `<form>` element. Inside `<form>`:
+
+   1. Use a heading to label the form with `formData.title`.
+   1. Use `formData.title` to provide a label for `<form>`.
+   1. For each `section` in `formData.sections`: Add a `<section>` element. Inside `<section>`:
+
+      1. Use `section.title` to provide a label for `<section>`.
+      2. For each `component` in `section.components`: Add a `<component>` element.
+
+         ```
+         <component :is="component.name" :params="component.params" />
+         ```
+
+         Use `component.name` to identify the component via
+         [Vue.js `is` keyword](https://vuejs.org/v2/api/#is).
+
+         Use `component.params` as data to pass to the components via
+         [Vue.js Props](https://vuejs.org/v2/guide/components.html#Props).
+
+   1. Add an `<input type="submit">` element
