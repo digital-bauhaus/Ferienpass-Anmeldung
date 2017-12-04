@@ -12,7 +12,7 @@
       {{ params.introduction }}
     </p>
 
-    <component v-for="(entry, index) of params.entries" :key="index" :is="entry.component" :params="entry.params"/>
+    <component v-for="(component, index) of params.components" :key="index" :is="component.name" :params="component.params"/>
 
     <p v-if="params.note">
       {{ params.note }}

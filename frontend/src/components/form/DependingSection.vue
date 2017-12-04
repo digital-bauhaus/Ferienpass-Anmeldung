@@ -8,9 +8,9 @@
 
     <template v-if="checked">
       <component
-        v-for="(entry, index) of params.entries" :key="index"
-        :is="entry.component"
-        :params="entry.params"
+        v-for="(component, index) of params.components" :key="index"
+        :is="component.name"
+        :params="component.params"
       />
     </template>
   </div>

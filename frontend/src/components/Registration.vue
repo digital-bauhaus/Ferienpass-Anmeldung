@@ -12,9 +12,9 @@
       </h2>
 
       <component
-        v-for="(entry, index) of section.entries" :key="index"
-        :is="entry.component"
-        :params="entry.params"
+        v-for="(component, index) of section.components" :key="index"
+        :is="component.name"
+        :params="component.params"
       />
     </section>
 

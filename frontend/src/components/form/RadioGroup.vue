@@ -12,8 +12,8 @@
     </h3>
 
     <radio-button
-      v-for="(entry, index) of params.entries" :key="index"
-      :params="entry.params"
+      v-for="(component, index) of params.components" :key="index"
+      :params="component.params"
       :name="toIdentifier(params.title)"
     />
   </div>
