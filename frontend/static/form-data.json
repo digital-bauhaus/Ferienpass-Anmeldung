@@ -71,7 +71,7 @@
               "Hinweis: Die Bestätigung des Platzes erfolgt bei der Anmeldung entsprechend der zur Verfügung stehenden Kapazitäten für die Angebote. Sollte ein Angebot seitens der Veranstalter aus unvorhergesehenen Gründen abgesagt werden, besteht kein Anspruch auf ein Ersatzangebot. Der gezahlte Beitrag für dieses Angebot wird Ihnen komplett zurück erstattet.",
             "components": [
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Piratenfest an der Ilm",
                   "date": "26. Juni 2017",
@@ -79,7 +79,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Bauspielplatz",
                   "date": "26. bis 28. Juni 2017",
@@ -87,7 +87,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Papier-Werkstatt",
                   "date": "26. bis 28. Juni 2017",
@@ -95,7 +95,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Indianer und ihre Tiere",
                   "date": "27. bis 28. Juni 2017",
@@ -103,7 +103,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Filz-Werkstatt",
                   "date": "29. bis 30. Juni 2017",
@@ -111,7 +111,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Indianer und ihre Tiere",
                   "date": "29. bis 30. Juni 2017",
@@ -119,7 +119,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Das Alien vom Planeten Alpha Omega Pi",
                   "date": "3. bis 7. Juli 2017",
@@ -127,7 +127,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Graffiti",
                   "date": "3. bis 4. Juli 2017",
@@ -136,7 +136,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Fahrrad-Tour aus dem Feiniger Radweg",
                   "date": "4. Juli 2017",
@@ -144,7 +144,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Die große Schatzsuche",
                   "date": "10. bis 12. Juli 2017",
@@ -152,7 +152,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Skateboard-Kurs",
                   "date": "12. bis 14. Juli 2017",
@@ -160,7 +160,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Kinderzirkus",
                   "date": "17. bis 19. Juli 2017",
@@ -168,7 +168,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Klettern",
                   "date": "25. Juli 2017",
@@ -176,7 +176,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Klettern",
                   "date": "26. Juli 2017",
@@ -184,7 +184,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "GrenzbeWEGnung",
                   "date": "31. Juli bis 4. August 2017",
@@ -192,7 +192,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Angeln",
                   "date": "31. Juli bis 1. August 2017",
@@ -200,7 +200,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Jiddisch – Wir singen tanzen spielen",
                   "date": "2. bis 6. August 2017",
@@ -208,7 +208,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Angeln",
                   "date": "2. bis 3. August 2017",
@@ -216,7 +216,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Natur-Erlebnis-Camp",
                   "date": "7. bis 9. August 2017",
@@ -224,7 +224,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Geräusche-Jagd",
                   "date": "8. August 2017",
@@ -232,7 +232,7 @@
                 }
               },
               {
-                "name": "CheckboxOffer",
+                "name": "Checkbox",
                 "params": {
                   "label": "Schlauchboot-Tour",
                   "date": "9. August 2017",

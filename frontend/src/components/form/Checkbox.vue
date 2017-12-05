@@ -11,9 +11,16 @@
     <span class="checkbox__tick"></span>
 
     <span class="checkbox__label">
-      <slot name="slotLabel">
+      <template v-if="params.date && params.org">
+        <span class="offer">
+          <span class="offer__title">{{ params.label }}</span>
+          <span class="offer__date">{{ params.date }}</span>
+          <span class="offer__org">{{ params.org }}</span>
+        </span>
+      </template>
+      <template v-else>
         {{ params.label }}
-      </slot>
+      </template>
     </span>
   </label>
 </template>
@@ -33,7 +40,7 @@ export default {
 <style scoped>
 .checkbox {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   margin-bottom: 0.75rem;
 }
@@ -84,5 +91,18 @@ the componente would only become partially visible.
   align-items: center;
   justify-content: center;
 }
-</style>
 
+.offer {
+  display: flex;
+  flex-direction: column;
+}
+
+.offer__date {
+  order: -1;
+  font-size: 0.75em;
+}
+
+.offer__title {
+  font-weight: bold;
+}
+</style>
