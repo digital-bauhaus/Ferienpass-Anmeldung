@@ -75,9 +75,9 @@ A component named `TextArea` is defined. It expects a property named `params` to
 
 * `params.label` (required)
 * `params.hideLabel` (optional): Allows hiding the label visually by toggling the `visually-hidden` class on the label.
-* `params.type` (optional): Specify the `type` attribute of the `<input>` element. Possible values include: `number`, `tel`, `url`.
-* `params.placeholder` (optional): Specify the `placeholder` attribute of the `<input>` element.
-* `params.required` (optional): Specify the `placeholder` attribute of the `<input>` element.
+* `params.type` (optional): Specify the `type` attribute for the `<input>` element. Possible values include: `number`, `tel`, `url`.
+* `params.placeholder` (optional): Specify the `placeholder` attribute for the `<input>` element.
+* `params.required` (optional): Specify the `placeholder` attribute for the `<input>` element.
 
 **`value`**:
 
@@ -98,7 +98,8 @@ A checkbox should usually appear within an appropriate group component (i.e. `Gr
 **`params`**:
 
 * `params.label` (required)
-* `params.required` (optional): Specify the `placeholder` attribute of the `<input>` element.
+* `params.required` (optional): Specify the `placeholder` attribute for the `<input>` element.
+* `params.date`, `params.org` (optional): Specifying these additional properties renders a visually different label.
 
 **`onChecked`**:
 
@@ -122,3 +123,5 @@ A radio button has a special, required property `name` that is used to set the g
 
 * `params.label` (required)
 * `params.hideLabel` (optional): Allows hiding the label visually by toggling the `visually-hidden` class on the label.
+
+#### DynamicList
