@@ -4,7 +4,7 @@ import java.util.*;
 import javax.persistence.*;
 
 @Entity
-public class User {
+public class    User {
 
     // PrimaryKey
     @Id
@@ -51,7 +51,7 @@ public class User {
             inverseJoinColumns=@JoinColumn(name="limitation_id", referencedColumnName="limitation_id"))
     private List<Limitation> limitations;
 
-    protected User() {}
+    public User() {}
 
     public User(String firstName, String lastName) {
         this.firstName = firstName;
