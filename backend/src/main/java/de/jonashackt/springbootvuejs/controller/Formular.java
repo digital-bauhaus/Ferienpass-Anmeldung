@@ -12,10 +12,9 @@ public class Formular {
 
     public Formular(){}
 
-    public Formular (String firstname, String lastname, long id){
+    public Formular (String firstname, String lastname){
         this.firstName = firstname;
         this.lastName  = lastname;
-        this.id        = id;
     }
 
     public long id;
@@ -31,4 +30,8 @@ public class Formular {
     public boolean allowRide;
     public boolean allowSwim;
     public boolean allowHomeAlone;
+    public Doctor doctor;
+    public List<Project> projects;
+    public List<Limitation> limitations;
+    public List<Disability> disabilities;
 }
