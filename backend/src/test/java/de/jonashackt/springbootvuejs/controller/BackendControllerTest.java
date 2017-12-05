@@ -25,7 +25,6 @@ public class BackendControllerTest {
 
 	private static final String BASE_URL = "http://localhost:8089/api";
 
-
 	@Test
 	public void query() {}
 
@@ -35,5 +34,7 @@ public class BackendControllerTest {
     @Test
 	public void add_user() {}
 
+	@Test
+	public void authenticate() {}
 
 }

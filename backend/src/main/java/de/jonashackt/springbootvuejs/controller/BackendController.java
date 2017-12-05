@@ -16,6 +16,7 @@ import sun.misc.FormattedFloatingDecimal;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
+import java.util.List;
 
 @RestController()
 @RequestMapping("/api")
@@ -26,7 +27,14 @@ public class BackendController {
 
     @Autowired
     private UserRepository userRepository;
-    private final int counter = 1;
+
+    @RequestMapping(path = "/all/users")
+    @ResponseStatus(HttpStatus.CREATED)
+    public @ResponseBody
+    List<User> showAllUsers() {
+        LOG.info("GET called on /all resource");
+        return userRepository.findAllUsers();
+    }
 
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
@@ -57,23 +65,24 @@ public class BackendController {
     }
 
     @ResponseBody
-    @RequestMapping(path     = "/post/{id}",
+    @RequestMapping(path     = "/post",
                     method   = RequestMethod.POST,
                     consumes = {"application/json;charset=UTF-8"},
                     headers  = {"content-type=application/json;charset=UTF-8"})
-    public ResponseEntity<?> add_user(@PathVariable("id") long id,
-                                      @RequestBody Formular request) throws Exception {
+    public ResponseEntity<?> add_user(@RequestBody Formular request) throws Exception {
 
-        Formular form = new Formular (request.firstName, request.lastName, id);
+        Formular form = new Formular (request.firstName, request.lastName);
 
-        User new_user = new User(id, form.firstName, form.lastName);
+        User new_user = new User(form.firstName, form.lastName);
 
-        System.out.println("resieved json: " + new_user.getFirstName() + ", " + new_user.getLastName() + ", " + new_user.getId());
+        System.out.println("resieved json: " + new_user.getFirstName() + ", " + new_user.getLastName());
 
         if (request == null){
             System.out.println("Error: request is empty!");
             return ResponseEntity.noContent().build();
         }
+
+        userRepository.save(new_user);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(
                        "/user").buildAndExpand(new_user.getId()).toUri();
@@ -82,14 +91,13 @@ public class BackendController {
                  //ResponseEntity.created(location).build();
     }
 
-    @RequestMapping(path     = "/format/{id}",
+    @RequestMapping(path     = "/format",
                     method   = RequestMethod.POST,
                     consumes = {"application/x-www-form-urlencoded",
                                 MediaType.APPLICATION_FORM_URLENCODED_VALUE})
-    public ResponseEntity<?> authenticate(@PathVariable("id") long id,
-                                          @RequestBody MultiValueMap<String, String> request) throws Exception {
+    public ResponseEntity<?> authenticate(@RequestBody MultiValueMap<String, String> request) throws Exception {
 
-        System.out.println("resieved x-www: " + request.get("familienname") + ", " + request.get("vorname-meines-kindes")+ ", " + id);
+        System.out.println("resieved x-www: " + request.get("familienname") + ", " + request.get("vorname-meines-kindes"));
 
         if(request == null) {
             System.out.println("Error: request is empty!");
