@@ -9,13 +9,13 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import sun.misc.FormattedFloatingDecimal;
 
-import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
+import java.util.Map;
+
+
 
 @RestController()
 @RequestMapping("/api")
@@ -82,16 +82,18 @@ public class BackendController {
                  //ResponseEntity.created(location).build();
     }
 
-    @RequestMapping(path     = "/format/{id}",
+    @CrossOrigin(origins = "http://localhost:8080")
+    @RequestMapping(path     = "/register",
                     method   = RequestMethod.POST,
-                    consumes = {"application/x-www-form-urlencoded",
-                                MediaType.APPLICATION_FORM_URLENCODED_VALUE})
-    public ResponseEntity<?> authenticate(@PathVariable("id") long id,
-                                          @RequestBody MultiValueMap<String, String> request) throws Exception {
+                    consumes = {
+                        MediaType.APPLICATION_FORM_URLENCODED_VALUE,
+                        MediaType.APPLICATION_JSON_VALUE
+                    })
+    public ResponseEntity<?> register(@RequestBody Map<String, Object> request) throws Exception {
 
-        System.out.println("resieved x-www: " + request.get("familienname") + ", " + request.get("vorname-meines-kindes")+ ", " + id);
+        System.out.println("recieved: " + request.get("familienname") + ", " + request.get("vorname-meines-kindes"));
 
-        if(request == null) {
+        if (request == null) {
             System.out.println("Error: request is empty!");
             return ResponseEntity.noContent().build();
         }
