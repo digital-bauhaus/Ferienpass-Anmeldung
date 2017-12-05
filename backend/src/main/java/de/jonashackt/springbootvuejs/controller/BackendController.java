@@ -42,10 +42,9 @@ public class BackendController {
                     produces = "application/json",
                     method   = RequestMethod.GET)
     public ResponseEntity<?> query(@RequestParam(required = false, value = "fn") String first_name,
-                                   @RequestParam(required = false, value = "ln") String last_name,
-                                   @RequestParam(required = false, value = "id") long id) {
+                                   @RequestParam(required = false, value = "ln") String last_name) {
 
-        User user = new User (id, first_name, last_name);
+        User user = new User (first_name, last_name);
 
         Response response = new Response("200_OK", user);
 
