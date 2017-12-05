@@ -7,9 +7,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import sun.misc.FormattedFloatingDecimal;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
@@ -31,10 +34,10 @@ public class BackendController {
                     produces = "application/json",
                     method   = RequestMethod.GET)
     public ResponseEntity<?> query(@RequestParam(required = false, value = "fn") String first_name,
-                          @RequestParam(required = false, value = "ln") String last_name,
-                          @RequestParam(required = false, value = "id") Integer id) {
+                                   @RequestParam(required = false, value = "ln") String last_name,
+                                   @RequestParam(required = false, value = "id") long id) {
 
-        PrivUser user = new PrivUser (first_name, last_name, id);
+        User user = new User (id, first_name, last_name);
 
         Response response = new Response("200_OK", user);
 
@@ -48,7 +51,7 @@ public class BackendController {
                     method   = RequestMethod.GET)
     public ResponseEntity<?> simple() {
 
-        PrivUser user = new PrivUser();
+        User user = new User();
         Response response = new Response("200_OK", user);
         return new ResponseEntity(response, new HttpHeaders(), HttpStatus.OK);
     }
@@ -58,12 +61,14 @@ public class BackendController {
                     method   = RequestMethod.POST,
                     consumes = {"application/json;charset=UTF-8"},
                     headers  = {"content-type=application/json;charset=UTF-8"})
-    public ResponseEntity<?> add_user(@PathVariable("id") Integer id,
-                                      @RequestBody PubUser request){
+    public ResponseEntity<?> add_user(@PathVariable("id") long id,
+                                      @RequestBody Formular request) throws Exception {
 
-        PrivUser new_user = new PrivUser(request.firstname, request.lastname, id);
+        Formular form = new Formular (request.firstName, request.lastName, id);
 
-        System.out.println(new_user.getFirstName() +", "+ new_user.getLastName() +", "+ new_user.getId());
+        User new_user = new User(id, form.firstName, form.lastName);
+
+        System.out.println("resieved json: " + new_user.getFirstName() + ", " + new_user.getLastName() + ", " + new_user.getId());
 
         if (request == null){
             System.out.println("Error: request is empty!");
@@ -77,9 +82,21 @@ public class BackendController {
                  //ResponseEntity.created(location).build();
     }
 
-    // @GetMapping(path="/user/{id}")
-    // public @ResponseBody User getUserById(@PathVariable("id") long id) {
-    //     return userRepository.findOne(id);
-    // }
+    @RequestMapping(path     = "/format/{id}",
+                    method   = RequestMethod.POST,
+                    consumes = {"application/x-www-form-urlencoded",
+                                MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+    public ResponseEntity<?> authenticate(@PathVariable("id") long id,
+                                          @RequestBody MultiValueMap<String, String> request) throws Exception {
+
+        System.out.println("resieved x-www: " + request.get("familienname") + ", " + request.get("vorname-meines-kindes")+ ", " + id);
+
+        if(request == null) {
+            System.out.println("Error: request is empty!");
+            return ResponseEntity.noContent().build();
+        }
+
+        return new ResponseEntity("Resieved a new user", new HttpHeaders(), HttpStatus.OK);
+    }
 
 }
