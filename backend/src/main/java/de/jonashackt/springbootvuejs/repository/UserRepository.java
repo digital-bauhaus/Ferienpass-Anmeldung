@@ -20,5 +20,5 @@ public interface UserRepository extends CrudRepository<User, Long> {
 /*
     List<User> findByIs_Paid(@Param("is_paid") boolean is_paid);
 */
-    List<User> findByCity(@Param("city") String city);
+    List<User> findByAddress(@Param("address") String address);
 }

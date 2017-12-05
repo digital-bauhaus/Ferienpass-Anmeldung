@@ -14,12 +14,15 @@ public class    User {
     private String firstName;
     private String lastName;
     private Date birthdate;
-    private String street;
-    private String city;
-    private String postcode;
+    private String address;
     private String telephone;
     private String healthcareNr;
-    private String emergencyContact;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn (name = "contact_id")
+    private Contact emergencyContact;
+
+    private boolean allowTreatment;
     private boolean allowRide;
     private boolean allowSwim;
     private boolean allowHomeAlone;
@@ -58,62 +61,53 @@ public class    User {
         this.lastName = lastName;
     }
 
-    public User(long id,String firstName, String lastName) {
-        this.id = id;
+    public User(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public User(String firstName, String lastName, Date birthdate, String street, String city){
+    public User(String firstName, String lastName, Date birthdate,
+                String address, String telephone, String healthcareNr, Contact emergencyContact,
+                boolean allowTreatment, boolean allowRide, boolean allowSwim, boolean allowHomeAlone, boolean isPaid,
+                Doctor doctor, List<Project> projects, List<Disability> disabilities, List<Limitation> limitations) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = birthdate;
-        this.street = street;
-        this.city = city;
-    }
-
-    public User(String firstName, String lastName, Date birthdate, String street, String city, String postcode,
-                String telephone, String healthcareNr, String emergencyContact, boolean allowRide,
-                boolean allowSwim, boolean allowHomeAlone, boolean is_paid, Doctor doctor, List<Project> projects,
-                List<Disability> disabilities, List<Limitation> limitations) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthdate = birthdate;
-        this.street = street;
-        this.city = city;
-        this.postcode = postcode;
+        this.address = address;
         this.telephone = telephone;
         this.healthcareNr = healthcareNr;
         this.emergencyContact = emergencyContact;
+        this.allowTreatment = allowTreatment;
         this.allowRide = allowRide;
         this.allowSwim = allowSwim;
         this.allowHomeAlone = allowHomeAlone;
-        this.isPaid = is_paid;
+        this.isPaid = isPaid;
         this.doctor = doctor;
         this.projects = projects;
         this.disabilities = disabilities;
         this.limitations = limitations;
     }
-/*
-    public User(long id, String firstName, String lastName, Date birthdate, String street, String city, String postcode,
-                String telephone, String healthcareNr, String emergencyContact, boolean allowRide,
-                boolean allowSwim, boolean allowHomeAlone, boolean is_paid) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthdate = birthdate;
-        this.street = street;
-        this.city = city;
-        this.postcode = postcode;
-        this.telephone = telephone;
-        this.healthcareNr = healthcareNr;
-        this.emergencyContact = emergencyContact;
-        this.allowRide = allowRide;
-        this.allowSwim = allowSwim;
-        this.allowHomeAlone = allowHomeAlone;
-        this.isPaid = is_paid;
-    }
-*/
+
+    /*
+        public User(long id, String firstName, String lastName, Date birthdate, String street, String city, String postcode,
+                    String telephone, String healthcareNr, String emergencyContact, boolean allowRide,
+                    boolean allowSwim, boolean allowHomeAlone, boolean is_paid) {
+            this.id = id;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.birthdate = birthdate;
+            this.street = street;
+            this.city = city;
+            this.postcode = postcode;
+            this.telephone = telephone;
+            this.healthcareNr = healthcareNr;
+            this.emergencyContact = emergencyContact;
+            this.allowRide = allowRide;
+            this.allowSwim = allowSwim;
+            this.allowHomeAlone = allowHomeAlone;
+            this.isPaid = is_paid;
+        }
+    */
     @Override
     public String toString() {
         return "User{" +
@@ -121,18 +115,17 @@ public class    User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", birthdate=" + birthdate +
-                ", street='" + street + '\'' +
-                ", city='" + city + '\'' +
-                ", postcode='" + postcode + '\'' +
+                ", address='" + address + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", healthcareNr='" + healthcareNr + '\'' +
+                ", allowTreatment='" + allowTreatment +  '\'' +
                 ", emergencyContact='" + emergencyContact + '\'' +
                 ", allowHomeAlone=" + allowHomeAlone +
-                ", allowRide=" + allowRide +
-                ", allowSwim=" + allowSwim +
-                ", doctor=" + doctor +
-                ", projects=" + projects +
-                ", limitations=" + limitations +
+                ", allowRide=" + allowRide +  '\'' +
+                ", allowSwim=" + allowSwim +  '\'' +
+                ", doctor=" + doctor + '\'' +
+                ", projects=" + projects + '\'' +
+                ", limitations=" + limitations + '\'' +
                 '}';
     }
 
@@ -160,22 +153,6 @@ public class    User {
         this.id = id;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
-
     public String getTelephone() {
         return telephone;
     }
@@ -192,11 +169,11 @@ public class    User {
         this.healthcareNr = healthcareNr;
     }
 
-    public String getEmergencyContact() {
+    public Contact getEmergencyContact() {
         return emergencyContact;
     }
 
-    public void setEmergencyContact(String emergencyContact) {
+    public void setEmergencyContact(Contact emergencyContact) {
         this.emergencyContact = emergencyContact;
     }
 
@@ -238,14 +215,6 @@ public class    User {
 
     public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
     }
 
     public boolean isPaid() {
