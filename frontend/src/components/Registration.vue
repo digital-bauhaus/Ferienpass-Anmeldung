@@ -1,5 +1,12 @@
 <template>
-  <form v-if="formDataLoaded" @keydown.enter="preventAccidentalSubmit" class="form" action="/api/register" method="post">
+  <form
+    v-if="formDataLoaded"
+    @keydown.enter="preventAccidentalSubmit"
+    @submit="delegatePost"
+    class="form"
+    action="/api/register"
+    method="post"
+  >
     <h1>{{ formData.title }}</h1>
 
     <section
@@ -8,7 +15,7 @@
       :aria-labelledby="`${toIdentifier(section.title)}`"
     >
       <h2 class="form-section__title" :id="`${toIdentifier(section.title)}`">
-        <a :href="`#${toIdentifier(section.title)}`">{{ section.title }}</a>
+        {{ section.title }}
       </h2>
 
       <component
@@ -18,11 +25,13 @@
       />
     </section>
 
-    <input class="button button--wide" type="submit" value="Absenden">
+    <input class="button button--wide" type="submit" name="Submit" value="Absenden">
   </form>
 </template>
 
 <script>
+import { AXIOS } from './http-common';
+
 export default {
   name: 'Registration',
   data() {
@@ -51,6 +60,25 @@ export default {
       }
 
       event.preventDefault();
+    },
+    delegatePost(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      let jsonObject = {};
+      Array.prototype.slice.call(form.elements).forEach(element => {
+        if (element.name && element.type !== 'submit') {
+          jsonObject[element.name] = element.type === 'checkbox' ? element.checked : element.value;
+        }
+      });
+
+      AXIOS.post('/api/register', jsonObject)
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
   }
 };
