@@ -4,7 +4,7 @@ import java.util.*;
 import javax.persistence.*;
 
 @Entity
-public class User {
+public class    User {
 
     // PrimaryKey
     @Id
