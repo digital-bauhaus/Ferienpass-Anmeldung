@@ -6,6 +6,7 @@ import de.jonashackt.springbootvuejs.domain.Doctor;
 import de.jonashackt.springbootvuejs.domain.Disability;
 import de.jonashackt.springbootvuejs.domain.Project;
 import de.jonashackt.springbootvuejs.domain.Limitation;
+import de.jonashackt.springbootvuejs.domain.Contact;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,13 +33,17 @@ public class UserRepositoryTest {
     @Autowired
     private UserRepository users;
     Date birthdate = new Date();
-    Doctor doctorexample = new Doctor("Resu","Tset","AndereStraße","Stadt","11111","110");
+    Doctor doctorexample = new Doctor("Resu","Tset","AndereStraße 2 Stadt 11111","110");
+    Contact examplecontact = new Contact("Kontakt","Noch eine Straße 3 Stadt 11111","123456789");
     List<Project> projects = new ArrayList<>();
     List<Limitation> limits = new ArrayList<>();
     Project projectexample = new Project("Testen",15,10,"www.beispiel.de",null);
     User norbertSiegmund = new User("Norbert", "Siegmund");
     User jonasHecht = new User("Jonas", "Hecht");
-    User testUser = new User("Test","User",birthdate,"Straße","Stadt", "11111","0900","110","Emergency",true,true,true,true,doctorexample,projects,null,limits);
+    User testUser = new User("Test","User",birthdate,"Straße 1 Stadt 11111",
+            "0900","110",examplecontact,
+            true,true,true,true,true,
+            doctorexample,projects,null,limits);
 
     @Before
     public void fillSomeDataIntoOurDb() {
@@ -66,10 +71,10 @@ public class UserRepositoryTest {
     }
 
     @Test
-    public void testFindByCity() throws Exception {
-        List<User> usersWithCityStadt = users.findByCity("Stadt");
+    public void testFindByAddress() throws Exception {
+        List<User> usersWithAddressStadt = users.findByAddress("Straße 1 Stadt 11111");
 
-        assertThat(usersWithCityStadt, contains(testUser));
+        assertThat(usersWithAddressStadt, contains(testUser));
     }
 
 }

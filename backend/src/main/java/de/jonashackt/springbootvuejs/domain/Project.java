@@ -1,13 +1,7 @@
 package de.jonashackt.springbootvuejs.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
-import java.util.Date;
+import javax.persistence.*;
+import java.util.*;
 
 @Entity
 public class Project {
@@ -19,6 +13,7 @@ public class Project {
     private int slots;
     private int reservedSlots;
     private String weblink;
+
     @ManyToOne
     @JoinColumn(name = "sponsor_id")
     private Sponsor sponsor;
