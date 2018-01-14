@@ -154,6 +154,7 @@ trumps.visually-hidden.css
 
 <style scoped>
 .page-content {
+  width: 80%;
   max-width: 1000px;
   margin: 3rem auto;
 }
