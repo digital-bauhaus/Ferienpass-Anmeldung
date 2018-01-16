@@ -22,7 +22,7 @@
         {{ section.title }}
 
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" role="img" aria-labelledby="triangle-right-title" class="triangle">
-          <title id="triangle-right-title">A right-pointing triangle</title>
+          <title id="triangle-right-title">Öffnet oder schließt den aktuellen Abschnitt</title>
           <path d="m0,0l0,18 15.588,-9 Z" fill="#000"/>
         </svg>
       </h2>
@@ -111,10 +111,6 @@ export default {
   counter-increment: form-section;
 }
 
-.form-section:not(:last-child) {
-  margin-bottom: 4.5rem;
-}
-
 .form-section__title::before {
   /* Display each .form-section’s counter value */
   content: counter(form-section) '.' '\A0';
@@ -126,9 +122,12 @@ export default {
 
 .triangle {
   margin-left: 0.25rem;
+  transform-origin: 6px 9px;
+  transition: transform 0.1s;
 }
 
 .form-section.open .triangle {
   transform: rotate(90deg);
+  transition: transform 0.25s;
 }
 </style>
