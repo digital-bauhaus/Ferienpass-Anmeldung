@@ -41,6 +41,13 @@
               {
                 "name": "TextField",
                 "params": {
+                  "label": "Postleitzahl",
+                  "required": true
+                }
+              },
+              {
+                "name": "TextField",
+                "params": {
                   "label": "Wohnort",
                   "required": true
                 }
