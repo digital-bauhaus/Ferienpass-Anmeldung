@@ -10,19 +10,30 @@
     <h1>{{ formData.title }}</h1>
 
     <section
-      v-for="(section, index) of formData.sections" :key="index"
       class="form-section"
+      v-for="(section, index) of formData.sections" :key="index"
       :aria-labelledby="`${toIdentifier(section.title)}`"
     >
-      <h2 class="form-section__title" :id="`${toIdentifier(section.title)}`">
+      <h2
+        class="form-section__title"
+        :id="`${toIdentifier(section.title)}`"
+        @click="toggleSectionVisibility"
+      >
         {{ section.title }}
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" role="img" aria-labelledby="triangle-right-title" class="triangle">
+          <title id="triangle-right-title">A right-pointing triangle</title>
+          <path d="m0,0l0,18 15.588,-9 Z" fill="#000"/>
+        </svg>
       </h2>
 
-      <component
-        v-for="(component, index) of section.components" :key="index"
-        :is="component.name"
-        :params="component.params"
-      />
+      <div class="form-section__body  visually-hidden">
+        <component
+          v-for="(component, index) of section.components" :key="index"
+          :is="component.name"
+          :params="component.params"
+        />
+      </div>
     </section>
 
     <input class="button button--wide" type="submit" name="Submit" value="Absenden">
@@ -46,9 +57,7 @@ export default {
   methods: {
     fetchData() {
       fetch('/static/form-data.json')
-        .then(response => {
-          return response.json();
-        })
+        .then(response => response.json())
         .then(json => {
           this.formData = json;
           this.formDataLoaded = true;
@@ -79,6 +88,13 @@ export default {
         .catch(error => {
           console.error(error);
         });
+    },
+    toggleSectionVisibility(event) {
+      const section = event.currentTarget.parentElement;
+      const sectionBody = section.querySelector('.form-section__body');
+
+      section.classList.toggle('open');
+      sectionBody.classList.toggle('visually-hidden');
     }
   }
 };
@@ -106,5 +122,13 @@ export default {
 
 .form-item:not(:last-child) {
   margin-bottom: 0.75rem;
+}
+
+.triangle {
+  margin-left: 0.25rem;
+}
+
+.form-section.open .triangle {
+  transform: rotate(90deg);
 }
 </style>
