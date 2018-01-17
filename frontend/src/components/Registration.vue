@@ -10,8 +10,8 @@
     <h1>{{ formData.title }}</h1>
 
     <section
-      class="form-section"
       v-for="(section, index) of formData.sections" :key="index"
+      :class="`form-section ${section.expandOnStart ? 'open' : ''}`"
       :aria-labelledby="`${toIdentifier(section.title)}`"
     >
       <h2
@@ -27,7 +27,7 @@
         </svg>
       </h2>
 
-      <div class="form-section__body  visually-hidden">
+      <div class="form-section__body">
         <component
           v-for="(component, index) of section.components" :key="index"
           :is="component.name"
@@ -91,10 +91,7 @@ export default {
     },
     toggleSectionVisibility(event) {
       const section = event.currentTarget.parentElement;
-      const sectionBody = section.querySelector('.form-section__body');
-
       section.classList.toggle('open');
-      sectionBody.classList.toggle('visually-hidden');
     }
   }
 };
@@ -114,6 +111,16 @@ export default {
 .form-section__title::before {
   /* Display each .form-section’s counter value */
   content: counter(form-section) '.' '\A0';
+}
+
+.form-section:not(.open) .form-section__body {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }
 
 .form-item:not(:last-child) {

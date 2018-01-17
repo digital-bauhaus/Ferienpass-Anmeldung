@@ -3,6 +3,7 @@
   "sections": [
     {
       "title": "Grunddaten",
+      "expandOnStart": true,
       "components": [
         {
           "name": "Group",
