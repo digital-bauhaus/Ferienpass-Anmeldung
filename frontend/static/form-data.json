@@ -74,8 +74,7 @@
             "title": "Angebote",
             "hideTitle": true,
             "introduction": "Mein Kind möchte an folgenden Veranstaltungen teilnehmen:",
-            "note":
-              "Hinweis: Die Bestätigung des Platzes erfolgt bei der Anmeldung entsprechend der zur Verfügung stehenden Kapazitäten für die Angebote. Sollte ein Angebot seitens der Veranstalter aus unvorhergesehenen Gründen abgesagt werden, besteht kein Anspruch auf ein Ersatzangebot. Der gezahlte Beitrag für dieses Angebot wird Ihnen komplett zurück erstattet.",
+            "note": "Hinweis: Die Bestätigung des Platzes erfolgt bei der Anmeldung entsprechend der zur Verfügung stehenden Kapazitäten für die Angebote. Sollte ein Angebot seitens der Veranstalter aus unvorhergesehenen Gründen abgesagt werden, besteht kein Anspruch auf ein Ersatzangebot. Der gezahlte Beitrag für dieses Angebot wird Ihnen komplett zurück erstattet.",
             "components": [
               {
                 "name": "Checkbox",
@@ -138,8 +137,7 @@
                 "params": {
                   "label": "Graffiti",
                   "date": "3. bis 4. Juli 2017",
-                  "org":
-                    "„Für Euch“ e.V. – Schulförderverein des Johannes Landenberger Förderzentrums"
+                  "org": "„Für Euch“ e.V. – Schulförderverein des Johannes Landenberger Förderzentrums"
                 }
               },
               {
@@ -503,8 +501,7 @@
                     {
                       "name": "Checkbox",
                       "params": {
-                        "label":
-                          "„G“ (Erhebliche Beeinträchtigung der Bewegungsfähigkeit im Straßenverkehr)"
+                        "label": "„G“ (Erhebliche Beeinträchtigung der Bewegungsfähigkeit im Straßenverkehr)"
                       }
                     },
                     {
@@ -557,8 +554,7 @@
                   "checkbox": {
                     "name": "Checkbox",
                     "params": {
-                      "label":
-                        "Mein Kind hat im Schulalltag eine Schulbegleitung und benötigt auch während der Ferienfreizeit eine Begleitperson"
+                      "label": "Mein Kind hat im Schulalltag eine Schulbegleitung und benötigt auch während der Ferienfreizeit eine Begleitperson"
                     }
                   },
                   "components": [
@@ -624,22 +620,19 @@
                     {
                       "name": "Checkbox",
                       "params": {
-                        "label":
-                          "Wir benötigen Unterstützung bei der Organisation der Begleitperson"
+                        "label": "Wir benötigen Unterstützung bei der Organisation der Begleitperson"
                       }
                     },
                     {
                       "name": "TextArea",
                       "params": {
-                        "label":
-                          "Welcher Dienst ist in der Regel für die Begleitung/Betreuung zuständig? (Bitte Kontaktdaten des Dienstes/der Dienste angeben):"
+                        "label": "Welcher Dienst ist in der Regel für die Begleitung/Betreuung zuständig? (Bitte Kontaktdaten des Dienstes/der Dienste angeben):"
                       }
                     },
                     {
                       "name": "Checkbox",
                       "params": {
-                        "label":
-                          "Hiermit beantrage ich die Übernahme der Kosten für die Begleitung/Betreuung o.g. Kindes während der Teilnahme an den Ferienfreizeiten gemäß der Anmeldung auf Seite 1. Auf die Förderung einer Begleitperson für Ferienfreizeiten besteht kein Rechtsanspruch. Die  bedürftigkeitsabhängige Prüfung erfolgt am Einzelfall durch das Amt für Familie und Soziales der Stadt Weimar. Voraussetzung hierfür ist, dass das Kind als Hauptwohnsitz in Weimar lebt."
+                        "label": "Hiermit beantrage ich die Übernahme der Kosten für die Begleitung/Betreuung o.g. Kindes während der Teilnahme an den Ferienfreizeiten gemäß der Anmeldung auf Seite 1. Auf die Förderung einer Begleitperson für Ferienfreizeiten besteht kein Rechtsanspruch. Die  bedürftigkeitsabhängige Prüfung erfolgt am Einzelfall durch das Amt für Familie und Soziales der Stadt Weimar. Voraussetzung hierfür ist, dass das Kind als Hauptwohnsitz in Weimar lebt."
                       }
                     }
                   ]
@@ -721,16 +714,14 @@
         },
         {
           "name": {
-            "template":
-              "<p><b>Wir bitten die Eltern bzw. Erziehungsberechtigten folgende Erklärung zu unterschreiben</b>:</p>"
+            "template": "<p><b>Wir bitten die Eltern bzw. Erziehungsberechtigten folgende Erklärung zu unterschreiben</b>:</p>"
           }
         },
         {
           "name": "OrderedList",
           "params": {
-            "title":
-              "Wir bitten die Eltern bzw. Erziehungsberechtigten folgende Erklärung zu unterschreiben:",
-            "components": [
+            "title": "Wir bitten die Eltern bzw. Erziehungsberechtigten folgende Erklärung zu unterschreiben:",
+            "entries": [
               "Mit meiner Unterschrift (6.) bestätige ich die verbindliche Anmeldung meines Kindes bei allen gewählten Veranstaltungen des Ferienpasses. Den Teilnehmerbeitrag bezahle ich im Kinderbüro zusammen mit dieser Anmeldung.",
               "Erforderliche Erklärung für die Beantragung einer Begleitperson bei einer Behinderung des Kindes mit Hauptwohnsitz Weimar: Ich bin damit einverstanden, dass meine hier gemachten Angaben an das Amt für Familie und Soziales der Stadt Weimar weitergegeben werden.",
               "Im Ferienpass sollen möglichst alle Kinder, egal ob mit oder ohne Behinderung, die Möglichkeit für tolle Ferien geboten bekommen. Leider sind nicht alle Angebote des Ferienpasses für alle Kinder mit körperlichen oder geistigen Einschränkungen geeignet. Sorgeberechtigte prüfen, ob das Angebot und die räumlichen Gegebenheiten den Fähigkeiten des Kindes entsprechen. Ein Elterngespräch zur Abklärung räumlicher Voraussetzung ist unbedingt zu empfehlen.",
@@ -746,20 +737,17 @@
         },
         {
           "name": {
-            "template":
-              "<p>Die Anmeldung zu den Aktionen ist verbindlich. Bitte geben Sie dieses vierseitige Formular vollständig ausgefüllt und unterschrieben im Kinderbüro ab. Der ausstehende Betrag ist bei der Anmeldung im Kinderbüro Weimar zu entrichten. Daraufhin erhalten Sie einen Stempel im Ferienpass, der bei den Aktionen vorgezeigt werden muss.</p>"
+            "template": "<p>Die Anmeldung zu den Aktionen ist verbindlich. Bitte geben Sie dieses vierseitige Formular vollständig ausgefüllt und unterschrieben im Kinderbüro ab. Der ausstehende Betrag ist bei der Anmeldung im Kinderbüro Weimar zu entrichten. Daraufhin erhalten Sie einen Stempel im Ferienpass, der bei den Aktionen vorgezeigt werden muss.</p>"
           }
         },
         {
           "name": {
-            "template":
-              "<p>Das Kinderbüro finden Sie im mon ami am Goetheplatz: <br>Kinderbüro Weimar, Goetheplatz, 99423 Weimar, Telefon: 0 36 43 / 49 49 90</p>"
+            "template": "<p>Das Kinderbüro finden Sie im mon ami am Goetheplatz: <br>Kinderbüro Weimar, Goetheplatz, 99423 Weimar, Telefon: 0 36 43 / 49 49 90</p>"
           }
         },
         {
           "name": {
-            "template":
-              "<p><b>Stornierungsregelung</b>: Nach der Bezahlung entstehen Stornierungskosten. Bei Stornierung einer Aktion bis einer Woche vor der Veranstaltung werden 50% der Kosten berechnet. Ab einer Woche vor der Veranstaltung werden 100% berechnet. Die Stornierungskosten können umgangen werden, wenn ein anderes Kind für den freien Platz benannt wird.</p>"
+            "template": "<p><b>Stornierungsregelung</b>: Nach der Bezahlung entstehen Stornierungskosten. Bei Stornierung einer Aktion bis einer Woche vor der Veranstaltung werden 50% der Kosten berechnet. Ab einer Woche vor der Veranstaltung werden 100% berechnet. Die Stornierungskosten können umgangen werden, wenn ein anderes Kind für den freien Platz benannt wird.</p>"
           }
         }
       ]
@@ -770,12 +758,18 @@
         {
           "name": "ParagraphList",
           "params": {
-            "components": [
+            "entries": [
               "Mit Ihrer Unterschrift nimmt das Kinderbüro Weimar die oben genannten Daten und Kontakte auf. Diese Informationen werden im EDV-System des Kinderbüros gespeichert. Personenbezogene Daten werden dabei durch geeignete technische und organisatorische Maßnahmen vor der Kenntnis Dritter geschützt. Sonstige Informationen zu den Kindern werden vom Kinderbüro nur verarbeitet oder genutzt, wenn sie zur Umsetzung der Ziele des Ferienpasses nützlich sind und keine Anhaltspunkte bestehen, dass die betroffene Person ein schutzwürdiges Interesse hat, das der Verarbeitung oder Nutzung entgegensteht.",
               "Nur das Kinderbüro und Personen, die zur Durchführung der Ferienpass-Angebote Kenntnis über bestimmte Informationen haben müssen, haben Zugang zu den Daten.",
               "Bei Abmeldung des Kindes werden die in §1 genannten Daten aus dem Verzeichnis gelöscht.",
               "Alle personenbezogenen Daten werden nach Ablauf eines Jahres gelöscht."
             ]
+          }
+        },
+        {
+          "name": "Checkbox",
+          "params": {
+            "label": "Ich bestätige die Richtigkeit meiner Angaben. Wurden wissentlich falsche Angaben gemacht, darf die Organisation das angemeldete Kind von den Angeboten ausschließen."
           }
         }
       ]
