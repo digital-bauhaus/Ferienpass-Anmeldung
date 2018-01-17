@@ -1,5 +1,5 @@
 <template>
-  <label class="text-field">
+  <label :class="`text-field ${params.required ? 'required' : ''}`">
     <span :class="`text-field__label ${params.hideLabel ? 'visually-hidden' : ''}`">
       {{ params.label }}
     </span>
@@ -36,6 +36,11 @@ export default {
 .text-field {
   display: block;
   margin-bottom: 0.75rem;
+}
+
+.required .text-field__label::after {
+  content: '*';
+  color: #444;
 }
 
 .text-field__control {
