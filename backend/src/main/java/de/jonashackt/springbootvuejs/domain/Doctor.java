@@ -12,22 +12,24 @@ public class Doctor {
     private String firstName;
     private String lastName;
     private String address;
+    private String postcode;
     private String telephone;
 
     public Doctor() {}
 
-    public Doctor(String firstName, String lastName, String address, String telephone){
+    public Doctor(String firstName, String lastName, String address, String postcode, String telephone){
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
+        this.postcode = postcode;
         this.telephone = telephone;
     }
 
     @Override
     public String toString(){
         return String.format(
-                "Doctor[doctor_id=%d, firstName='%s',lastName='%s'; address='%s', telephone='%s']",
-                doctor_id,firstName,lastName,address,telephone);
+                "Doctor[doctor_id=%d, firstName='%s',lastName='%s', address='%s', postcode='%s', telephone='%s']",
+                doctor_id,firstName,lastName,address,postcode,telephone);
     }
 
 
@@ -62,6 +64,10 @@ public class Doctor {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public String getPostcode() { return postcode; }
+
+    public void setPostcode(String postcode) { this.postcode = postcode; }
 
     public String getTelephone() {
         return telephone;

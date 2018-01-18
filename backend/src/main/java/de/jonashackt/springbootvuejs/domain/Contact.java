@@ -13,21 +13,23 @@ public class Contact {
 
     private String name;
     private String address;
+    private String postcode;
     private String telephone;
 
     public  Contact() {}
 
-    public Contact(String name, String address, String telephone) {
+    public Contact(String name, String address, String postcode, String telephone) {
         this.name = name;
         this.address = address;
+        this.postcode = postcode;
         this.telephone = telephone;
     }
 
     @Override
     public String toString(){
         return String.format(
-                "Contact[contact_id=%d, name='%s', address='%s', telephone='%s']",
-                contact_id,name,address,telephone);
+                "Contact[contact_id=%d, name='%s', address='%s', postcode='%s' , telephone='%s']",
+                contact_id,name,address,postcode,telephone);
     }
 
     public long getContact_id() {
@@ -53,6 +55,10 @@ public class Contact {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public String getPostcode() { return postcode; }
+
+    public void setPostcode(String postcode) { this.postcode = postcode; }
 
     public String getTelephone() {
         return telephone;

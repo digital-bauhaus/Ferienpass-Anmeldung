@@ -4,29 +4,34 @@ import java.util.*;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "[User]")
 public class    User {
 
     // PrimaryKey
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String firstName;
     private String lastName;
-    private Date birthdate;
-    private String address;
+    private String birthDate;
+    private String postcode;
+    private String street;
+    private String city;
     private String telephone;
     private String healthcareNr;
+    private Date registrationDate;
+    private String registerDateString;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn (name = "contact_id")
-    private Contact emergencyContact;
+    private Contact contact;
 
     private boolean allowTreatment;
-    private boolean allowRide;
-    private boolean allowSwim;
+    private boolean allowRiding;
+    private boolean allowSwimming;
     private boolean allowHomeAlone;
-    private boolean isPaid;
+    private boolean hasPayed;
 
     @ManyToOne(cascade= CascadeType.ALL)
     @JoinColumn(name = "doctor_id")
@@ -38,14 +43,14 @@ public class    User {
             name="user_project",
             joinColumns=@JoinColumn(name="user_id", referencedColumnName="id"),
             inverseJoinColumns=@JoinColumn(name="project_id", referencedColumnName="project_id"))
-        private List<Project> projects;
+    private List<Project> projects;
 
-    @ManyToMany
-    @JoinTable(
-            name="userDisability",
-            joinColumns=@JoinColumn(name="user_id", referencedColumnName="id"),
-            inverseJoinColumns=@JoinColumn(name="disability_id", referencedColumnName="disability_id"))
-    private List<Disability> disabilities;
+        @ManyToMany
+        @JoinTable(
+                name="userDisability",
+                joinColumns=@JoinColumn(name="user_id", referencedColumnName="id"),
+                inverseJoinColumns=@JoinColumn(name="disability_id", referencedColumnName="disability_id"))
+        private List<Disability> disabilities;
 
     @ManyToMany
     @JoinTable(
@@ -61,66 +66,54 @@ public class    User {
         this.lastName = lastName;
     }
 
-    public User(String firstName, String lastName, Date birthdate,
-                String address, String telephone, String healthcareNr, Contact emergencyContact,
-                boolean allowTreatment, boolean allowRide, boolean allowSwim, boolean allowHomeAlone, boolean isPaid,
-                Doctor doctor, List<Project> projects, List<Disability> disabilities, List<Limitation> limitations) {
+    public User(String firstName, String lastName, String birthDate, String registerDateString, String street, String city, String postcode,
+                String telephone, String healthcareNr, Contact contact,
+                boolean allowTreatment, boolean allowRiding, boolean allowSwimming, boolean allowHomeAlone,
+                boolean hasPayed, Doctor doctor, List<Project> projects, List<Limitation> limitations) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.birthdate = birthdate;
-        this.address = address;
+        this.birthDate = birthDate;
+        this.postcode = postcode;
+        this.street = street;
+        this.city = city;
         this.telephone = telephone;
         this.healthcareNr = healthcareNr;
-        this.emergencyContact = emergencyContact;
+        this.registrationDate = registrationDate;
+        this.registerDateString = registerDateString;
+        this.contact = contact;
         this.allowTreatment = allowTreatment;
-        this.allowRide = allowRide;
-        this.allowSwim = allowSwim;
+        this.allowRiding = allowRiding;
+        this.allowSwimming = allowSwimming;
         this.allowHomeAlone = allowHomeAlone;
-        this.isPaid = isPaid;
+        this.hasPayed = hasPayed;
         this.doctor = doctor;
         this.projects = projects;
-        this.disabilities = disabilities;
         this.limitations = limitations;
     }
 
-    /*
-        public User(long id, String firstName, String lastName, Date birthdate, String street, String city, String postcode,
-                    String telephone, String healthcareNr, String emergencyContact, boolean allowRide,
-                    boolean allowSwim, boolean allowHomeAlone, boolean is_paid) {
-            this.id = id;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.birthdate = birthdate;
-            this.street = street;
-            this.city = city;
-            this.postcode = postcode;
-            this.telephone = telephone;
-            this.healthcareNr = healthcareNr;
-            this.emergencyContact = emergencyContact;
-            this.allowRide = allowRide;
-            this.allowSwim = allowSwim;
-            this.allowHomeAlone = allowHomeAlone;
-            this.isPaid = is_paid;
-        }
-    */
-    @Override
+    @java.lang.Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", birthdate=" + birthdate +
-                ", address='" + address + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                ", postcode='" + postcode + '\'' +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", healthcareNr='" + healthcareNr + '\'' +
-                ", allowTreatment='" + allowTreatment +  '\'' +
-                ", emergencyContact='" + emergencyContact + '\'' +
+                ", registrationDate=" + registrationDate +
+                ", registerDateString='" + registerDateString + '\'' +
+                ", contact=" + contact +
+                ", allowTreatment=" + allowTreatment +
+                ", allowRiding=" + allowRiding +
+                ", allowSwimming=" + allowSwimming +
                 ", allowHomeAlone=" + allowHomeAlone +
-                ", allowRide=" + allowRide +  '\'' +
-                ", allowSwim=" + allowSwim +  '\'' +
-                ", doctor=" + doctor + '\'' +
-                ", projects=" + projects + '\'' +
-                ", limitations=" + limitations + '\'' +
+                ", hasPayed=" + hasPayed +
+                ", doctor=" + doctor +
+                ", projects=" + projects +
+                ", limitations=" + limitations +
                 '}';
     }
 
@@ -148,6 +141,18 @@ public class    User {
         this.id = id;
     }
 
+    public String getPostcode() {return postcode; }
+
+    public void setPostcode(String postcode) { this.postcode = postcode; }
+
+    public String getStreet() { return street; }
+
+    public void setStreet(String street) { this.street = street; }
+
+    public String getCity() { return city; }
+
+    public void setCity(String city) { this.city = city; }
+
     public String getTelephone() {
         return telephone;
     }
@@ -164,28 +169,36 @@ public class    User {
         this.healthcareNr = healthcareNr;
     }
 
-    public Contact getEmergencyContact() {
-        return emergencyContact;
+    public Contact getContact() {
+        return contact;
     }
 
-    public void setEmergencyContact(Contact emergencyContact) {
-        this.emergencyContact = emergencyContact;
+    public void setContact(Contact contact) {
+        this.contact = contact;
     }
 
-    public boolean isAllowRide() {
-        return allowRide;
+    public boolean isAllowRiding() {
+        return allowRiding;
     }
 
-    public void setAllowRide(boolean allowRide) {
-        this.allowRide = allowRide;
+    public void setAllowRiding(boolean allowRiding) {
+        this.allowRiding = allowRiding;
     }
 
-    public boolean isAllowSwim() {
-        return allowSwim;
+    public Date getRegistrationDate() { return registrationDate; }
+
+    public void setRegistrationDate(Date registrationDate) { this.registrationDate = registrationDate; }
+
+    public String getRegisterDateString() { return registerDateString; }
+
+    public void setRegisterDateString(String registerDateString) { this.registerDateString = registerDateString; }
+
+    public boolean isAllowSwimming() {
+        return allowSwimming;
     }
 
-    public void setAllowSwim(boolean allowSwim) {
-        this.allowSwim = allowSwim;
+    public void setAllowSwimming(boolean allowSwimming) {
+        this.allowSwimming = allowSwimming;
     }
 
     public boolean isAllowHomeAlone() {
@@ -204,21 +217,21 @@ public class    User {
         this.doctor = doctor;
     }
 
-    public Date getBirthdate() {
-        return birthdate;
+    public String getBirthDate() {
+        return birthDate;
     }
 
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public boolean isPaid() {
-        return isPaid;
-    }
+    public boolean isHasPayed() { return hasPayed; }
 
-    public void setPaid(boolean paid) {
-        this.isPaid = paid;
-    }
+    public void setHasPayed(boolean hasPayed) { this.hasPayed = hasPayed; }
+
+    public boolean isAllowTreatment() { return allowTreatment; }
+
+    public void setAllowTreatment(boolean allowTreatment) { this.allowTreatment = allowTreatment; }
 
     public List<Project> getProjects() {
         return projects;
@@ -228,13 +241,9 @@ public class    User {
         this.projects = projects;
     }
 
-    public List<Disability> getDisabilities() {
-        return disabilities;
-    }
+    public List<Disability> getDisabilities() { return disabilities; }
 
-    public void setDisabilities(List<Disability> disabilities) {
-        this.disabilities = disabilities;
-    }
+    public void setDisabilities(List<Disability> disabilities) { this.disabilities = disabilities; }
 
     public List<Limitation> getLimitations() {
         return limitations;
