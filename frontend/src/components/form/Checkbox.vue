@@ -11,12 +11,12 @@
     <span class="checkbox__tick"></span>
 
     <span class="checkbox__label">
-      <template v-if="params.date && params.org">
-        <span class="offer">
-          <span class="offer__title">{{ params.label }}</span>
-          <span class="offer__date">{{ params.date }}</span>
-          <span class="offer__org">{{ params.org }}</span>
-        </span>
+      <template v-if="params.meta">
+        <span style="font-weight: bold;">{{ params.label }}</span>
+        <ul class="meta-list">
+          <li>{{ params.meta.date }}, ab {{ params.meta.minimumAge }} Jahren</li>
+          <li>{{ params.meta.org }}</li>
+        </ul>
       </template>
       <template v-else>
         {{ params.label }}
@@ -96,17 +96,9 @@ the componente would only become partially visible.
   justify-content: center;
 }
 
-.offer {
-  display: flex;
-  flex-direction: column;
-}
-
-.offer__date {
-  order: -1;
-  font-size: 0.75em;
-}
-
-.offer__title {
-  font-weight: bold;
+.meta-list {
+  list-style: none;
+  margin: 0;
+  font-size: 0.9em;
 }
 </style>

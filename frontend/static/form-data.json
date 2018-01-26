@@ -182,8 +182,11 @@
                 "params": {
                   "label": "Piratenfest an der Ilm",
                   "name": "projects__id-1",
+                  "meta": {
                   "date": "26. Juni 2017",
-                  "org": "Sportjugend Weimar"
+                    "org": "Sportjugend Weimar",
+                    "minimumAge": 8
+                }
                 }
               },
               {
@@ -191,8 +194,11 @@
                 "params": {
                   "label": "Bauspielplatz",
                   "name": "projects__id-2",
+                  "meta": {
                   "date": "26. bis 28. Juni 2017",
-                  "org": "Kramixxo & Waggong"
+                    "org": "Kramixxo & Waggong",
+                    "minimumAge": 8
+                }
                 }
               },
               {
@@ -200,8 +206,11 @@
                 "params": {
                   "label": "Papier-Werkstatt",
                   "name": "projects__id-3",
+                  "meta": {
                   "date": "26. bis 28. Juni 2017",
-                  "org": "Weimarer Mal- und Zeichenschule e.V."
+                    "org": "Weimarer Mal- und Zeichenschule e.V.",
+                    "minimumAge": 8
+                }
                 }
               },
               {
@@ -209,8 +218,11 @@
                 "params": {
                   "label": "Indianer und ihre Tiere",
                   "name": "projects__id-4",
+                  "meta": {
                   "date": "27. bis 28. Juni 2017",
-                  "org": "Camsin e.V."
+                    "org": "Camsin e.V.",
+                    "minimumAge": 8
+                }
                 }
               },
               {
@@ -218,8 +230,11 @@
                 "params": {
                   "label": "Filz-Werkstatt",
                   "name": "projects__id-5",
+                  "meta": {
                   "date": "29. bis 30. Juni 2017",
-                  "org": "Weimarer Mal- und Zeichenschule e.V."
+                    "org": "Weimarer Mal- und Zeichenschule e.V.",
+                    "minimumAge": 8
+                }
                 }
               },
               {
@@ -227,8 +242,11 @@
                 "params": {
                   "label": "Indianer und ihre Tiere",
                   "name": "projects__id-6",
+                  "meta": {
                   "date": "29. bis 30. Juni 2017",
-                  "org": "Camsin e.V."
+                    "org": "Camsin e.V.",
+                    "minimumAge": 11
+                }
                 }
               },
               {
@@ -236,8 +254,11 @@
                 "params": {
                   "label": "Das Alien vom Planeten Alpha Omega Pi",
                   "name": "projects__id-7",
+                  "meta": {
                   "date": "3. bis 7. Juli 2017",
-                  "org": "Buchkinder_Weimar"
+                    "org": "Buchkinder_Weimar",
+                    "minimumAge": 8
+                }
                 }
               },
               {
@@ -245,8 +266,11 @@
                 "params": {
                   "label": "Graffiti",
                   "name": "projects__id-8",
+                  "meta": {
                   "date": "3. bis 4. Juli 2017",
-                  "org": "„Für Euch“ e.V. – Schulförderverein des Johannes Landenberger Förderzentrums"
+                    "org": "„Für Euch“ e.V. – Schulförderverein des Johannes Landenberger Förderzentrums",
+                    "minimumAge": 8
+                }
                 }
               },
               {
@@ -254,8 +278,11 @@
                 "params": {
                   "label": "Fahrrad-Tour aus dem Feiniger Radweg",
                   "name": "projects__id-9",
+                  "meta": {
                   "date": "4. Juli 2017",
-                  "org": "Team Jugendarbeit Weimar"
+                    "org": "Team Jugendarbeit Weimar",
+                    "minimumAge": 8
+                }
                 }
               },
               {
@@ -263,8 +290,11 @@
                 "params": {
                   "label": "Die große Schatzsuche",
                   "name": "projects__id-10",
+                  "meta": {
                   "date": "10. bis 12. Juli 2017",
-                  "org": "Weimarer Mal- und Zeichenschule e.V."
+                    "org": "Weimarer Mal- und Zeichenschule e.V.",
+                    "minimumAge": 11
+                }
                 }
               },
               {
@@ -272,8 +302,11 @@
                 "params": {
                   "label": "Skateboard-Kurs",
                   "name": "projects__id-11",
+                  "meta": {
                   "date": "12. bis 14. Juli 2017",
-                  "org": "Nordlicht e.V."
+                    "org": "Nordlicht e.V.",
+                    "minimumAge": 11
+                  }
                 }
               },
               {
@@ -281,8 +314,11 @@
                 "params": {
                   "label": "Kinderzirkus",
                   "name": "projects__id-12",
+                  "meta": {
                   "date": "17. bis 19. Juli 2017",
-                  "org": "Tasifan"
+                    "org": "Tasifan",
+                    "minimumAge": 8
+                  }
                 }
               },
               {
@@ -290,8 +326,11 @@
                 "params": {
                   "label": "Klettern",
                   "name": "projects__id-13",
+                  "meta": {
                   "date": "25. Juli 2017",
-                  "org": "Sektion Weimar des Deutschen Alpenvereins e.V."
+                    "org": "Sektion Weimar des Deutschen Alpenvereins e.V.",
+                    "minimumAge": 8
+                  }
                 }
               },
               {
@@ -299,8 +338,11 @@
                 "params": {
                   "label": "Klettern",
                   "name": "projects__id-14",
+                  "meta": {
                   "date": "26. Juli 2017",
-                  "org": "Sektion Weimar des Deutschen Alpenvereins e.V."
+                    "org": "Sektion Weimar des Deutschen Alpenvereins e.V.",
+                    "minimumAge": 8
+                  }
                 }
               },
               {
@@ -308,8 +350,11 @@
                 "params": {
                   "label": "GrenzbeWEGnung",
                   "name": "projects__id-15",
+                  "meta": {
                   "date": "31. Juli bis 4. August 2017",
-                  "org": "WE-DANCE e.V."
+                    "org": "WE-DANCE e.V.",
+                    "minimumAge": 11
+                  }
                 }
               },
               {
@@ -317,8 +362,11 @@
                 "params": {
                   "label": "Angeln",
                   "name": "projects__id-16",
+                  "meta": {
                   "date": "31. Juli bis 1. August 2017",
-                  "org": "Nordlicht e.V."
+                    "org": "Nordlicht e.V.",
+                    "minimumAge": 8
+                  }
                 }
               },
               {
@@ -326,8 +374,11 @@
                 "params": {
                   "label": "Jiddisch – Wir singen tanzen spielen",
                   "name": "projects__id-17",
+                  "meta": {
                   "date": "2. bis 6. August 2017",
-                  "org": "other music e.V."
+                    "org": "other music e.V.",
+                    "minimumAge": 8
+                  }
                 }
               },
               {
@@ -335,8 +386,11 @@
                 "params": {
                   "label": "Angeln",
                   "name": "projects__id-18",
+                  "meta": {
                   "date": "2. bis 3. August 2017",
-                  "org": "Nordlicht e.V."
+                    "org": "Nordlicht e.V.",
+                    "minimumAge": 8
+                  }
                 }
               },
               {
@@ -344,8 +398,11 @@
                 "params": {
                   "label": "Natur-Erlebnis-Camp",
                   "name": "projects__id-19",
+                  "meta": {
                   "date": "7. bis 9. August 2017",
-                  "org": "Kramixxo & Waggong"
+                    "org": "Kramixxo & Waggong",
+                    "minimumAge": 8
+                  }
                 }
               },
               {
@@ -353,8 +410,11 @@
                 "params": {
                   "label": "Geräusche-Jagd",
                   "name": "projects__id-20",
+                  "meta": {
                   "date": "8. August 2017",
-                  "org": "Radio LOTTE Weimar"
+                    "org": "Radio LOTTE Weimar",
+                    "minimumAge": 8
+                  }
                 }
               },
               {
@@ -362,8 +422,11 @@
                 "params": {
                   "label": "Schlauchboot-Tour",
                   "name": "projects__id-21",
+                  "meta": {
                   "date": "9. August 2017",
-                  "org": "erlebniswelten"
+                    "org": "erlebniswelten",
+                    "minimumAge": 8
+                  }
                 }
               }
             ]
