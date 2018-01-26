@@ -53,18 +53,46 @@ export default {
   name: 'Registration',
   data() {
     return {
-      formData: null
+      formData: null,
+      initiallyDisabled: false,
+      'base__birthdate-day': null,
+      'base__birthdate-month': null,
+      'base__birthdate-year': null
     };
+  },
+  computed: {
+    age() {
+      if (
+        this['base__birthdate-day'] &&
+        this['base__birthdate-month'] &&
+        this['base__birthdate-year']
+      ) {
+        const day = this['base__birthdate-day'];
+        const month = this['base__birthdate-month'];
+        const year = this['base__birthdate-year'];
+        const birthdate = new Date(year, month - 1, day);
+        const today = new Date();
+
+        let age = today.getFullYear() - birthdate.getFullYear();
+        const m = today.getMonth() - birthdate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
+          age--;
+        }
+        return age;
+      }
+      return null;
+    }
   },
   created() {
     this.fetchData();
   },
   updated() {
     this.$nextTick(function() {
-      if (this.formData) {
+      if (this.formData && !this.initiallyDisabled) {
         const checkbox = document.querySelector('.school-child-checkbox > input');
         const formElements = this.getFormElements();
         this.disableFormElements(formElements, [checkbox]);
+        this.initiallyDisabled = true;
       }
     });
   },
@@ -142,6 +170,15 @@ export default {
     }
   }
 };
+
+/* function getAge() {
+  const dayEl = document.querySelector('[name="base__child-birthdate-day"]');
+  // const monthEl = document.querySelector('[name="base__child-birthdate-month"]');
+  const yearEl = document.querySelector('[name="base__child-birthdate-year"]');
+  const day = parseInt(dayEl.value);
+  const year = parseInt(yearEl.value);
+  return day + ' ' + year;
+} */
 </script>
 
 <style>

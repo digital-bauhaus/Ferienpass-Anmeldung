@@ -15,7 +15,7 @@
                 "component": "TextField",
                 "params": {
                   "label": "Familienname",
-                  "name": "base__child-family-name",
+                  "name": "base__family-name",
                   "required": true
                 }
               },
@@ -23,7 +23,7 @@
                 "component": "TextField",
                 "params": {
                   "label": "Vorname meines Kindes",
-                  "name": "base__child-forename",
+                  "name": "base__forename",
                   "required": true
                 }
               },
@@ -32,12 +32,13 @@
                 "params": {
                   "title": "Geburtsdatum meines Kindes",
                   "horizontal": true,
+                  "emitBirthdate": true,
                   "components": [
                     {
                       "component": "TextField",
                       "params": {
                         "label": "Tag",
-                        "name": "base__child-birthdate-day",
+                        "name": "base__birthdate-day",
                         "required": true,
                         "pattern": "(0?[1-9]|[1-2][0-9]|3[0-1])"
                       }
@@ -46,7 +47,7 @@
                       "component": "Select",
                       "params": {
                         "label": "Monat",
-                        "name": "base__child-birthdate-month",
+                        "name": "base__birthdate-month",
                         "required": true,
                         "options": [
                           {
@@ -108,7 +109,7 @@
                       "component": "TextField",
                       "params": {
                         "label": "Jahr",
-                        "name": "base__child-birthdate-year",
+                        "name": "base__birthdate-year",
                         "required": true,
                         "pattern": "\\d{4}"
                       }
@@ -183,10 +184,10 @@
                   "label": "Piratenfest an der Ilm",
                   "name": "projects__id-1",
                   "meta": {
-                  "date": "26. Juni 2017",
+                    "date": "26. Juni 2017",
                     "org": "Sportjugend Weimar",
                     "minimumAge": 8
-                }
+                  }
                 }
               },
               {
@@ -195,10 +196,10 @@
                   "label": "Bauspielplatz",
                   "name": "projects__id-2",
                   "meta": {
-                  "date": "26. bis 28. Juni 2017",
+                    "date": "26. bis 28. Juni 2017",
                     "org": "Kramixxo & Waggong",
                     "minimumAge": 8
-                }
+                  }
                 }
               },
               {
@@ -207,10 +208,10 @@
                   "label": "Papier-Werkstatt",
                   "name": "projects__id-3",
                   "meta": {
-                  "date": "26. bis 28. Juni 2017",
+                    "date": "26. bis 28. Juni 2017",
                     "org": "Weimarer Mal- und Zeichenschule e.V.",
                     "minimumAge": 8
-                }
+                  }
                 }
               },
               {
@@ -219,10 +220,10 @@
                   "label": "Indianer und ihre Tiere",
                   "name": "projects__id-4",
                   "meta": {
-                  "date": "27. bis 28. Juni 2017",
+                    "date": "27. bis 28. Juni 2017",
                     "org": "Camsin e.V.",
                     "minimumAge": 8
-                }
+                  }
                 }
               },
               {
@@ -231,10 +232,10 @@
                   "label": "Filz-Werkstatt",
                   "name": "projects__id-5",
                   "meta": {
-                  "date": "29. bis 30. Juni 2017",
+                    "date": "29. bis 30. Juni 2017",
                     "org": "Weimarer Mal- und Zeichenschule e.V.",
                     "minimumAge": 8
-                }
+                  }
                 }
               },
               {
@@ -243,10 +244,10 @@
                   "label": "Indianer und ihre Tiere",
                   "name": "projects__id-6",
                   "meta": {
-                  "date": "29. bis 30. Juni 2017",
+                    "date": "29. bis 30. Juni 2017",
                     "org": "Camsin e.V.",
                     "minimumAge": 11
-                }
+                  }
                 }
               },
               {
@@ -255,10 +256,10 @@
                   "label": "Das Alien vom Planeten Alpha Omega Pi",
                   "name": "projects__id-7",
                   "meta": {
-                  "date": "3. bis 7. Juli 2017",
+                    "date": "3. bis 7. Juli 2017",
                     "org": "Buchkinder_Weimar",
                     "minimumAge": 8
-                }
+                  }
                 }
               },
               {
@@ -267,10 +268,10 @@
                   "label": "Graffiti",
                   "name": "projects__id-8",
                   "meta": {
-                  "date": "3. bis 4. Juli 2017",
+                    "date": "3. bis 4. Juli 2017",
                     "org": "„Für Euch“ e.V. – Schulförderverein des Johannes Landenberger Förderzentrums",
                     "minimumAge": 8
-                }
+                  }
                 }
               },
               {
@@ -279,10 +280,10 @@
                   "label": "Fahrrad-Tour aus dem Feiniger Radweg",
                   "name": "projects__id-9",
                   "meta": {
-                  "date": "4. Juli 2017",
+                    "date": "4. Juli 2017",
                     "org": "Team Jugendarbeit Weimar",
                     "minimumAge": 8
-                }
+                  }
                 }
               },
               {
@@ -291,10 +292,10 @@
                   "label": "Die große Schatzsuche",
                   "name": "projects__id-10",
                   "meta": {
-                  "date": "10. bis 12. Juli 2017",
+                    "date": "10. bis 12. Juli 2017",
                     "org": "Weimarer Mal- und Zeichenschule e.V.",
                     "minimumAge": 11
-                }
+                  }
                 }
               },
               {
@@ -303,7 +304,7 @@
                   "label": "Skateboard-Kurs",
                   "name": "projects__id-11",
                   "meta": {
-                  "date": "12. bis 14. Juli 2017",
+                    "date": "12. bis 14. Juli 2017",
                     "org": "Nordlicht e.V.",
                     "minimumAge": 11
                   }
@@ -315,7 +316,7 @@
                   "label": "Kinderzirkus",
                   "name": "projects__id-12",
                   "meta": {
-                  "date": "17. bis 19. Juli 2017",
+                    "date": "17. bis 19. Juli 2017",
                     "org": "Tasifan",
                     "minimumAge": 8
                   }
@@ -327,7 +328,7 @@
                   "label": "Klettern",
                   "name": "projects__id-13",
                   "meta": {
-                  "date": "25. Juli 2017",
+                    "date": "25. Juli 2017",
                     "org": "Sektion Weimar des Deutschen Alpenvereins e.V.",
                     "minimumAge": 8
                   }
@@ -339,7 +340,7 @@
                   "label": "Klettern",
                   "name": "projects__id-14",
                   "meta": {
-                  "date": "26. Juli 2017",
+                    "date": "26. Juli 2017",
                     "org": "Sektion Weimar des Deutschen Alpenvereins e.V.",
                     "minimumAge": 8
                   }
@@ -351,7 +352,7 @@
                   "label": "GrenzbeWEGnung",
                   "name": "projects__id-15",
                   "meta": {
-                  "date": "31. Juli bis 4. August 2017",
+                    "date": "31. Juli bis 4. August 2017",
                     "org": "WE-DANCE e.V.",
                     "minimumAge": 11
                   }
@@ -363,7 +364,7 @@
                   "label": "Angeln",
                   "name": "projects__id-16",
                   "meta": {
-                  "date": "31. Juli bis 1. August 2017",
+                    "date": "31. Juli bis 1. August 2017",
                     "org": "Nordlicht e.V.",
                     "minimumAge": 8
                   }
@@ -375,7 +376,7 @@
                   "label": "Jiddisch – Wir singen tanzen spielen",
                   "name": "projects__id-17",
                   "meta": {
-                  "date": "2. bis 6. August 2017",
+                    "date": "2. bis 6. August 2017",
                     "org": "other music e.V.",
                     "minimumAge": 8
                   }
@@ -387,7 +388,7 @@
                   "label": "Angeln",
                   "name": "projects__id-18",
                   "meta": {
-                  "date": "2. bis 3. August 2017",
+                    "date": "2. bis 3. August 2017",
                     "org": "Nordlicht e.V.",
                     "minimumAge": 8
                   }
@@ -399,7 +400,7 @@
                   "label": "Natur-Erlebnis-Camp",
                   "name": "projects__id-19",
                   "meta": {
-                  "date": "7. bis 9. August 2017",
+                    "date": "7. bis 9. August 2017",
                     "org": "Kramixxo & Waggong",
                     "minimumAge": 8
                   }
@@ -411,7 +412,7 @@
                   "label": "Geräusche-Jagd",
                   "name": "projects__id-20",
                   "meta": {
-                  "date": "8. August 2017",
+                    "date": "8. August 2017",
                     "org": "Radio LOTTE Weimar",
                     "minimumAge": 8
                   }
@@ -423,7 +424,7 @@
                   "label": "Schlauchboot-Tour",
                   "name": "projects__id-21",
                   "meta": {
-                  "date": "9. August 2017",
+                    "date": "9. August 2017",
                     "org": "erlebniswelten",
                     "minimumAge": 8
                   }

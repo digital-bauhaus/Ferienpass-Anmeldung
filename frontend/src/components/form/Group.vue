@@ -10,8 +10,10 @@
 
     <div :class="`group__body ${params.horizontal ? 'group__body--horizontal' : ''}`">
       <component
-        v-for="(component, index) of params.components"
-        :key="index" :is="component.component" :params="component.params"
+        v-for="(component, index) of params.components" :key="index"
+        :is="component.component"
+        :params="component.params"
+        @input="onInput"
       />
     </div>
   </div>
@@ -20,7 +22,21 @@
 <script>
 export default {
   name: 'Group',
-  props: ['params']
+  props: ['params'],
+  methods: {
+    onInput(event) {
+      if (this.params.emitBirthdate) {
+        const value = parseInt(event.target.value);
+        if (typeof value === 'number' && value % 1 === 0) {
+          // Yeah, I know. :/
+          const registrationData = this.$root.$children[0].$children[0].$data;
+          registrationData[event.target.name] = value;
+
+          // window[event.target.name] = value;
+        }
+      }
+    }
+  }
 };
 </script>
 
