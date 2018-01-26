@@ -4,7 +4,7 @@
       class="radio-button__control visually-hidden"
       type="radio"
       required
-      :name="params.name"
+      :name="name"
       :value="params.value ? params.value : toIdentifier(params.label)"
     >
 
@@ -19,7 +19,7 @@
 <script>
 export default {
   name: 'RadioButton',
-  props: ['params']
+  props: ['params', 'name']
 };
 </script>
 
