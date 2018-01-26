@@ -36,7 +36,7 @@
       <div class="form-section__body">
         <component
           v-for="(component, index) of section.components" :key="index"
-          :is="component.componentName"
+          :is="component.component"
           :params="component.params"
         />
       </div>

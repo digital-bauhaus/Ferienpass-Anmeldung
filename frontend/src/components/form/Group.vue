@@ -8,20 +8,12 @@
       {{ params.title }}
     </h3>
 
-    <p v-if="params.introduction">
-      {{ params.introduction }}
-    </p>
-
     <div :class="`group__body ${params.horizontal ? 'group__body--horizontal' : ''}`">
       <component
         v-for="(component, index) of params.components"
-        :key="index" :is="component.componentName" :params="component.params"
+        :key="index" :is="component.component" :params="component.params"
       />
     </div>
-
-    <p v-if="params.note">
-      {{ params.note }}
-    </p>
   </div>
 </template>
 
