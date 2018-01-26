@@ -24,7 +24,7 @@ export default {
   props: ['params', 'value'],
   methods: {
     onInput(event) {
-      this.$emit('valueChange', event.target.value);
+      this.$emit('input', event);
     },
     onEnter() {
       this.$emit('enter');

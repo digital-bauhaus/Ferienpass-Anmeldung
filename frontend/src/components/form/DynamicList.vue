@@ -32,7 +32,7 @@
         <text-field
           :params="params.textField.params"
           :value="newItem"
-          @valueChange="updateValue"
+          @input="updateValue"
           @enter="handleEnter"
         />
       </div>
@@ -70,8 +70,8 @@ export default {
     }
   },
   methods: {
-    updateValue(value) {
-      this.newItem = value;
+    updateValue(event) {
+      this.newItem = event.target.value;
     },
     handleEnter() {
       if (!this.inputIsEmpty) {
