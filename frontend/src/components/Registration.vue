@@ -1,6 +1,6 @@
 <template>
   <form
-    v-if="formDataLoaded"
+    v-if="formData"
     @keydown.enter="preventAccidentalSubmit"
     @submit="delegatePost"
     class="form"
@@ -8,6 +8,12 @@
     method="post"
   >
     <h1>{{ formData.title }}</h1>
+
+    <checkbox
+      class="school-child-checkbox"
+      :params="{ 'label': 'Mein Kind geht zur Schule' }"
+      @change="onSchoolChildChange"
+    />
 
     <section
       v-for="(section, index) of formData.sections" :key="index"
@@ -47,12 +53,20 @@ export default {
   name: 'Registration',
   data() {
     return {
-      formDataLoaded: false,
       formData: null
     };
   },
   created() {
     this.fetchData();
+  },
+  updated() {
+    this.$nextTick(function() {
+      if (this.formData) {
+        const checkbox = document.querySelector('.school-child-checkbox > input');
+        const formElements = this.getFormElements();
+        this.disableFormElements(formElements, [checkbox]);
+      }
+    });
   },
   methods: {
     fetchData() {
@@ -60,7 +74,6 @@ export default {
         .then(response => response.json())
         .then(json => {
           this.formData = json;
-          this.formDataLoaded = true;
         });
     },
     preventAccidentalSubmit(event) {
@@ -90,6 +103,41 @@ export default {
         .catch(error => {
           console.error(error);
         });
+    },
+    getFormElements() {
+      const form = document.querySelector('.form');
+
+      if (form) {
+        return Array.prototype.slice.call(form.elements);
+      }
+
+      return null;
+    },
+    onSchoolChildChange(event) {
+      const formElements = this.getFormElements();
+
+      if (event.currentTarget.checked) {
+        this.enableFormElements(formElements);
+      } else {
+        this.disableFormElements(formElements, [event.currentTarget]);
+      }
+    },
+    enableFormElements(formElements) {
+      formElements.forEach(element => {
+        if (element.type !== 'submit' && element.hasAttribute('data-newly-disabled')) {
+          element.removeAttribute('data-newly-disabled');
+          element.removeAttribute('disabled');
+        }
+      });
+    },
+    disableFormElements(formElements, exceptions = []) {
+      console.log(exceptions);
+      formElements.forEach(element => {
+        if (!exceptions.includes(element) && element.type !== 'submit' && !element.disabled) {
+          element.setAttribute('data-newly-disabled', null);
+          element.setAttribute('disabled', null);
+        }
+      });
     },
     toggleSectionVisibility(event) {
       const section = event.currentTarget.parentElement;

@@ -47,15 +47,22 @@ export default {
 .select__control {
   display: block;
   width: 100%;
-  background-color: #fff;
   padding: 4px 8px;
   border: 2px solid;
   border-radius: 8px;
 }
 
+.select__control:not(:disabled) {
+  background-color: #fff;
+}
+
 .select__control:focus {
   outline: none;
   box-shadow: 0 0 0 2px cornflowerblue;
+}
+
+.select__control:disabled + .select__open-indicator {
+  color: #888;
 }
 
 .select__open-indicator::after {

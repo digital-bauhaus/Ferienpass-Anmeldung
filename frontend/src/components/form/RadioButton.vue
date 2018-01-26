@@ -47,7 +47,12 @@ export default {
   margin: 2px;
   background-color: #fff;
   border-radius: 50%;
-  border: 2px solid #000;
+  border: 2px solid;
+}
+
+.radio-button__control:disabled ~ .radio-button__tick {
+  color: #888;
+  background-color: #eee;
 }
 
 .radio-button__control {

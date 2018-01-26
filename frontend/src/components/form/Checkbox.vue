@@ -31,7 +31,7 @@ export default {
   props: ['params'],
   methods: {
     onChecked(event) {
-      this.$emit('change', event.target.checked);
+      this.$emit('change', event);
     }
   }
 };
@@ -56,9 +56,14 @@ export default {
   width: 1.5rem;
   height: 1.5rem;
   margin: 2px;
-  background-color: #fff;
   border-radius: 8px;
-  border: 2px solid #000;
+  border: 2px solid;
+  background-color: #fff;
+}
+
+.checkbox__control:disabled ~ .checkbox__tick {
+  color: #888;
+  background-color: #eee;
 }
 
 /*
@@ -78,7 +83,6 @@ the componente would only become partially visible.
 }
 
 .checkbox__control:focus ~ .checkbox__tick {
-  /* box-shadow: 0 0 0 2px #fff, 0 0 0 4px cornflowerblue; */
   box-shadow: 0 0 0 2px cornflowerblue;
 }
 

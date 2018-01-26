@@ -26,8 +26,8 @@ export default {
     };
   },
   methods: {
-    updateChecked(checked) {
-      this.checked = checked;
+    updateChecked(event) {
+      this.checked = event.target.checked;
     }
   }
 };

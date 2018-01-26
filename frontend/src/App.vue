@@ -96,8 +96,10 @@ base.form-elements.css
 */
 button:disabled,
 input:disabled,
+select:disabled,
 option:disabled {
   color: #888;
+  background-color: #eee;
 }
 
 button::placeholder,

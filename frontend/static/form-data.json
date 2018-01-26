@@ -12,13 +12,6 @@
             "hideTitle": true,
             "components": [
               {
-                "componentName": "Checkbox",
-                "params": {
-                  "label": "Mein Kind geht zur Schule",
-                  "name": "base__child-is-in-school"
-                }
-              },
-              {
                 "componentName": "TextField",
                 "params": {
                   "label": "Familienname",
