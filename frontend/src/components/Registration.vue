@@ -30,7 +30,7 @@
       <div class="form-section__body">
         <component
           v-for="(component, index) of section.components" :key="index"
-          :is="component.name"
+          :is="component.componentName"
           :params="component.params"
         />
       </div>
@@ -80,6 +80,8 @@ export default {
           jsonObject[element.name] = element.type === 'checkbox' ? element.checked : element.value;
         }
       });
+
+      console.log(jsonObject);
 
       AXIOS.post('/api/register', jsonObject)
         .then(response => {

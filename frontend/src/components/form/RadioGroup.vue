@@ -14,7 +14,6 @@
     <radio-button
       v-for="(component, index) of params.components" :key="index"
       :params="component.params"
-      :name="toIdentifier(params.title)"
     />
   </div>
 </template>

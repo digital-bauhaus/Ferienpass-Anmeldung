@@ -7,7 +7,7 @@
     <input
       class="text-field__control"
       :type="params.type ? params.type : 'text'"
-      :name="toIdentifier(params.label)"
+      :name="params.name"
       :value="value"
       :placeholder="params.placeholder"
       :pattern="params.pattern"

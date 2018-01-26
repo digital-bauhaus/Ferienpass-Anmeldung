@@ -6,7 +6,7 @@
 
     <textarea
       class="text-area__control"
-      :name="toIdentifier(params.label)"
+      :name="params.name"
       rows="4"
     ></textarea>
   </label>

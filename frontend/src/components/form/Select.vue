@@ -9,7 +9,7 @@
 
     <select
       class="select__control"
-      :name="toIdentifier(params.label)"
+      :name="params.name"
       :required="params.required"
     >
       <option

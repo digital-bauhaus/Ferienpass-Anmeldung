@@ -3,7 +3,7 @@
     <input
       class="checkbox__control visually-hidden"
       type="checkbox"
-      :name="toIdentifier(params.label)"
+      :name="params.name"
       :required="params.required"
       @change="onChecked"
     >

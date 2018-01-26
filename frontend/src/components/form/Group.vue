@@ -15,7 +15,7 @@
     <div :class="`group__body ${params.horizontal ? 'group__body--horizontal' : ''}`">
       <component
         v-for="(component, index) of params.components"
-        :key="index" :is="component.name" :params="component.params"
+        :key="index" :is="component.componentName" :params="component.params"
       />
     </div>
 

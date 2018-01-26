@@ -9,7 +9,7 @@
     <template v-if="checked">
       <component
         v-for="(component, index) of params.components" :key="index"
-        :is="component.name"
+        :is="component.componentName"
         :params="component.params"
       />
     </template>
