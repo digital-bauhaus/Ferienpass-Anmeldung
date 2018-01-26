@@ -94,8 +94,6 @@ export default {
         }
       });
 
-      console.log(jsonObject);
-
       AXIOS.post('/api/register', jsonObject)
         .then(response => {
           console.log(response);
@@ -131,7 +129,6 @@ export default {
       });
     },
     disableFormElements(formElements, exceptions = []) {
-      console.log(exceptions);
       formElements.forEach(element => {
         if (!exceptions.includes(element) && element.type !== 'submit' && !element.disabled) {
           element.setAttribute('data-newly-disabled', null);
