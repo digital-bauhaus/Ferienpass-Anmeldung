@@ -16,9 +16,9 @@
         v-for="(option, index) of params.options" :key="index"
         :selected="index === 0"
         :disabled="index === 0"
-        :value="option"
+        :value="option.value"
       >
-        {{ option }}
+        {{ option.label }}
       </option>
     </select>
 
