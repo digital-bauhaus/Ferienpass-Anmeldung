@@ -344,6 +344,7 @@
           "component": "DynamicList",
           "params": {
             "title": "Allergien",
+            "name": "conditions__allergies",
             "emptyMessage": "Bei meinem Kind muss auf folgende Allergie(n) geachtet werden.",
             "textField": {
               "component": "TextField",
@@ -359,6 +360,7 @@
           "component": "DynamicList",
           "params": {
             "title": "Krankheiten",
+            "name": "conditions__diseases",
             "emptyMessage": "Krankheiten des Kindes bitte hier angeben.",
             "textField": {
               "component": "TextField",
@@ -389,6 +391,7 @@
           "component": "DynamicList",
           "params": {
             "title": "Medikamente",
+            "name": "conditions__medication",
             "emptyMessage": "Vom Kind einzunehmende Medikamente hier eintragen.",
             "textField": {
               "component": "TextField",
@@ -433,6 +436,7 @@
           "component": "DynamicList",
           "params": {
             "title": "Weitere Ernährungsbesonderheiten",
+            "name": "conditions__nutrition",
             "emptyMessage": "Bitte beschreiben.",
             "textField": {
               "component": "TextField",
@@ -716,6 +720,7 @@
                             "component": "DynamicList",
                             "params": {
                               "title": "Sinneswahrnehmung",
+                              "name": "disabilities__affected-senses",
                               "emptyMessage": "Beeinträchtigte Sinneswahrnehmungen angeben",
                               "textField": {
                                 "component": "TextField",

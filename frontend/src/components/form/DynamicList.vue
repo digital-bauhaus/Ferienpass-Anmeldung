@@ -8,6 +8,7 @@
       <li class="list-item" v-for="(item, index) of listItems" :key="index">
         <span class="list-item__content">
           {{ item }}
+          <input type="hidden" :name="`${params.name}-${index}`" :value="item" />
         </span>
 
         <button
