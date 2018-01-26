@@ -34,7 +34,6 @@ export default {
 
 .text-area__control:focus {
   outline: none;
-  /* box-shadow: 0 0 0 2px #fff, 0 0 0 4px cornflowerblue; */
   box-shadow: 0 0 0 2px cornflowerblue;
 }
 </style>

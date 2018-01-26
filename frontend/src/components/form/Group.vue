@@ -38,6 +38,10 @@ export default {
   align-items: start;
 }
 
+.group__body--horizontal > * {
+  flex: 1;
+}
+
 .group__body--horizontal > *:not(:last-child) {
   margin-right: 0.75rem;
 }

@@ -12,10 +12,18 @@
       :name="toIdentifier(params.label)"
       :required="params.required"
     >
-      <option v-for="(option, index) of params.options" :key="index" :value="option">
+      <option
+        v-for="(option, index) of params.options" :key="index"
+        :selected="index === 0"
+        :disabled="index === 0"
+        :value="option"
+      >
         {{ option }}
       </option>
     </select>
+
+    <span class="select__open-indicator"></span>
+
   </label>
 </template>
 
@@ -27,6 +35,10 @@ export default {
 </script>
 
 <style scoped>
+.select {
+  position: relative;
+}
+
 .required .select__label::after {
   content: '*';
   color: #444;
@@ -34,9 +46,25 @@ export default {
 
 .select__control {
   display: block;
+  width: 100%;
   background-color: #fff;
   padding: 4px 8px;
   border: 2px solid;
   border-radius: 8px;
+}
+
+.select__control:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px cornflowerblue;
+}
+
+.select__open-indicator::after {
+  content: '\25BC';
+  pointer-events: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px 12px 5px 8px;
+  border-left: 2px solid;
 }
 </style>
