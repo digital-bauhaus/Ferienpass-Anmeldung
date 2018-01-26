@@ -78,6 +78,13 @@ p {
   margin-bottom: 1.5rem;
 }
 
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
 ul,
 ol {
   margin-bottom: 1.5rem;
@@ -88,7 +95,8 @@ ol {
 base.form-elements.css
 */
 button:disabled,
-input:disabled {
+input:disabled,
+option:disabled {
   color: #888;
 }
 
