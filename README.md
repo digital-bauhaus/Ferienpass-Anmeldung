@@ -138,7 +138,7 @@ Run our complete Spring Boot App:
 mvn --projects backend spring-boot:run
 ```
 
-Now go to http://localhost:8088/ and have a look at your first Vue.js Spring Boot App.
+Now go to http://localhost:8098/ and have a look at your first Vue.js Spring Boot App.
 
 
 
@@ -203,7 +203,7 @@ In your template area you can now request a service call via calling `callRestSe
 
 ### The problem with SOP
 
-Single-Origin Policy (SOP) could be a problem, if we want to develop our app. Because the webpack-dev-server runs on http://localhost:8080 and our Spring Boot REST backend on http://localhost:8088.
+Single-Origin Policy (SOP) could be a problem, if we want to develop our app. Because the webpack-dev-server runs on http://localhost:8090 and our Spring Boot REST backend on http://localhost:8098.
 
 We need to use Cross Origin Resource Sharing Protocol (CORS) to handle that (read more background info about CORS here https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
 
@@ -215,14 +215,14 @@ Create a central Axios configuration file called `http-commons.js`:
 import axios from 'axios'
 
 export const AXIOS = axios.create({
-  baseURL: `http://localhost:8088`,
+  baseURL: `http://localhost:8098`,
   headers: {
-    'Access-Control-Allow-Origin': 'http://localhost:8080'
+    'Access-Control-Allow-Origin': 'http://localhost:8090'
   }
 })
 ```
 
-Here we allow requests to the base URL of our Spring Boot App on port 8088 to be accessable from 8080.
+Here we allow requests to the base URL of our Spring Boot App on port 8098 to be accessable from 8090.
 
 Now we could use this configuration inside our Components, e.g. in `Hello.vue`:
 
@@ -258,7 +258,7 @@ export default {
 Additionally, we need to configure our Spring Boot backend to answer with the appropriate CORS HTTP Headers in it’s responses (theres a good tutorial here: https://spring.io/guides/gs/rest-service-cors/). Therefore we add the annotation `@CrossOrigin` to our BackendController:
 
 ```
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:8090")
 @RequestMapping(path = "/hello")
 public @ResponseBody String sayHello() {
   LOG.info("GET called on /hello resource");
@@ -266,7 +266,7 @@ public @ResponseBody String sayHello() {
 }
 ```
 
-Now our Backend will responde CORS-enabled and accepts requests from 8080. But as this only enables CORS on one method, we have to repeatately add this annotation to all of our REST endpoints, which isn’t a nice style. We should use a global solution to allow access with CORS enabled to all of our REST resources. This could be done in the `SpringBootVuejsApplication.class`:
+Now our Backend will responde CORS-enabled and accepts requests from 8090. But as this only enables CORS on one method, we have to repeatately add this annotation to all of our REST endpoints, which isn’t a nice style. We should use a global solution to allow access with CORS enabled to all of our REST resources. This could be done in the `SpringBootVuejsApplication.class`:
 
 ```
 // Enable CORS globally
@@ -275,7 +275,7 @@ public WebMvcConfigurer corsConfigurer() {
   return new WebMvcConfigurerAdapter() {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-      registry.addMapping("/api/*").allowedOrigins("http://localhost:8080");
+      registry.addMapping("/api/*").allowedOrigins("http://localhost:8090");
     }
   };
 }
