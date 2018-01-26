@@ -32,16 +32,56 @@
                 }
               },
               {
-                "name": "TextField",
+                "name": "Group",
                 "params": {
-                  "label": "Geburtsdatum meines Kindes",
-                  "required": true
+                  "title": "Geburtsdatum meines Kindes",
+                  "horizontal": true,
+                  "components": [
+                    {
+                      "name": "TextField",
+                      "params": {
+                        "label": "Tag",
+                        "required": true,
+                        "pattern": "(0?[1-9]|[1-2][0-9]|3[0-1])"
+                      }
+                    },
+                    {
+                      "name": "Select",
+                      "params": {
+                        "label": "Monat",
+                        "required": true,
+                        "options": [
+                          "—",
+                          "Januar",
+                          "Februar",
+                          "März",
+                          "April",
+                          "Mai",
+                          "Juni",
+                          "Juli",
+                          "August",
+                          "September",
+                          "Oktober",
+                          "November",
+                          "Dezember"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "TextField",
+                      "params": {
+                        "label": "Jahr",
+                        "required": true,
+                        "pattern": "\\d{4}"
+                      }
+                    }
+                  ]
                 }
               },
               {
                 "name": "TextField",
                 "params": {
-                  "label": "Straße",
+                  "label": "Straße und Hausnummer",
                   "required": true
                 }
               },

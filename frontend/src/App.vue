@@ -47,7 +47,8 @@ legend {
 
 button,
 input,
-textarea {
+textarea,
+select {
   -webkit-appearance: none;
   -moz-appearance: none;
   overflow: visible;

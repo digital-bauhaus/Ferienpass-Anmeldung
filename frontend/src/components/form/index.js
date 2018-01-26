@@ -6,6 +6,7 @@ import ParagraphList from './ParagraphList';
 import OrderedList from './OrderedList';
 import RadioButton from './RadioButton';
 import RadioGroup from './RadioGroup';
+import Select from './Select';
 import TextArea from './TextArea';
 import TextField from './TextField';
 
@@ -18,6 +19,7 @@ export {
   OrderedList,
   RadioButton,
   RadioGroup,
+  Select,
   TextArea,
   TextField
 };
