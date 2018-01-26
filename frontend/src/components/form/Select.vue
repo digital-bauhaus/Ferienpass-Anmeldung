@@ -11,6 +11,7 @@
       class="select__control"
       :name="params.name"
       :required="params.required"
+      @input="onInput"
     >
       <option
         v-for="(option, index) of params.options" :key="index"
@@ -30,7 +31,12 @@
 <script>
 export default {
   name: 'Select',
-  props: ['params']
+  props: ['params'],
+  methods: {
+    onInput(event) {
+      this.$emit('input', event);
+    }
+  }
 };
 </script>
 
