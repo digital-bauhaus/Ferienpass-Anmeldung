@@ -1,6 +1,5 @@
-package de.jonashackt.springbootvuejs.domain;
+package de.jonashackt.ferienpassanmeldung.domain;
 
-import java.util.*;
 import javax.persistence.*;
 
 @Entity

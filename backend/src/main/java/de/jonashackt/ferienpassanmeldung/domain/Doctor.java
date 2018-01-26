@@ -1,7 +1,8 @@
-package de.jonashackt.springbootvuejs.domain;
+package de.jonashackt.ferienpassanmeldung.domain;
 
 import javax.persistence.*;
-import java.util.*;
+
+
 
 @Entity
 public class Doctor {

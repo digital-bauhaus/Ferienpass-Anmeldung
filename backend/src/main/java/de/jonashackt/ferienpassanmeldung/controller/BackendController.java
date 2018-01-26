@@ -1,7 +1,7 @@
-package de.jonashackt.springbootvuejs.controller;
+package de.jonashackt.ferienpassanmeldung.controller;
 
-import de.jonashackt.springbootvuejs.domain.User;
-import de.jonashackt.springbootvuejs.repository.UserRepository;
+import de.jonashackt.ferienpassanmeldung.domain.User;
+import de.jonashackt.ferienpassanmeldung.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,7 +90,7 @@ public class BackendController {
                  //ResponseEntity.created(location).build();
     }
 
-    @CrossOrigin(origins = "http://localhost:8080")
+    @CrossOrigin(origins = "http://localhost:8090")
     @RequestMapping(path     = "/register",
                     method   = RequestMethod.POST,
                     consumes = {

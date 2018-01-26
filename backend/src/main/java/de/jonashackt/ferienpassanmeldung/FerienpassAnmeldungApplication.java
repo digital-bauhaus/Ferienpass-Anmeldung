@@ -1,4 +1,4 @@
-package de.jonashackt.springbootvuejs;
+package de.jonashackt.ferienpassanmeldung;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
-public class SpringBootVuejsApplication {
+public class FerienpassAnmeldungApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootVuejsApplication.class, args);
+		SpringApplication.run(FerienpassAnmeldungApplication.class, args);
 	}
 
 	// Enable CORS globally
@@ -20,7 +20,7 @@ public class SpringBootVuejsApplication {
 		return new WebMvcConfigurerAdapter() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/api/*").allowedOrigins("http://localhost:8080");
+				registry.addMapping("/api/*").allowedOrigins("http://localhost:8090");
 			}
 		};
 	}

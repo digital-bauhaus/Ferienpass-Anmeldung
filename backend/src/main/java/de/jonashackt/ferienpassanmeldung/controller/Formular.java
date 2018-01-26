@@ -1,9 +1,9 @@
-package de.jonashackt.springbootvuejs.controller;
+package de.jonashackt.ferienpassanmeldung.controller;
 
-import de.jonashackt.springbootvuejs.domain.Disability;
-import de.jonashackt.springbootvuejs.domain.Doctor;
-import de.jonashackt.springbootvuejs.domain.Limitation;
-import de.jonashackt.springbootvuejs.domain.Project;
+import de.jonashackt.ferienpassanmeldung.domain.Disability;
+import de.jonashackt.ferienpassanmeldung.domain.Doctor;
+import de.jonashackt.ferienpassanmeldung.domain.Limitation;
+import de.jonashackt.ferienpassanmeldung.domain.Project;
 
 import java.util.Date;
 import java.util.List;

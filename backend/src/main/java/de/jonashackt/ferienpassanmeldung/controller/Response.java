@@ -1,4 +1,4 @@
-package de.jonashackt.springbootvuejs.controller;
+package de.jonashackt.ferienpassanmeldung.controller;
 
 public class Response {
     private String status;
