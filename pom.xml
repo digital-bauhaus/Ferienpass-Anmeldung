@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>de.jonashackt</groupId>
-	<artifactId>spring-boot-vuejs</artifactId>
+	<artifactId>ferienpass-anmeldung</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>spring-boot-vuejs</name>
-	<description>Demo project for Spring Boot</description>
+	<name>ferienpass-anmeldung</name>
+	<description>Anmeldung für den Ferienpass Weimar</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -24,7 +24,7 @@
 		<build-plugin.jacoco.version>0.7.9</build-plugin.jacoco.version>
 		<build-plugin.coveralls.version>4.3.0</build-plugin.coveralls.version>
     </properties>
-	
+
 	<modules>
         <module>frontend</module>
         <module>backend</module>
