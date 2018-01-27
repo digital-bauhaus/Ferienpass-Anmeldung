@@ -1,5 +1,11 @@
 {
   "title": "Ferienpass Weimar – Anmeldung",
+  "zipCodeWhitelist": [
+    99423,
+    99425,
+    99427,
+    99428
+  ],
   "sections": [
     {
       "title": "Grunddaten",
