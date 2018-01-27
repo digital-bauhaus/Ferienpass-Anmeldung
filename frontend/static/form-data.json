@@ -32,7 +32,6 @@
                 "params": {
                   "title": "Geburtsdatum meines Kindes",
                   "horizontal": true,
-                  "emitBirthdate": true,
                   "components": [
                     {
                       "component": "TextField",
@@ -40,7 +39,9 @@
                         "label": "Tag",
                         "name": "base__birthdate-day",
                         "required": true,
-                        "pattern": "(0?[1-9]|[1-2][0-9]|3[0-1])"
+                        "pattern": "(0?[1-9]|[1-2][0-9]|3[0-1])",
+                        "maxlength": 2,
+                        "storeValue": true
                       }
                     },
                     {
@@ -102,7 +103,8 @@
                             "label": "Dezember",
                             "value": 12
                           }
-                        ]
+                        ],
+                        "storeValue": true
                       }
                     },
                     {
@@ -111,7 +113,9 @@
                         "label": "Jahr",
                         "name": "base__birthdate-year",
                         "required": true,
-                        "pattern": "\\d{4}"
+                        "pattern": "\\d{4}",
+                        "maxlength": 4,
+                        "storeValue": true
                       }
                     }
                   ]
@@ -139,7 +143,9 @@
                   "label": "Postleitzahl",
                   "name": "base__zip-code",
                   "required": true,
-                  "pattern": "\\d{5}"
+                  "pattern": "\\d{5}",
+                  "maxlength": 5,
+                  "storeValue": true
                 }
               },
               {

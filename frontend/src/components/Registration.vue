@@ -7,6 +7,7 @@
     action="/api/register"
     method="post"
     :data-age="age ? age : ''"
+    :data-zip-code="zipCode ? zipCode : ''"
   >
     <h1>{{ formData.title }}</h1>
 
@@ -62,7 +63,8 @@ export default {
       initiallyDisabled: false,
       'base__birthdate-day': null,
       'base__birthdate-month': null,
-      'base__birthdate-year': null
+      'base__birthdate-year': null,
+      'base__zip-code': null
     };
   },
   computed: {
@@ -72,21 +74,35 @@ export default {
         this['base__birthdate-month'] &&
         this['base__birthdate-year']
       ) {
-        const day = this['base__birthdate-day'];
-        const month = this['base__birthdate-month'];
-        const year = this['base__birthdate-year'];
-        const birthdate = new Date(year, month - 1, day);
-        const today = new Date();
+        const day = parseInt(this['base__birthdate-day']);
+        const month = parseInt(this['base__birthdate-month']);
+        const year = parseInt(this['base__birthdate-year']);
 
-        let age = today.getFullYear() - birthdate.getFullYear();
-        const m = today.getMonth() - birthdate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
-          age--;
+        if ([day, month, year].every(el => typeof el === 'number' && el % 1 === 0)) {
+          const birthdate = new Date(year, month - 1, day);
+          const today = new Date();
+
+          let age = today.getFullYear() - birthdate.getFullYear();
+          const m = today.getMonth() - birthdate.getMonth();
+          if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
+            age--;
+          }
+
+          this.disableUnavailableProjects(age);
+          return age;
         }
-
-        this.disableUnavailableProjects(age);
-        return age;
       }
+
+      return null;
+    },
+    zipCode() {
+      if (this['base__zip-code']) {
+        const value = parseInt(this['base__zip-code']);
+        if (typeof value === 'number' && value % 1 === 0) {
+          return value;
+        }
+      }
+
       return null;
     }
   },

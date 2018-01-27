@@ -11,6 +11,7 @@
       :value="value"
       :placeholder="params.placeholder"
       :pattern="params.pattern"
+      :maxlength="params.maxlength"
       :required="params.required"
       @input="onInput"
       @keydown.enter="onEnter"
@@ -25,6 +26,11 @@ export default {
   methods: {
     onInput(event) {
       this.$emit('input', event);
+
+      if (this.params.storeValue) {
+        const registrationData = this.$root.$children[0].$children[0].$data;
+        registrationData[event.target.name] = event.target.value;
+      }
     },
     onEnter() {
       this.$emit('enter');
