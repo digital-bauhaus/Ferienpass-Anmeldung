@@ -17,23 +17,23 @@
 
     <section
       v-for="(section, index) of formData.sections" :key="index"
-      :class="`form-section ${section.expandOnStart ? 'open' : ''}`"
+      class="form-section"
       :aria-labelledby="`${toIdentifier(section.title)}`"
     >
       <h2
         class="form-section__title"
         :id="`${toIdentifier(section.title)}`"
-        @click="toggleSectionVisibility"
       >
-        {{ section.title }}
+        <button :aria-expanded="section.expandOnStart" @click="toggleSectionExpanded">
+          {{ section.title }}
 
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" role="img" aria-labelledby="triangle-right-title" class="triangle">
-          <title id="triangle-right-title">Öffnet oder schließt den aktuellen Abschnitt</title>
-          <path d="m0,0l0,18 15.588,-9 Z" fill="#000"/>
-        </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" role="img" aria-hidden="true" focusable="false" class="triangle">
+            <path d="m0,0l0,18 15.588,-9 Z" fill="#000"/>
+          </svg>
+        </button>
       </h2>
 
-      <div class="form-section__body">
+      <div class="form-section__body" :hidden="!section.expandOnStart">
         <component
           v-for="(component, index) of section.components" :key="index"
           :is="component.component"
@@ -164,21 +164,17 @@ export default {
         }
       });
     },
-    toggleSectionVisibility(event) {
-      const section = event.currentTarget.parentElement;
-      section.classList.toggle('open');
+    toggleSectionExpanded(event) {
+      const button = event.currentTarget;
+      const expanded = button.getAttribute('aria-expanded') === 'true' || false;
+      button.setAttribute('aria-expanded', !expanded);
+
+      const heading = button.parentElement;
+      const targetSection = heading.nextElementSibling;
+      targetSection.hidden = expanded;
     }
   }
 };
-
-/* function getAge() {
-  const dayEl = document.querySelector('[name="base__child-birthdate-day"]');
-  // const monthEl = document.querySelector('[name="base__child-birthdate-month"]');
-  const yearEl = document.querySelector('[name="base__child-birthdate-year"]');
-  const day = parseInt(dayEl.value);
-  const year = parseInt(yearEl.value);
-  return day + ' ' + year;
-} */
 </script>
 
 <style>
@@ -197,14 +193,15 @@ export default {
   content: counter(form-section) '.' '\A0';
 }
 
-.form-section:not(.open) .form-section__body {
-  position: absolute !important;
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0 !important;
-  border: 0 !important;
-  height: 1px !important;
-  width: 1px !important;
-  overflow: hidden;
+.form-section__title > button {
+  all: inherit;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+.form-section__title > button:focus > .triangle {
+  outline: 2px solid cornflowerblue;
 }
 
 .form-item:not(:last-child) {
@@ -217,8 +214,12 @@ export default {
   transition: transform 0.1s;
 }
 
-.form-section.open .triangle {
+[aria-expanded='true'] .triangle {
   transform: rotate(90deg);
   transition: transform 0.25s;
+}
+
+[aria-expanded] path {
+  fill: currentColor;
 }
 </style>
