@@ -5,6 +5,7 @@
       type="checkbox"
       :name="params.name"
       :required="params.required"
+      :data-minimum-age="params.meta ? params.meta.minimumAge : ''"
       @change="onChecked"
     >
 
@@ -64,6 +65,10 @@ export default {
 .checkbox__control:disabled ~ .checkbox__tick {
   color: #888;
   background-color: #eee;
+}
+
+.checkbox__control:disabled ~ .checkbox__label {
+  color: #888;
 }
 
 /*

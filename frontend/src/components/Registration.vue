@@ -6,6 +6,7 @@
     class="form"
     action="/api/register"
     method="post"
+    :data-age="age ? age : ''"
   >
     <h1>{{ formData.title }}</h1>
 
@@ -24,7 +25,11 @@
         class="form-section__title"
         :id="`${toIdentifier(section.title)}`"
       >
-        <button :aria-expanded="section.expandOnStart" @click="toggleSectionExpanded">
+        <button
+          type="button"
+          :aria-expanded="section.expandOnStart"
+          @click="toggleSectionExpanded"
+        >
           {{ section.title }}
 
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" role="img" aria-hidden="true" focusable="false" class="triangle">
@@ -33,7 +38,7 @@
         </button>
       </h2>
 
-      <div class="form-section__body" :hidden="!section.expandOnStart">
+      <div :hidden="!section.expandOnStart">
         <component
           v-for="(component, index) of section.components" :key="index"
           :is="component.component"
@@ -78,6 +83,8 @@ export default {
         if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
           age--;
         }
+
+        this.disableUnavailableProjects(age);
         return age;
       }
       return null;
@@ -172,6 +179,18 @@ export default {
       const heading = button.parentElement;
       const targetSection = heading.nextElementSibling;
       targetSection.hidden = expanded;
+    },
+    disableUnavailableProjects(age) {
+      const projectControls = Array.prototype.slice.call(
+        document.querySelectorAll('[name^="projects__id-"]')
+      );
+      projectControls.forEach(projectControl => {
+        projectControl.removeAttribute('disabled');
+        const minimumAge = parseInt(projectControl.dataset.minimumAge);
+        if (age < minimumAge) {
+          projectControl.setAttribute('disabled', null);
+        }
+      });
     }
   }
 };
