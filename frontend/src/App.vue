@@ -114,6 +114,19 @@ textarea {
   resize: vertical;
 }
 
+select:-moz-focusring {
+  /* border: 0; */
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
 :focus {
   outline: 2px solid orange;
 }
@@ -131,7 +144,7 @@ textarea {
 
 .button:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px cornflowerblue;
+  box-shadow: 0 0 0 2px cornflowerblue;
 }
 
 .button--wide {

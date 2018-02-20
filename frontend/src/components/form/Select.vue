@@ -67,6 +67,10 @@ export default {
   background-color: #fff;
 }
 
+.select__control:-moz-focusring {
+  border: 2px solid #000;
+}
+
 .select__control:focus {
   outline: none;
   box-shadow: 0 0 0 2px cornflowerblue;
