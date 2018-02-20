@@ -173,7 +173,7 @@ export default {
     },
     enableFormElements(formElements) {
       formElements.forEach(element => {
-        if (element.type !== 'submit' && element.hasAttribute('data-newly-disabled')) {
+        if (element.hasAttribute('data-newly-disabled')) {
           element.removeAttribute('data-newly-disabled');
           element.removeAttribute('disabled');
         }
@@ -181,7 +181,7 @@ export default {
     },
     disableFormElements(formElements, exceptions = []) {
       formElements.forEach(element => {
-        if (!exceptions.includes(element) && element.type !== 'submit' && !element.disabled) {
+        if (!exceptions.includes(element) && element.type !== 'button' && !element.disabled) {
           element.setAttribute('data-newly-disabled', null);
           element.setAttribute('disabled', null);
         }
