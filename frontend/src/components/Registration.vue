@@ -145,7 +145,7 @@ export default {
         }
       });
 
-      AXIOS.post('/api/register', jsonObject)
+      AXIOS.post('http://localhost:8088/api/register', jsonObject)
         .then(response => {
           console.log(response);
         })
@@ -225,7 +225,7 @@ export default {
 
 .form-section__title::before {
   /* Display each .form-section’s counter value */
-  content: counter(form-section) '.' '\A0';
+  content: counter(form-section) "." "\A0";
 }
 
 .form-section__title > button {
@@ -249,7 +249,7 @@ export default {
   transition: transform 0.1s;
 }
 
-[aria-expanded='true'] .triangle {
+[aria-expanded="true"] .triangle {
   transform: rotate(90deg);
   transition: transform 0.25s;
 }
