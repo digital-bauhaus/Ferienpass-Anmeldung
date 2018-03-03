@@ -4,6 +4,8 @@
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/digital-bauhaus/Ferienpass-Anmeldung/blob/master/LICENSE)
 
 Hier entsteht die Anmeldung für den digitalen Ferienpass der Stadt Weimar.
+Jeder commit in den master löst einen Travis build aus. Wenn dieser inkl. Tests erfolgreich durchläuft, wird die Anwendung automatisch auf unsere QA-Stage deployed: https://ferienpass-anmeldung.herokuapp.com/
+
 
 Das Projekt basiert auf dem repo [spring-boot-vuejs](https://github.com/jonashackt/spring-boot-vuejs).
 
