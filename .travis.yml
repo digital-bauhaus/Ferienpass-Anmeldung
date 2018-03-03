@@ -1,14 +1,19 @@
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 
 script: mvn clean install
 
 after_success:
-  - mvn clean test jacoco:report coveralls:report
-  
+- mvn clean test jacoco:report coveralls:report
+
 notifications:
   slack: digital-bauhaus:2ZFDhvBSWsjMpEVQitxCzxmY
   email:
-    on_success: never # default:change
-    on_failure: change # default:allways
+    on_success: never
+    on_failure: change
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: ClAY8cBruPCm3tgYk5F0A0EDayS8Ie6rs3tP9SCJ72mVLsUpQjtSERGT2TC5u9QPxd4AKzXe/ZcFzfiBkKyX2Rbf96ESSyaLgAgOv77PwH3IwHk9DHU3qcXFlu6+ugXyjnTyLvFlreGCGW0i/FLpkJCqcuCkDuH7f3LtTqRn+7lncephlYm667vZaGCr6fdDqkzOh4p8NHuoznrsnHMYm5aopw45lfGAg/nloFr2mnIioV4oQAOteR6z+CGu6+2UjJOpDGIyjOlxWYhobPQcsJP/NdPvAB9aGBgJ06o9DulXqaxhr3SBy9kwUfebTC5SnEEmRS4j/pteWaZvyCz7IbmnOAoPCdqpzi+T+1dsQhh1LYZrYfUxCmN4MswTAn7QDJUATndq+r603XCNPZIiufoGUHW0a1YWc0V0yVi0c6f365bXPjHKL6i8i3grc6qdgjik306ffb0jUpILKrYoD9k5cC4LCxrnosYHw0W9mRBYbJO5NisqiGm1FfEd6HwcdCNWTXkLgQUWrQuRe7Mr+hcDnYC6W7fJE9AGuUO9IATWpGFJiN1+mPnz3LPm1HPz2Oe5trgGu2WvkSw0TWcix/gv+sPz9O4ilIBoAC69S7pzoO9SH00lvIkkLNw0UEkC4OT/va7+usWLMWa/voqphkdBFO1zk5e8zDyq7Z0kscw=
