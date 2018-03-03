@@ -8,7 +8,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>ferienpass-anmeldung</name>
 	<description>Anmeldung für den Ferienpass Weimar</description>
 
 	<parent>

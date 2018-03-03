@@ -1,13 +1,11 @@
-Travis-CI
-=============================
-[![Build Status](https://travis-ci.org/digital-bauhaus/Ferienpass-Anmeldung.svg?branch=master)](https://travis-ci.org/digital-bauhaus/Ferienpass-Anmeldung)
-
 # Ferienpass-Anmeldung
 
+[![Build Status](https://travis-ci.org/digital-bauhaus/Ferienpass-Anmeldung.svg?branch=master)](https://travis-ci.org/digital-bauhaus/Ferienpass-Anmeldung)
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/digital-bauhaus/Ferienpass-Anmeldung/blob/master/LICENSE)
 
+Hier entsteht die Anmeldung für den digitalen Ferienpass der Stadt Weimar.
 
-
+Das Projekt basiert auf dem repo [spring-boot-vuejs](https://github.com/jonashackt/spring-boot-vuejs).
 
 
 ## NodeJS, NPM, Vue.js
