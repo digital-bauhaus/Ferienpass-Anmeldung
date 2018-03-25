@@ -16,35 +16,105 @@
       :params="{ 'label': 'Mein Kind geht zur Schule' }"
       @change="onSchoolChildChange"
     />
-
-    <section
-      v-for="(section, index) of formData.sections" :key="index"
-      class="form-section"
-      :aria-labelledby="`${toIdentifier(section.title)}`"
-    >
-      <h2
-        class="form-section__title"
-        :id="`${toIdentifier(section.title)}`"
-      >
-        <button
-          type="button"
-          :aria-expanded="section.expandOnStart"
-          @click="toggleSectionExpanded"
-        >
-          {{ section.title }}
-
+    <!-- Grunddaten -->
+    <section v-model="grunddaten" class="form-section" :aria-labelledby="`${toIdentifier(grunddaten.title)}`">
+      <h2 class="form-section__title" :id="`${toIdentifier(grunddaten.title)}`">
+        <button type="button" :aria-expanded="grunddaten.expandOnStart" @click="toggleSectionExpanded">
+          Grunddaten
+          <!-- Small triangle to switch section view -->
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" role="img" aria-hidden="true" focusable="false" class="triangle">
             <path d="m0,0l0,18 15.588,-9 Z" fill="#000"/>
           </svg>
         </button>
       </h2>
 
-      <div :hidden="!section.expandOnStart">
-        <component
-          v-for="(component, index) of section.components" :key="index"
-          :is="component.component"
-          :params="component.params"
-        />
+      <div :hidden="!grunddaten.expandOnStart">
+        <component v-for="(component, index) of grunddaten.components" :key="index" :is="component.component" :params="component.params"/>
+      </div>
+    </section>
+
+    <!-- Angebote -->
+    <section v-model="angebote" class="form-section" :aria-labelledby="`${toIdentifier(angebote.title)}`">
+      <h2 class="form-section__title" :id="`${toIdentifier(angebote.title)}`">
+        <button type="button" :aria-expanded="angebote.expandOnStart" @click="toggleSectionExpanded">
+          Angebote
+          <!-- Small triangle to switch section view -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" role="img" aria-hidden="true" focusable="false" class="triangle">
+            <path d="m0,0l0,18 15.588,-9 Z" fill="#000"/>
+          </svg>
+        </button>
+      </h2>
+
+      <div :hidden="!angebote.expandOnStart">
+        <component v-for="(component, index) of angebote.components" :key="index" :is="component.component" :params="component.params"/>
+      </div>
+    </section>
+
+    <!-- Allergien, Krankheiten, … -->
+    <section v-model="allergienkrankheiten" class="form-section" :aria-labelledby="`${toIdentifier(allergienkrankheiten.title)}`">
+      <h2 class="form-section__title" :id="`${toIdentifier(allergienkrankheiten.title)}`">
+        <button type="button" :aria-expanded="allergienkrankheiten.expandOnStart" @click="toggleSectionExpanded">
+          Allergien, Krankheiten, …
+          <!-- Small triangle to switch section view -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" role="img" aria-hidden="true" focusable="false" class="triangle">
+            <path d="m0,0l0,18 15.588,-9 Z" fill="#000"/>
+          </svg>
+        </button>
+      </h2>
+
+      <div :hidden="!allergienkrankheiten.expandOnStart">
+        <component v-for="(component, index) of allergienkrankheiten.components" :key="index" :is="component.component" :params="component.params"/>
+      </div>
+    </section>
+
+    <!-- Angaben bei Behinderung -->
+    <section v-model="behinderung" class="form-section" :aria-labelledby="`${toIdentifier(behinderung.title)}`">
+      <h2 class="form-section__title" :id="`${toIdentifier(behinderung.title)}`">
+        <button type="button" :aria-expanded="behinderung.expandOnStart" @click="toggleSectionExpanded">
+          Angaben bei Behinderung
+          <!-- Small triangle to switch section view -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" role="img" aria-hidden="true" focusable="false" class="triangle">
+            <path d="m0,0l0,18 15.588,-9 Z" fill="#000"/>
+          </svg>
+        </button>
+      </h2>
+
+      <div :hidden="!behinderung.expandOnStart">
+        <component v-for="(component, index) of behinderung.components" :key="index" :is="component.component" :params="component.params"/>
+      </div>
+    </section>
+
+    <!-- Erklärung -->
+    <section v-model="erklaerung" class="form-section" :aria-labelledby="`${toIdentifier(erklaerung.title)}`">
+      <h2 class="form-section__title" :id="`${toIdentifier(erklaerung.title)}`">
+        <button type="button" :aria-expanded="erklaerung.expandOnStart" @click="toggleSectionExpanded">
+          Erklärung
+          <!-- Small triangle to switch section view -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" role="img" aria-hidden="true" focusable="false" class="triangle">
+            <path d="m0,0l0,18 15.588,-9 Z" fill="#000"/>
+          </svg>
+        </button>
+      </h2>
+
+      <div :hidden="!erklaerung.expandOnStart">
+        <component v-for="(component, index) of erklaerung.components" :key="index" :is="component.component" :params="component.params"/>
+      </div>
+    </section>
+
+    <!-- Datenschutzerklärung -->
+    <section v-model="datenschutz" class="form-section" :aria-labelledby="`${toIdentifier(datenschutz.title)}`">
+      <h2 class="form-section__title" :id="`${toIdentifier(datenschutz.title)}`">
+        <button type="button" :aria-expanded="datenschutz.expandOnStart" @click="toggleSectionExpanded">
+          Datenschutzerklärung
+          <!-- Small triangle to switch section view -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" role="img" aria-hidden="true" focusable="false" class="triangle">
+            <path d="m0,0l0,18 15.588,-9 Z" fill="#000"/>
+          </svg>
+        </button>
+      </h2>
+
+      <div :hidden="!datenschutz.expandOnStart">
+        <component v-for="(component, index) of datenschutz.components" :key="index" :is="component.component" :params="component.params"/>
       </div>
     </section>
 
@@ -64,7 +134,13 @@ export default {
       'base__birthdate-day': null,
       'base__birthdate-month': null,
       'base__birthdate-year': null,
-      'base__zip-code': null
+      'base__zip-code': null,
+      grunddaten: null,
+      angebote: null,
+      allergienkrankheiten: null,
+      behinderung: null,
+      erklaerung: null,
+      datenschutz: null
     };
   },
   computed: {
@@ -125,6 +201,12 @@ export default {
         .then(response => response.json())
         .then(json => {
           this.formData = json;
+          this.grunddaten = this.formData.sections[0];
+          this.angebote = this.formData.sections[1];
+          this.allergienkrankheiten = this.formData.sections[2];
+          this.behinderung = this.formData.sections[3];
+          this.erklaerung = this.formData.sections[4];
+          this.datenschutz = this.formData.sections[5];
         });
     },
     preventAccidentalSubmit(event) {
