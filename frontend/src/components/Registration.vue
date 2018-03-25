@@ -53,9 +53,9 @@
         />
 
         <component
-          v-for="(projekt, index) of alleAnmeldungProjekte" :key="index"
+          v-for="(projektParams, index) of alleAnmeldungProjekte" :key="index"
           :is="component_checkbox"
-          :params="projekt[index]"
+          :params="projektParams"
         />
 
         <!--<component-->
