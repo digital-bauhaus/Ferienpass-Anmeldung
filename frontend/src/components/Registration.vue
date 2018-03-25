@@ -9,7 +9,7 @@
     :data-age="age ? age : ''"
     :data-zip-code="zipCode ? zipCode : ''"
   >
-    <h1>{{ formData.title }}</h1>
+    <h1>Ferienpass Weimar – Anmeldung</h1>
 
     <checkbox
       class="school-child-checkbox"
@@ -46,7 +46,25 @@
       </h2>
 
       <div :hidden="!angebote.expandOnStart">
-        <component v-for="(component, index) of angebote.components" :key="index" :is="component.component" :params="component.params"/>
+
+        <component
+          :is="component_checkbox"
+          :params="projekt_params"
+        />
+
+        <component
+          v-for="(projekt, index) of alleAnmeldungProjekte" :key="index"
+          :is="component_checkbox"
+          :params="projekt[index]"
+        />
+
+        <!--<component-->
+          <!--v-for="(projekt, index) of angebote.components[1].params.components" :key="index"-->
+          <!--:is="projekt.component"-->
+          <!--:params="projekt.params"-->
+        <!--/>-->
+
+        <!--<component v-for="(component, index) of angebote.components" :key="index" :is="component.component" :params="component.params"/>-->
       </div>
     </section>
 
@@ -140,7 +158,19 @@ export default {
       allergienkrankheiten: null,
       behinderung: null,
       erklaerung: null,
-      datenschutz: null
+      datenschutz: null,
+      projekt_params: {
+        label: 'Mein Fest',
+        name: 'projects__id-65878',
+        meta: {
+          date: '26. Juni 2018',
+          org: 'Sportjugend Weimar',
+          minimumAge: 8
+        }
+      },
+      component_checkbox: 'Checkbox',
+      alleAdminProjekte: [],
+      alleAnmeldungProjekte: []
     };
   },
   computed: {
@@ -184,6 +214,7 @@ export default {
   },
   created() {
     this.fetchData();
+    this.retrieveAllAdminProjects();
   },
   updated() {
     this.$nextTick(function() {
@@ -209,6 +240,35 @@ export default {
           this.datenschutz = this.formData.sections[5];
         });
     },
+    retrieveAllAdminProjects() {
+      AXIOS.get('http://localhost:8088/api/allprojects')
+        .then(response => {
+          console.log('Retrieve projects from Admin-Microservice');
+          console.log(response);
+          this.alleAdminProjekte = response.data;
+          this.mappeAdminProjekteAufAnmeldungProjekte();
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
+    mappeAdminProjekteAufAnmeldungProjekte() {
+      this.alleAdminProjekte.forEach(adminProjekt => {
+        console.log(adminProjekt)
+        var projektParam = {
+          label: adminProjekt.name,
+          name: adminProjekt.id,
+          meta: {
+            date: adminProjekt.datum,
+            org: 'Sportjugend Weimar',
+            minimumAge: adminProjekt.alterLimitierung
+          }
+        }
+        this.alleAnmeldungProjekte.push(projektParam);
+      });
+      console.log('Map Admin projects to Anmeldung projects')
+      console.log(this.alleAnmeldungProjekte)
+    },
     preventAccidentalSubmit(event) {
       if (['textarea', 'submit'].includes(event.target.type)) {
         return;
@@ -226,7 +286,7 @@ export default {
           jsonObject[element.name] = element.type === 'checkbox' ? element.checked : element.value;
         }
       });
-
+      console.log(jsonObject)
       AXIOS.post('http://localhost:8088/api/register', jsonObject)
         .then(response => {
           console.log(response);
