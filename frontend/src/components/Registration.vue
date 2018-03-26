@@ -47,15 +47,16 @@
 
       <div :hidden="!angebote.expandOnStart">
 
-        <component
+        <!--       <component
           :is="component_checkbox"
           :params="projekt_params"
-        />
+        />-->
 
         <component
           v-for="(projektParams, index) of alleAnmeldungProjekte" :key="index"
           :is="component_checkbox"
           :params="projektParams"
+          v-on:change="projectChecked(index)"
         />
 
         <!--<component-->
@@ -227,6 +228,13 @@ export default {
     });
   },
   methods: {
+    projectChecked(index) {
+      console.log(this.alleAnmeldungProjekte[index].registered);
+      console.log(index);
+      this.alleAnmeldungProjekte[index].registered = !this.alleAnmeldungProjekte[index].registered;
+      console.log(this.alleAnmeldungProjekte[index].registered);
+      console.log(this.alleAnmeldungProjekte);
+    },
     fetchData() {
       fetch('/static/form-data.json')
         .then(response => response.json())
@@ -258,6 +266,7 @@ export default {
         var projektParam = {
           label: adminProjekt.name,
           name: adminProjekt.id,
+          registered: false,
           meta: {
             date: adminProjekt.datum,
             org: 'Sportjugend Weimar',
@@ -281,11 +290,22 @@ export default {
 
       const form = event.target;
       let jsonObject = {};
+      let jsonProjects = [];
+      for (var i = 0; i < this.alleAnmeldungProjekte.length; i++) {
+        let jsonProject = {};
+        jsonProject['id'] = this.alleAnmeldungProjekte[i].name;
+        jsonProject['registered'] = this.alleAnmeldungProjekte[i].registered;
+        jsonProjects.push(jsonProject);
+      }
+
+      console.log(jsonProjects);
+
       Array.prototype.slice.call(form.elements).forEach(element => {
         if (element.name && element.type !== 'submit') {
           jsonObject[element.name] = element.type === 'checkbox' ? element.checked : element.value;
         }
       });
+      jsonObject['projects'] = jsonProjects;
       console.log(jsonObject)
       AXIOS.post('http://localhost:8088/api/register', jsonObject)
         .then(response => {
