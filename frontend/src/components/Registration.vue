@@ -294,6 +294,7 @@ export default {
       for (var i = 0; i < this.alleAnmeldungProjekte.length; i++) {
         let jsonProject = {};
         jsonProject['id'] = this.alleAnmeldungProjekte[i].name;
+        jsonProject['name'] = this.alleAnmeldungProjekte[i].label;
         jsonProject['registered'] = this.alleAnmeldungProjekte[i].registered;
         jsonProjects.push(jsonProject);
       }
