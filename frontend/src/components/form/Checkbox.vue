@@ -7,6 +7,7 @@
       :name="params.name"
       :required="params.required"
       :data-minimum-age="params.projekt ? params.projekt.minimumAge : ''"
+      :data-id="params.projekt ? params.projekt.id : ''"
       @change="onChecked"
     >
 

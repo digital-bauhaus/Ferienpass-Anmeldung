@@ -54,13 +54,6 @@
           v-on:change="projectChecked(index)"
         />
 
-        <!--<component-->
-          <!--v-for="(projekt, index) of angebote.components[1].params.components" :key="index"-->
-          <!--:is="projekt.component"-->
-          <!--:params="projekt.params"-->
-        <!--/>-->
-
-        <component v-for="(component, index) of angebote.components" :key="index" :is="component.component" :params="component.params"/>
       </div>
     </section>
 
@@ -157,7 +150,8 @@ export default {
       datenschutz: null,
       component_checkbox: 'Checkbox',
       alleAdminProjekte: [],
-      alleAnmeldungProjekte: []
+      alleAnmeldungProjekte: [],
+      reservierteProjekte: []
     };
   },
   computed: {
@@ -252,11 +246,11 @@ export default {
         var projektParam = {
           label: adminProjekt.name,
           name: 'projekt-id' + adminProjekt.id,
-          id: adminProjekt.id,
           registered: false,
           projekt: {
             date: adminProjekt.datum,
             endDate: adminProjekt.datumEnde,
+            id: adminProjekt.id,
             org: adminProjekt.traeger,
             minimumAge: adminProjekt.alterLimitierung
           }
@@ -281,7 +275,7 @@ export default {
       let jsonProjects = [];
       for (var i = 0; i < this.alleAnmeldungProjekte.length; i++) {
         let jsonProject = {};
-        jsonProject['id'] = this.alleAnmeldungProjekte[i].id;
+        jsonProject['id'] = this.alleAnmeldungProjekte[i].projekt.id;
         jsonProject['name'] = this.alleAnmeldungProjekte[i].label;
         jsonProject['registered'] = this.alleAnmeldungProjekte[i].registered;
         jsonProjects.push(jsonProject);
@@ -302,6 +296,15 @@ export default {
         })
         .catch(error => {
           console.error(error);
+          console.log('Error, HTTP-Status: ' + error.response.status);
+          if (error.response) {
+            if (error.response.status === 409) {
+              // Admin-Backend said that one or more projectrs aren´t available
+              // and gave a list of them back
+              this.reservierteProjekte = error.response.data;
+              this.disableProjectsWithoutFreeSlots();
+            }
+          }
         });
     },
     getFormElements() {
@@ -358,6 +361,21 @@ export default {
           projectControl.setAttribute('disabled', null);
         }
       });
+    },
+    disableProjectsWithoutFreeSlots() {
+      const projectControls = Array.prototype.slice.call(
+        document.querySelectorAll('[name^="projekt-id"]')
+      );
+      for (var i = 0; i < this.reservierteProjekte.length; i++) {
+        projectControls.forEach(projectControl => {
+          projectControl.removeAttribute('disabled');
+          console.log(this.reservierteProjekte[i]);
+          const checkBoxId = parseInt(projectControl.dataset.id);
+          if (this.reservierteProjekte[i] === checkBoxId) {
+            projectControl.setAttribute('disabled', null);
+          }
+        });
+      }
     }
   }
 };
