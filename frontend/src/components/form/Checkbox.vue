@@ -5,18 +5,19 @@
       type="checkbox"
       :name="params.name"
       :required="params.required"
-      :data-minimum-age="params.meta ? params.meta.minimumAge : ''"
+      :data-minimum-age="params.projekt ? params.projekt.minimumAge : ''"
       @change="onChecked"
     >
 
     <span class="checkbox__tick"></span>
 
     <span class="checkbox__label">
-      <template v-if="params.meta">
+      <template v-if="params.projekt">
         <span style="font-weight: bold;">{{ params.label }}</span>
         <ul class="meta-list">
-          <li>{{ params.meta.date }}, ab {{ params.meta.minimumAge }} Jahren</li>
-          <li>{{ params.meta.org }}</li>
+          <li>{{ params.projekt.date[2] }}.{{ params.projekt.date[1] }}.{{ params.projekt.date[0] }} - {{ params.projekt.endDate[2] }}.{{ params.projekt.endDate[1] }}.{{ params.projekt.endDate[0] }}</li>
+          <li>Ab {{ params.projekt.minimumAge }} Jahren</li>
+          <li>{{ params.projekt.org }}</li>
         </ul>
       </template>
       <template v-else>

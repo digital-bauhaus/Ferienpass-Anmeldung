@@ -47,11 +47,6 @@
 
       <div :hidden="!angebote.expandOnStart">
 
-        <!--       <component
-          :is="component_checkbox"
-          :params="projekt_params"
-        />-->
-
         <component
           v-for="(projektParams, index) of alleAnmeldungProjekte" :key="index"
           :is="component_checkbox"
@@ -160,15 +155,6 @@ export default {
       behinderung: null,
       erklaerung: null,
       datenschutz: null,
-      projekt_params: {
-        label: 'Mein Fest',
-        name: 'projects__id-65878',
-        meta: {
-          date: '26. Juni 2018',
-          org: 'Sportjugend Weimar',
-          minimumAge: 8
-        }
-      },
       component_checkbox: 'Checkbox',
       alleAdminProjekte: [],
       alleAnmeldungProjekte: []
@@ -267,9 +253,10 @@ export default {
           label: adminProjekt.name,
           name: adminProjekt.id,
           registered: false,
-          meta: {
+          projekt: {
             date: adminProjekt.datum,
-            org: 'Sportjugend Weimar',
+            endDate: adminProjekt.datumEnde,
+            org: adminProjekt.traeger,
             minimumAge: adminProjekt.alterLimitierung
           }
         }
