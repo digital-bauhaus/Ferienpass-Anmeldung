@@ -1,5 +1,6 @@
 <template>
   <label class="checkbox">
+
     <input
       class="checkbox__control visually-hidden"
       type="checkbox"

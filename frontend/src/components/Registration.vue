@@ -46,7 +46,7 @@
       </h2>
 
       <div :hidden="!angebote.expandOnStart">
-
+        <p>Mein Kind möchte an folgenden Veranstaltungen teilnehmen:</p>
         <component
           v-for="(projektParams, index) of alleAnmeldungProjekte" :key="index"
           :is="component_checkbox"
@@ -60,7 +60,7 @@
           <!--:params="projekt.params"-->
         <!--/>-->
 
-        <!--<component v-for="(component, index) of angebote.components" :key="index" :is="component.component" :params="component.params"/>-->
+        <component v-for="(component, index) of angebote.components" :key="index" :is="component.component" :params="component.params"/>
       </div>
     </section>
 
@@ -181,7 +181,7 @@ export default {
             age--;
           }
 
-          this.disableUnavailableProjects(age);
+          this.disableUnavailableProjectsIfToYoung(age);
           return age;
         }
       }
@@ -251,7 +251,8 @@ export default {
         console.log(adminProjekt)
         var projektParam = {
           label: adminProjekt.name,
-          name: adminProjekt.id,
+          name: 'projekt-id' + adminProjekt.id,
+          id: adminProjekt.id,
           registered: false,
           projekt: {
             date: adminProjekt.datum,
@@ -280,7 +281,7 @@ export default {
       let jsonProjects = [];
       for (var i = 0; i < this.alleAnmeldungProjekte.length; i++) {
         let jsonProject = {};
-        jsonProject['id'] = this.alleAnmeldungProjekte[i].name;
+        jsonProject['id'] = this.alleAnmeldungProjekte[i].id;
         jsonProject['name'] = this.alleAnmeldungProjekte[i].label;
         jsonProject['registered'] = this.alleAnmeldungProjekte[i].registered;
         jsonProjects.push(jsonProject);
@@ -346,9 +347,9 @@ export default {
       const targetSection = heading.nextElementSibling;
       targetSection.hidden = expanded;
     },
-    disableUnavailableProjects(age) {
+    disableUnavailableProjectsIfToYoung(age) {
       const projectControls = Array.prototype.slice.call(
-        document.querySelectorAll('[name^="projects__id-"]')
+        document.querySelectorAll('[name^="projekt-id"]')
       );
       projectControls.forEach(projectControl => {
         projectControl.removeAttribute('disabled');
