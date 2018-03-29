@@ -363,18 +363,26 @@ export default {
       });
     },
     disableProjectsWithoutFreeSlots() {
-      const projectControls = Array.prototype.slice.call(
+      var projectControls = Array.prototype.slice.call(
         document.querySelectorAll('[name^="projekt-id"]')
       );
       for (var i = 0; i < this.reservierteProjekte.length; i++) {
         projectControls.forEach(projectControl => {
-          projectControl.removeAttribute('disabled');
-          console.log(this.reservierteProjekte[i]);
-          const checkBoxId = parseInt(projectControl.dataset.id);
+          var checkBoxId = parseInt(projectControl.dataset.id);
           if (this.reservierteProjekte[i] === checkBoxId) {
             projectControl.setAttribute('disabled', null);
+            projectControl.checked = false;
+            this.unregisterProject(checkBoxId);
           }
-        });
+        })
+      }
+    },
+    unregisterProject(projectId) {
+      for (var j = 0; j < this.alleAnmeldungProjekte.length; j++) {
+        if (projectId === this.alleAnmeldungProjekte[j].projekt.id) {
+          console.log('unregistering ' + this.alleAnmeldungProjekte[j].label)
+          this.alleAnmeldungProjekte[j].registered = false;
+        }
       }
     }
   }
