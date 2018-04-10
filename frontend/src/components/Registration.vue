@@ -229,7 +229,7 @@ export default {
         });
     },
     retrieveAllAdminProjects() {
-      AXIOS.get('https://ferienpass-admin.herokuapp.com/api/allprojects')
+      AXIOS.get('/allprojects')
         .then(response => {
           console.log('Retrieve projects from Admin-Microservice');
           console.log(response);
@@ -290,7 +290,7 @@ export default {
       });
       jsonObject['projects'] = jsonProjects;
       console.log(jsonObject)
-      AXIOS.post('https://ferienpass-admin.herokuapp.com/api/register', jsonObject)
+      AXIOS.post('/register', jsonObject)
         .then(response => {
           console.log(response);
         })
