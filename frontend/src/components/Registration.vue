@@ -229,6 +229,7 @@ export default {
         });
     },
     retrieveAllAdminProjects() {
+      // TODO: Umstellung auf https://ferienpass-admin.herokuapp.com/api/allprojects in prod/test
       AXIOS.get('http://localhost:8088/api/allprojects')
         .then(response => {
           console.log('Retrieve projects from Admin-Microservice');
@@ -290,6 +291,7 @@ export default {
       });
       jsonObject['projects'] = jsonProjects;
       console.log(jsonObject)
+      // TODO: Umstellung auf https://ferienpass-admin.herokuapp.com/api/register in prod/test
       AXIOS.post('http://localhost:8088/api/register', jsonObject)
         .then(response => {
           console.log(response);
