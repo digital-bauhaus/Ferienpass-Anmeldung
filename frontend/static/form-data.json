@@ -170,6 +170,14 @@
                   "required": true,
                   "type": "tel"
                 }
+              },
+              {
+                "component": "TextField",
+                "params": {
+                  "label": "eMail",
+                  "name": "base__email",
+                  "required": true
+                }
               }
             ]
           }
