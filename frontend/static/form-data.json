@@ -645,7 +645,7 @@
                 "params": {
                   "label": "Name",
                   "name": "conditions__family-doctor-name",
-                  "required": true
+                  "required": false
                 }
               },
               {
@@ -653,7 +653,7 @@
                 "params": {
                   "label": "Anschrift",
                   "name": "conditions__family-doctor-address",
-                  "required": true
+                  "required": false
                 }
               },
               {
@@ -661,7 +661,7 @@
                 "params": {
                   "label": "Telefon",
                   "name": "conditions__family-doctor-phone-number",
-                  "required": true,
+                  "required": false,
                   "type": "tel"
                 }
               }
