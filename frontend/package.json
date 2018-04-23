@@ -16,7 +16,8 @@
   "dependencies": {
     "axios": "^0.17.1",
     "vue": "^2.5.9",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-swal": "^0.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.1",

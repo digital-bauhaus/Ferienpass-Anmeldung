@@ -215,6 +215,12 @@ export default {
       console.log(this.alleAnmeldungProjekte[index].registered);
       console.log(this.alleAnmeldungProjekte);
     },
+    modalSuccess() {
+      this.$swal('Geschafft!', 'Deine Anmeldung war erfolgreich!', 'success')
+    },
+    modalProjectOverbooked() {
+      this.$swal('Oh nein!', 'Eines der Angebote ist leider schon belegt!', 'warning')
+    },
     fetchData() {
       fetch('/static/form-data.json')
         .then(response => response.json())
@@ -293,6 +299,12 @@ export default {
       AXIOS.post('/register', jsonObject)
         .then(response => {
           console.log(response);
+          if (response) {
+            if (response.status === 201) {
+              // Admin-Backend successfully added new Teilnehmer
+              this.modalSuccess();
+            }
+          }
         })
         .catch(error => {
           console.error(error);
@@ -303,6 +315,7 @@ export default {
               // and gave a list of them back
               this.reservierteProjekte = error.response.data;
               this.disableProjectsWithoutFreeSlots();
+              this.modalProjectOverbooked();
             }
           }
         });
